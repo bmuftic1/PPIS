@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}ITIL procesi}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}\textit {Change Management}}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}\textit {Event Management}}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}Opis i namjena sistema}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Osnovne informacije o kompaniji}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Poslovni procesi}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Upravljanje promjenama}{5}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Upravljanje događajima}{6}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Pregled slučajeva upotrebe}{7}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Metodologija razvoja sistema}{8}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Prototip sistema}{10}{subsection.2.5}
