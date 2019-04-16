@@ -20,7 +20,21 @@ mongoose.connection.on("error", () => {
 
 })
 
+const izvjestaj = require('./routes/izvjestaj.route'); 
 
+app.use('/izvjestaj', izvjestaj);
+
+const uposlenikkomitet = require('./routes/uposlenikkomitet.route'); 
+
+app.use('/uposlenikkomitet', uposlenikkomitet);
+
+const uposlenikchange = require('./routes/uposlenikchange.route'); 
+
+app.use('/uposlenikchange', uposlenikchange);
+
+const promjena = require('./routes/promjena.route'); 
+
+app.use('/promjena', promjena);
 
 app.listen(config.port, (err) => {
 

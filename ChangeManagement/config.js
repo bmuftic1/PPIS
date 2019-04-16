@@ -4,6 +4,7 @@ module.exports = {
 
     env: process.env.ENVIRONMENT || 'development',
 
-    mongo: 'mongodb://localhost:27017/ChangeManagement'
+    mongo: 'mongodb+srv://root:root@ppis-cdoog.mongodb.net/test?retryWrites=true'
+	
 
 }
