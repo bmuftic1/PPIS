@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username" : "kPWlOUSi7e",
+        "password" : "AtvcIMBJqA", 
+        "database" : "kPWlOUSi7e",
+        "host" : "remotemysql.com",
+        "dialect" : "mysql",
+		 "multipleStatements": true
+  },
+  "test": {
+    "username" : "kPWlOUSi7e",
+        "password" : "AtvcIMBJqA", 
+        "database" : "kPWlOUSi7e",
+        "host" : "remotemysql.com",
+        "dialect" : "mysql",
+		 "multipleStatements": true
+  },
+  "production": {
+    "username" : "kPWlOUSi7e",
+        "password" : "AtvcIMBJqA", 
+        "database" : "kPWlOUSi7e",
+        "host" : "remotemysql.com",
+        "dialect" : "mysql",
+		 "multipleStatements": true
+  }
+}
