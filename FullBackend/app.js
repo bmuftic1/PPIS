@@ -8,7 +8,20 @@ const models = require('./models/index');
 
 //models.sequelize.sync();
 
-const ulogaRoutes  = require('./routes/ulogaa');
+const ulogaRoutes  = require('./routes/uloga.router');
+const kategorijaPromjeneRoutes = require('./routes/kategorijapromjene.router')
+const dogadjajRoutes = require('./routes/dogadjaj.router')
+const historijaDogadjajRoutes = require('./routes/historijadogadjaj.router')
+const historijaPromjenaRoutes = require('./routes/historijapromjena.router')
+const korisnikRoutes = require('./routes/korisnik.router')
+const prioritetDogadjajaRoutes = require('./routes/prioritetdogadjaja.router')
+const prioritetPromjeneRoutes = require('./routes/prioritetpromjene.router')
+const promjenaRoutes = require('./routes/promjena.router')
+const statusDogadjajaRoutes = require('./routes/statusdogadjaja.router')
+const statusPromjeneRoutes = require('./routes/statuspromjene.router')
+const tipDogadjajaRoutes = require('./routes/tipdogadjaja.router')
+
+
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
@@ -52,6 +65,20 @@ app.use((req, res, next) => {
 //require('./routes')(app);
 
 app.use('/uloga', ulogaRoutes);
+app.use('/kategorijapromjene', kategorijaPromjeneRoutes)
+app.use('/dogadjaj', dogadjajRoutes)
+app.use('/historijadogadjaj', historijaDogadjajRoutes)
+app.use('/historijapromjena', historijaPromjenaRoutes)
+app.use('/korisnik', korisnikRoutes)
+app.use('/prioritetdogadjaja', prioritetDogadjajaRoutes)
+app.use('/prioritetpromjene', prioritetPromjeneRoutes)
+app.use('/promjena', promjenaRoutes)
+app.use('/statuspromjene', statusPromjeneRoutes)
+app.use('/tipdogadjaja', tipDogadjajaRoutes)
+app.use('/historijapromjena', historijaPromjenaRoutes)
+app.use('statusdogadjaja', statusDogadjajaRoutes)
+
+
 //app.use('/problems', problemRoutes);
 //app.use('/users', userRoutes);
 
