@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   StatusPromjene.associate = function(models) {
     // associations can be defined here
-	StatusPromjene.belongsTo(models.HistorijaPromjena, {
+	StatusPromjene.hasMany(models.HistorijaPromjena, {
       foreignKey: 'statusPromjeneId',
       onDelete: 'CASCADE',
     });

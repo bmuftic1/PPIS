@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   TipDogadjaja.associate = function(models) {
     // associations can be defined here
-	TipDogadjaja.belongsTo(models.Dogadjaj, {
+	TipDogadjaja.hasMany(models.Dogadjaj, {
       foreignKey: 'tipId',
       onDelete: 'CASCADE',
     });

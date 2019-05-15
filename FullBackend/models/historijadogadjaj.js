@@ -6,13 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   HistorijaDogadjaj.associate = function(models) {
     // associations can be defined here
-	HistorijaDogadjaj.hasOne(models.Dogadjaj, {
+	HistorijaDogadjaj.belongsTo(models.Dogadjaj, {
       foreignKey: 'dogadjajId',
-      as: 'dogadjaj',
     });
-	 HistorijaDogadjaj.hasOne(models.StatusDogadjaja, {
+	 HistorijaDogadjaj.belongsTo(models.StatusDogadjaja, {
       foreignKey: 'statusDogadjajId',
-      as: 'statusDogadjaj',
     });
   };
   return HistorijaDogadjaj;

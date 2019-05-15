@@ -20,7 +20,7 @@ router.post("/uloga", (req, res, next) => {
 });
 
 router.get("/uloga", (req, res, next) => {
-  Uloga.findAll({ where: {}, attributes: ["id", "naziv"], raw: true })
+  Uloga.findAll(/*{ where: {}, attributes: ["id", "naziv"], raw: true }*/)
     .then(result => {
       res.status(200).json(result);
     })

@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Uloga.associate = function(models) {
     // associations can be defined here
-	 Uloga.belongsTo(models.Korisnik, {
+	 Uloga.hasMany(models.Korisnik, {
       foreignKey: 'ulogaId',
       onDelete: 'CASCADE',
     });

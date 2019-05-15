@@ -6,17 +6,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   HistorijaPromjena.associate = function(models) {
     // associations can be defined here
-	HistorijaPromjena.hasOne(models.Promjena, {
+	HistorijaPromjena.belongsTo(models.Promjena, {
       foreignKey: 'promjenaId',
-      as: 'promjena',
     });
-	 HistorijaPromjena.hasOne(models.StatusPromjene, {
+	 HistorijaPromjena.belongsTo(models.StatusPromjene, {
       foreignKey: 'statusPromjeneId',
-      as: 'statusPromjene',
     });
-	 HistorijaPromjena.hasOne(models.Korisnik, {
+	 HistorijaPromjena.belongsTo(models.Korisnik, {
       foreignKey: 'napravioIzmjenu',
-      as: 'napravioIzmjenu',
     });
   };
   return HistorijaPromjena;

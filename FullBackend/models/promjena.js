@@ -6,27 +6,22 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Promjena.associate = function(models) {
     // associations can be defined here
-	Promjena.hasOne(models.PrioritetPromjene, {
+	Promjena.belongsTo(models.PrioritetPromjene, {
       foreignKey: 'prioritetPromjeneId',
-      as: 'prioritetPromjene',
     });
-	 Promjena.hasOne(models.KategorijaPromjene, {
+	 Promjena.belongsTo(models.KategorijaPromjene, {
       foreignKey: 'kategorijaPromjeneId',
-      as: 'kategorijaPromjene',
     });
-	 Promjena.hasOne(models.Korisnik, {
+	 Promjena.belongsTo(models.Korisnik, {
       foreignKey: 'prijavio',
-      as: 'prijavio',
     });
-	Promjena.hasOne(models.Korisnik, {
+	Promjena.belongsTo(models.Korisnik, {
       foreignKey: 'izvrsitelj',
-      as: 'izvrsitelj',
     });
-	Promjena.hasOne(models.Korisnik, {
+	Promjena.belongsTo(models.Korisnik, {
       foreignKey: 'odobrio',
-      as: 'odobrio',
     });
-	 Promjena.belongsTo(models.HistorijaPromjena, {
+	 Promjena.hasMany(models.HistorijaPromjena, {
       foreignKey: 'promjenaId',
       onDelete: 'CASCADE',
     });
