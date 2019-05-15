@@ -12,10 +12,13 @@ import { DeveloperWrapperComponent } from './developer-wrapper/developer-wrapper
 import { HelpdeskChangesComponent } from './helpdesk-changes/helpdesk-changes.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { GuestComponent } from './guest/guest.component';
+import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
+import { DeveloperContentListComponent } from './developer-content-list/developer-content-list.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, NgbModule],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent ],
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal],
   entryComponents: [LoginComponent],
