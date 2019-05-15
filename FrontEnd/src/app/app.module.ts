@@ -15,10 +15,11 @@ import { LoginComponent } from './login/login.component';
 import { GuestComponent } from './guest/guest.component';
 import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
 import { DeveloperContentListComponent } from './developer-content-list/developer-content-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, NgbModule],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent ],
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal],
   entryComponents: [LoginComponent],
