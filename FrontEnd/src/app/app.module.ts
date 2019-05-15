@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -11,10 +11,14 @@ import { DeveloperContentComponent } from './developer-content/developer-content
 import { DeveloperWrapperComponent } from './developer-wrapper/developer-wrapper.component';
 import { HelpdeskChangesComponent } from './helpdesk-changes/helpdesk-changes.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, NgbModule],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [NgbActiveModal],
+  entryComponents: [LoginComponent],
+  exports: [LoginComponent]
 })
 export class AppModule { }
