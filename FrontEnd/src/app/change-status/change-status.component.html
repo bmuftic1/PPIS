@@ -3,13 +3,23 @@
 		Promjena1
 	</div>
 	<div class="col">
-		RazvojniTim1
+		<select class="form-control">
+			<option>Nije postavljeno</option>
+			<option>Razvojni tim 1</option>
+			<option>Razvojni tim 2</option>
+		</select> 
 	</div>
+<div class="col">
+	<select [className]=StatusStyle (ngModelChange)="setStatus($event)" [ngModel]="Statuses">
+			<option *ngFor="let status of Statuses" [ngValue]="status">
+				{{status.text}}
+			</option>
+		</select>
+</div>
 	<div class="col">
-		Status goes here
-	</div>
-	<div class="col">
-		<input class="btn" type="button"value="X">
-   <input class="btn" type="button"value="Započni">
+		<div class ="controlBtn">
+				<input class="btn" type="button"value="Započni">
+				<input class="btn" type="button"value="X">
+		</div>
  </div>
 </div>

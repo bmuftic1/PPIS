@@ -8,8 +8,33 @@
 .btn{
   background-color:#0E4168;
   color: white;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   margin-left: 5%;
-  float: right
+}
+.controlBtn{
+  text-align: end
+}
+.form-control{
+  background-color:#0E4168;
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 5%
+}
+.form-status-greska{
+  background-color: red;
+}
+.form-status-cekanje{
+  background-color: #DDCE00;
+}
+.form-status-uToku{
+  background-color: #0090FF
+}
+.form-status-zavrseno{
+  background-color: #0FBE5A
+}
+.btn-status{
+  display: block;
+  width: 100%;
+  border: none;
 }
