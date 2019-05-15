@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ChangeStatusComponent implements OnInit {
 
   constructor() { }
-  StatusStyle = "form-control form-status-cekanje";
-  StatusText ="Čekanje"
+  default:any;
+
 
   Statuses : any[] = [
     {text: "Čekanje", style:"form-control form-status-cekanje"},
@@ -18,9 +18,10 @@ export class ChangeStatusComponent implements OnInit {
     {text: "Završeno", style:"form-control form-status-zavrseno"}
   ]
   ngOnInit() {
+    this.default =this.Statuses[0];
   }
   setStatus(status:any){
-    this.StatusStyle = status.style;
+    this.default = status
   }
 
 }

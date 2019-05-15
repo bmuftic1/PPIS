@@ -10,8 +10,8 @@
 		</select> 
 	</div>
 <div class="col">
-	<select [className]=StatusStyle (ngModelChange)="setStatus($event)" [ngModel]="Statuses">
-			<option *ngFor="let status of Statuses" [ngValue]="status">
+	<select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default">
+			<option *ngFor="let status of Statuses" [(ngValue)]="status">
 				{{status.text}}
 			</option>
 		</select>

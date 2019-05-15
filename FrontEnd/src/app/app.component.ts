@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Rocket Raccoon';
+  helpdesk:boolean=false;
+  dev:boolean=false;
+  user:boolean=false;
+  
 }
