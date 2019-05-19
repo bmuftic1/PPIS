@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Promjena }from './promjena'
+import { environment } from '../environment.prod';
 
-const baseUrl = 'http://localhost:3000/promjena';
+
+const baseUrl = environment.url + 'promjena';
 
 
 @Injectable({

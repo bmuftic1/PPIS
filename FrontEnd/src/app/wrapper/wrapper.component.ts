@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PromjeneService} from 'src/app/_services/promjene.service'
 import {Promjena}from 'src/app/_services/promjena'
 
+
 @Component({
   selector: 'app-wrapper',
   templateUrl: './wrapper.component.html',
