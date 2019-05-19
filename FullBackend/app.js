@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const models = require('./models/index');
 
-models.sequelize.sync();
+//models.sequelize.sync();
 
 const ulogaRoutes  = require('./routes/uloga.router');
 const kategorijaPromjeneRoutes = require('./routes/kategorijapromjene.router')
@@ -76,7 +76,7 @@ app.use('/promjena', promjenaRoutes)
 app.use('/statuspromjene', statusPromjeneRoutes)
 app.use('/tipdogadjaja', tipDogadjajaRoutes)
 app.use('/historijapromjena', historijaPromjenaRoutes)
-app.use('statusdogadjaja', statusDogadjajaRoutes)
+app.use('/statusdogadjaja', statusDogadjajaRoutes)
 
 
 //app.use('/problems', problemRoutes);

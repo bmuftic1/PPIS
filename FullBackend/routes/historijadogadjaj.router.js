@@ -7,8 +7,8 @@ const { HistorijaDogadjaj } = require("../models");
 //const HistorijaDogadjaj = require('../models').HistorijaDogadjaj;
 
 router.post("/historijadogadjaj", (req, res, next) => {
-  const { naziv } = req.body;
-  HistorijaDogadjaj.create({ naziv })
+  const { datumOd, datumDo, dogadjajId, statusDogadjajId} = req.body;
+  HistorijaDogadjaj.create({ datumOd, datumDo, dogadjajId, statusDogadjajId })
     .then(result => {
       res.status(201).json({
         success: true
@@ -20,7 +20,7 @@ router.post("/historijadogadjaj", (req, res, next) => {
 });
 
 router.get("/historijadogadjaj", (req, res, next) => {
-  HistorijaDogadjaj.findAll({ where: {}, attributes: ["naziv"], raw: true })
+  HistorijaDogadjaj.findAll({ where: {}, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })
@@ -33,7 +33,7 @@ router.get("/historijadogadjaj/:id", (req, res, next) => {
   let id = req.params.id;
   HistorijaDogadjaj.findOne({
     where: { id },
-    attributes: ["naziv"],
+    attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"],
     raw: true
   })
     .then(result => {
@@ -46,10 +46,10 @@ router.get("/historijadogadjaj/:id", (req, res, next) => {
 
 router.put("/historijadogadjaj/:id", (req, res, next) => {
   let id = req.params.id;
-  const { naziv } = req.body;
+  const { datumOd, datumDo, dogadjajId, statusDogadjajId } = req.body;
   HistorijaDogadjaj.update(
-    { naziv },
-    { where: { id }, attributes: ["naziv"], raw: true }
+    {datumOd, datumDo, dogadjajId, statusDogadjajId},
+    { where: { id }, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true }
   )
     .then(function(result) {
       res.status(200).send(result);
@@ -59,7 +59,7 @@ router.put("/historijadogadjaj/:id", (req, res, next) => {
 
 router.delete("/historijadogadjaj/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["naziv"], raw: true })
+  User.destroy({ where: { id }, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })

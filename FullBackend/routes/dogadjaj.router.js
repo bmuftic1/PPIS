@@ -7,8 +7,8 @@ const { Dogadjaj } = require("../models");
 //const Dogadjaj = require('../models').Dogadjaj;
 
 router.post("/dogadjaj", (req, res, next) => {
-  const { datumOd, datumDo, dogadjaj, statusDogadjaj } = req.body;
-  Dogadjaj.create({ datumOd, datumDo, dogadjaj, statusDogadjaj })
+  const { dogadjaj, prioritetId, tipId, inicijator } = req.body;
+  Dogadjaj.create({ dogadjaj, prioritetId, tipId, inicijator })
     .then(result => {
       res.status(201).json({
         success: true
@@ -22,7 +22,7 @@ router.post("/dogadjaj", (req, res, next) => {
 router.get("/dogadjaj", (req, res, next) => {
   Dogadjaj.findAll({
     where: {},
-    attributes: ["datumOd", "datumDo", "dogadjaj", "statusDogadjaj"],
+    attributes: ["dogadjaj", "prioritetId", "tipId", "inicijator"],
     raw: true
   })
     .then(result => {
@@ -37,7 +37,7 @@ router.get("/dogadjaj/:id", (req, res, next) => {
   let id = req.params.id;
   Dogadjaj.findOne({
     where: { id },
-    attributes: ["datumOd", "datumDo", "dogadjaj", "statusDogadjaj"],
+    attributes: ["dogadjaj", "prioritetId", "tipId", "inicijator"],
     raw: true
   })
     .then(result => {
@@ -50,12 +50,12 @@ router.get("/dogadjaj/:id", (req, res, next) => {
 
 router.put("/dogadjaj/:id", (req, res, next) => {
   let id = req.params.id;
-  const { datumOd, datumDo, dogadjaj, statusDogadjaj } = req.body;
+  const { dogadjaj, prioritetId, tipId, inicijator } = req.body;
   Dogadjaj.update(
-    { datumOd, datumDo, dogadjaj, statusDogadjaj },
+    {dogadjaj, prioritetId, tipId, inicijator },
     {
       where: { id },
-      attributes: ["datumOd", "datumDo", "dogadjaj", "statusDogadjaj"],
+      attributes: ["dogadjaj", "prioritetId", "tipId", "inicijator"],
       raw: true
     }
   )
@@ -69,7 +69,7 @@ router.delete("/dogadjaj/:id", (req, res, next) => {
   const id = req.params.id;
   User.destroy({
     where: { id },
-    attributes: ["datumOd", "datumDo", "dogadjaj", "statusDogadjaj"],
+    attributes: ["dogadjaj", "prioritetId", "tipId", "inicijator"],
     raw: true
   })
     .then(result => {

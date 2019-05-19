@@ -10,8 +10,8 @@ router.post("/promjena", (req, res, next) => {
   const {
     opis,
     prihvacena,
-    prioritetPromjene,
-    kategorijaPromjene,
+    prioritetPromjeneId,
+    kategorijaPromjeneId,
     prijavio,
     izvrsitelj,
     odobrio
@@ -19,8 +19,8 @@ router.post("/promjena", (req, res, next) => {
   Promjena.create({
     opis,
     prihvacena,
-    prioritetPromjene,
-    kategorijaPromjene,
+    prioritetPromjeneId,
+    kategorijaPromjeneId,
     prijavio,
     izvrsitelj,
     odobrio
@@ -41,8 +41,8 @@ router.get("/promjena", (req, res, next) => {
     attributes: [
       "opis",
       "prihvacena",
-      "prioritetPromjene",
-      "kategorijaPromjene",
+      "prioritetPromjeneId",
+      "kategorijaPromjeneId",
       "prijavio",
       "izvrsitelj",
       "odobrio"
@@ -64,8 +64,8 @@ router.get("/promjena/:id", (req, res, next) => {
     attributes: [
       "opis",
       "prihvacena",
-      "prioritetPromjene",
-      "kategorijaPromjene",
+      "prioritetPromjeneId",
+      "kategorijaPromjeneId",
       "prijavio",
       "izvrsitelj",
       "odobrio"
@@ -85,8 +85,8 @@ router.put("/promjena/:id", (req, res, next) => {
   const {
     opis,
     prihvacena,
-    prioritetPromjene,
-    kategorijaPromjene,
+    prioritetPromjeneId,
+    kategorijaPromjeneId,
     prijavio,
     izvrsitelj,
     odobrio
@@ -95,8 +95,8 @@ router.put("/promjena/:id", (req, res, next) => {
     {
       opis,
       prihvacena,
-      prioritetPromjene,
-      kategorijaPromjene,
+      prioritetPromjeneId,
+      kategorijaPromjeneId,
       prijavio,
       izvrsitelj,
       odobrio
@@ -106,8 +106,8 @@ router.put("/promjena/:id", (req, res, next) => {
       attributes: [
         "opis",
         "prihvacena",
-        "prioritetPromjene",
-        "kategorijaPromjene",
+        "prioritetPromjeneId",
+        "kategorijaPromjeneId",
         "prijavio",
         "izvrsitelj",
         "odobrio"
@@ -128,8 +128,8 @@ router.delete("/promjena/:id", (req, res, next) => {
     attributes: [
       "opis",
       "prihvacena",
-      "prioritetPromjene",
-      "kategorijaPromjene",
+      "prioritetPromjeneId",
+      "kategorijaPromjeneId",
       "prijavio",
       "izvrsitelj",
       "odobrio"
