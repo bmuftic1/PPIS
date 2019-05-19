@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Promjena }from './promjena'
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'http://localhost:3000/promjena';
 
 
 @Injectable({
@@ -25,6 +25,9 @@ export class PromjeneService {
     });
   }
   getPromjene(){
-    return this.request('get','${baseUrl}/product')
+    return this.request('get',baseUrl+'/promjena')
+  }
+  createPromjena(promjena:Promjena){
+    return this.request('post',baseUrl+'/promjena',promjena)
   }
 }
