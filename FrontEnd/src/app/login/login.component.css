@@ -28,6 +28,7 @@
     color: white;
     margin-top: 5px;
     margin-bottom: 5px;
+    text-align:center;
   }
 
   .text{
@@ -38,6 +39,7 @@
     background-color:#0E4168;
     border-color: white;
     border: 1px;
+    color: white;
   }
 
   .naslov{
@@ -58,4 +60,8 @@
     border-radius: 15px;
     border: 1px;
     border-color:#0E4168; 
+  }
+
+  .red{
+    color:crimson;
   }

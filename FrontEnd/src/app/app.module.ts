@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -18,7 +18,7 @@ import { DeveloperContentListComponent } from './developer-content-list/develope
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, NgbModule,HttpClientModule],
+  imports:      [ BrowserModule, FormsModule, NgbModule,HttpClientModule, ReactiveFormsModule],
   declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal],
