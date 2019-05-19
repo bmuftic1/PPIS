@@ -16,9 +16,9 @@ import { GuestComponent } from './guest/guest.component';
 import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
 import { DeveloperContentListComponent } from './developer-content-list/developer-content-list.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, NgbModule],
+  imports:      [ BrowserModule, FormsModule, NgbModule,HttpClientModule],
   declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal],
