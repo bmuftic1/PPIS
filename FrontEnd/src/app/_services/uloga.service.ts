@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Promjena }from './promjena'
 import { environment } from '../environment.prod';
+import { Uloga } from './uloga'
 
-const baseUrl = environment.url + 'promjena';
-
-
+const baseUrl = environment.url + 'uloga';
 @Injectable({
   providedIn: 'root'
 })
-export class PromjeneService {
+export class UlogaService {
 
   constructor(private http: HttpClient) {
   }
@@ -25,20 +23,19 @@ export class PromjeneService {
       result.subscribe(resolve as any, reject as any);
     });
   }
-  getPromjene(){
-    return this.request('get',baseUrl+'/promjena')
+  getUloge(){
+    return this.request('get',baseUrl+'/uloga')
   }
-  getPromjena(id:number){
-    return this.request('get',baseUrl+'/promjena/:'+String(id))
+  getUloga(id:number){
+    return this.request('get',baseUrl+'/uloga/:'+String(id))
   }
-  createPromjena(promjena:Promjena){
-    return this.request('post',baseUrl+'/promjena',promjena)
+  createUloga(uloga:Uloga){
+    return this.request('post',baseUrl+'/uloga',uloga)
   }
-  deletePromjena(id:number){
-    return this.request('delete',baseUrl+'/promjena/:'+String(id))
+  updateUloga(id:number){
+    return this.request('put',baseUrl+'/uloga/:'+String(id))
   }
-  updatePromjena(id:number){
-    return this.request('put',baseUrl+'/promjena/:'+String(id)) 
+  deleteUloga(id:number){
+    return this.request('delete',baseUrl+'/uloga/:'+String(id))
   }
-  
 }
