@@ -24,12 +24,20 @@ export class PrioritetdogadjajaService {
     });
   }
 
-  getPrioritetDogadjaja(){
+  getPrioritetiDogadjaja(){
     return this.request('get', baseUrl + '/prioritetdogadjaja')
+  }
+  getPrioritetDogadjaja(id:number){
+    return this.request('get', baseUrl + '/prioritetdogadjaja/:' + String(id));
   }
   createPrioritetDogadjaja(prioritetDogadjaja: PrioritetDogadjaja){
     return this.request('post', baseUrl + '/prioritetdogadjaja', prioritetDogadjaja)
   }
-
+  updatePrioritetDogadjaja(id:number){
+    return this.request('put', baseUrl + '/prioritetdogadjaja/:' + String(id));
+  }
+  deletePrioritetDogadjaja(id:number){
+    return this.request('delete', baseUrl + '/prioritetdogadjaja/:' + String(id))
+  }
 
 }

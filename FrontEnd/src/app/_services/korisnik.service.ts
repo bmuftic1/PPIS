@@ -23,13 +23,21 @@ export class KorisnikService {
     });
   }
 
-  getKorisnik(){
+  getKorisnici(){
     return this.request('get', baseUrl + '/korisnik')
+  }
+  getKorisnik(id:number){
+    return this.request('get', baseUrl + '/korisnik/:' + String(id));
   }
   createKorisnik(korisnik: Korisnik){
     return this.request('post', baseUrl + '/korisnik',korisnik)
   }
-
+  updateKorisnik(id:number){
+    return this.request('put', baseUrl + '/korisnik/:' + String(id));
+  }
+  deleteKorisnik(id:number){
+    return this.request('delete', baseUrl + '/korisnik/:' + String(id))
+  }
 
 
 }

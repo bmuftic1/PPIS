@@ -23,11 +23,20 @@ export class HistorijapromjenaService {
     });
   }
 
-  getHistorijaPromjena(){
+  getHistorijaPromjene(){
     return this.request('get', baseUrl + "/historijapromjena");
+  }
+  getHistorijaPromjena(id:number){
+    return this.request('get', baseUrl + '/historijapromjena/:' + String(id));
   }
   createHistorijaPromjena(historijaPromjena: HistorijaPromjena){
     return this.request('post', baseUrl + "/historijapromjena", historijaPromjena);
+  }
+  updateHistorijaPromjena(id:number){
+    return this.request('put', baseUrl + '/historijapromjena/:' + String(id));
+  }
+  deleteHistorijaPromjena(id:number){
+    return this.request('delete', baseUrl + '/historijapromjena/:' + String(id))
   }
 
 }
