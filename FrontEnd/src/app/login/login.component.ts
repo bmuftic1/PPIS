@@ -1,8 +1,8 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {Korisnik} from 'src/app/_services/korisnik'
-import {ModalService} from'src/app/_services/modal.service'
+import {Korisnik} from '../_services/korisnik'
+import {ModalService} from'../_services/modal.service'
 
 
 @Component({

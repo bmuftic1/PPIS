@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PromjeneService} from 'src/app/_services/promjene.service'
-import {Promjena}from 'src/app/_services/promjena'
+import {Promjena}from '../_services/promjena'
 
 
 @Component({

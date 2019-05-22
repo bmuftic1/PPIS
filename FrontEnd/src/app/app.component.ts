@@ -1,6 +1,6 @@
 import { Component,HostBinding, Input } from '@angular/core';
-import {Korisnik} from 'src/app/_services/korisnik'
-import {ModalService} from'src/app/_services/modal.service'
+import {Korisnik} from '../app/_services/korisnik'
+import {ModalService} from'../app/_services/modal.service'
 
 @Component({
   selector: 'my-app',

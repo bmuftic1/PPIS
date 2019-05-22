@@ -1,5 +1,5 @@
 import { Injectable,EventEmitter,Output } from '@angular/core';
-import {Korisnik} from 'src/app/_services/korisnik'
+import {Korisnik} from '../_services/korisnik'
 
 @Injectable({
   providedIn: 'root'
