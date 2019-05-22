@@ -70,3 +70,7 @@
   .red{
     color:crimson;
   }
+  .modal-content {
+    background-color: transparent;
+    border: 0px;
+  }
