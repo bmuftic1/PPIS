@@ -27,15 +27,15 @@ export class UlogaService {
     return this.request('get',baseUrl+'/uloga')
   }
   getUloga(id:number){
-    return this.request('get',baseUrl+'/uloga/:'+String(id))
+    return this.request('get',baseUrl+'/uloga/'+String(id))
   }
   createUloga(uloga:Uloga){
     return this.request('post',baseUrl+'/uloga',uloga)
   }
   updateUloga(id:number){
-    return this.request('put',baseUrl+'/uloga/:'+String(id))
+    return this.request('put',baseUrl+'/uloga/'+String(id))
   }
   deleteUloga(id:number){
-    return this.request('delete',baseUrl+'/uloga/:'+String(id))
+    return this.request('delete',baseUrl+'/uloga/'+String(id))
   }
 }

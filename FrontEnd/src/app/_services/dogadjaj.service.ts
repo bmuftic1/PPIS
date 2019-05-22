@@ -28,16 +28,16 @@ export class DogadjajService {
     return this.request('get', baseUrl + "/dogadjaj");
   }
   getDogadjaj(id:number){
-    return this.request('get', baseUrl + '/dogadjaj/:' + String(id));
+    return this.request('get', baseUrl + '/dogadjaj/' + String(id));
   }
   
   createDogadjaj(dogadjaj: Dogadjaj){
     return this.request('post', baseUrl + "/dogadjaj", dogadjaj);
   }
   updateDogadjaj(id:number){
-    return this.request('put', baseUrl + '/dogadjaj/:' + String(id));
+    return this.request('put', baseUrl + '/dogadjaj/' + String(id));
   }
   deleteDogadjaj(id:number){
-    return this.request('delete', baseUrl + '/dogadjaj/:' + String(id))
+    return this.request('delete', baseUrl + '/dogadjaj/' + String(id))
   }
 }

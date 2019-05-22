@@ -15,8 +15,8 @@ export class WrapperComponent implements OnInit {
   constructor(public promjeneService: PromjeneService) { }
 
   ngOnInit() {
-    this.createPromjena();
-    this.refresh();
+    //this.createPromjena();
+    //this.refresh();
   }
   async refresh() {
     const data = await this.promjeneService.getPromjene();
