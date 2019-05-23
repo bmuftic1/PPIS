@@ -3,6 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Korisnik} from '../_services/korisnik'
 import {ModalService} from'../_services/modal.service'
+import {Router} from "@angular/router"
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   loginID:Korisnik;
 
   constructor(private formBuilder: FormBuilder,
-    public activeModal: NgbActiveModal,public modalService: ModalService) { }
+    public activeModal: NgbActiveModal,public modalService: ModalService,private router:Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -48,7 +49,24 @@ export class LoginComponent implements OnInit {
     }
     this.loginID = this.users.find(x=>x.username==this.loginForm.value.username);
     this.modalService.logIn(this.loginID);
-    this.closeModal();
+    //da sve aplikacije preko ovog servisa mogu dobiti info ko je logovan
+    //this.modalService.login.subscribe(logged=>this.loggedUser=logged); za dobivanje informacije u bilo kojoj komponenti
+    //komponenta mora imati importovani modalService i inicijaliziran u konstruktoru(ima iznad)
+    if(this.loginID){
+      this.closeModal();
+      switch(this.loginID.ulogaId){
+        case 0:
+          this.router.navigate(['../helpdesk'])
+          break;
+        case 1:
+          this.router.navigate(['../developer'])
+          break;
+        case 2:
+          this.router.navigate(['../korisnik'])
+          break;
+        
+      }
+    }
   }
   
 }
