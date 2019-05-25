@@ -25,7 +25,7 @@ Pri upravljanju promjenama potrebno je definisati sljedeće pojmove:
 
 \item \textbf{Promjena} -  moguće je vršiti različite akcije nad sistemom koje se smatraju promjenom: dodavanje novih komponenti, izmjenu ili potpuno uklanjanje starih, spajanje različitih funkcionalnosti i mnoge druge. Različite vrste promjena trebaju se tretirati na različite načine. Potrebno je jasno definisati šta je moguća promjena, koja je njena kategorija, koliki je njen prioritet te ko je zadužen za implementaciju iste.
 
-\item \textbf{Osoblje za upravljanje promjenama} - treba postojati jasno definisana uloga za osobe koje će moći nadzirati promjene, odobravati vršenje istih ili odbacivati prijedloge. Od ovog osoblja očekuje se da je u stanju brzo i adekvatno reagovati na hitne promjene, kao i da izvrši ispravno rasuđivanje da li će neka promjena pozitivno ili negativno utjecati na sam sistem (potrebno je izvršiti analizu koja se dokumentuje u vidu \textit{Projected Service Outage - PSO} dokumenta, u kojem su izlistane sve predvidljive devijacije od plana promjena).
+\item \textbf{Tim za upravljanje promjenama} - treba postojati jasno definisana uloga za osobe koje će moći nadzirati promjene, odobravati vršenje istih ili odbacivati prijedloge. Od ovog osoblja očekuje se da je u stanju brzo i adekvatno reagovati na hitne promjene, kao i da izvrši ispravno rasuđivanje da li će neka promjena pozitivno ili negativno utjecati na sam sistem (potrebno je izvršiti analizu koja se dokumentuje u vidu \textit{Projected Service Outage - PSO} dokumenta, u kojem su izlistane sve predvidljive devijacije od plana promjena).
 \end{enumerate}
 
 Upravljanje promjenama sastoji se od četiri osnovna podprocesa:
@@ -92,7 +92,7 @@ Iz svih ovih razloga, Idea d.o.o. Sarajevo ima potrebu za razvojem aplikacije ko
 \item Slanje promjena timu za produkciju;
 \item Prijavljivanje grešaka i problema pri implementaciji od strane tima za produkciju;
 \item Pregled statističke analize korištenja sistema, uz informacije o slabo ili nikako korištenim dijelovima;
-\item Prijava problema pri korištenju od strane korisnika sistema koji firma održava.
+\item Prijava problema pri korištenju i slanje zahtjeva za promjene od strane korisnika sistema koji firma održava.
 \end{itemize}
 
 Sve ove funkcionalnosti trebaju biti objedinjene u jednoj aplikaciji, te mora biti osigurana sigurnost i konzistentnost podataka. U nastavku će biti prikazane osnovne informacije vezane za ITIL procese pomoću kojih je moguće modelirati poslovne procese sistema za koji je potrebno napraviti aplikaciju.
@@ -103,7 +103,7 @@ Sve ove funkcionalnosti trebaju biti objedinjene u jednoj aplikaciji, te mora bi
 
 \begin{itemize}
 \renewcommand\labelitemi{-}
-\item \textit{Obične promjene}, odnosno promjene koje inicijalizira tim za upravljanje promjenama na osnovu zahtjeva koje šalju državne institucije formalnim putem (van samog sistema za upravljanje promjenama), ili koje tim za upravljanje promjenama ocijeni neophodnim na osnovu statističke analize korištenja sistema (slabo ili nikako korišteni dijelovi sistema);
+\item \textit{Obične promjene}, odnosno promjene koje inicijalizira tim za upravljanje promjenama na osnovu zahtjeva koje šalju autorizirani korisnici sistema koje firma Idea razvija i održava, ili koje tim za upravljanje promjenama ocijeni neophodnim na osnovu statističke analize korištenja sistema (slabo ili nikako korišteni dijelovi sistema);
 \item \textit{Hitne promjene}, koje se detektuju na osnovu prijave problema pri korištenju od strane korisnika sistema koje firma održava. Prijava problema korisnicima je omogućena unutar same aplikacije.
 \end{itemize}
 
@@ -116,12 +116,13 @@ Osim kategorija, promjene imaju i svoje vrste, kako slijedi:
 \item Brisanje postojećih komponenti.
 \end{itemize}
 
-Svaka promjena mora imati definisanu kategoriju i vrstu. Osoblje za upravljanje promjenama vrši njihov pregled i filtriranje - zahtjev se analizira, te se ili odbija uz obrazloženje, ili se šalje komitetu za promjene na dodatnu analizu i odobravanje. Komitet za promjene ima mogućnost pregleda svih promjena koje su im poslane od strane tima za upravljanje promjenama, te odbijanje ili odobravanje promjena. Te informacije prosljeđuju se timu za upravljanje promjenama, te ukoliko se odobri vršenje promjena, iste se dodjeljuju jednom od dostupnih timova za razvoj softvera. \\
+Svaka promjena mora imati definisanu kategoriju i vrstu. Tim za upravljanje promjenama vrši njihov pregled i filtriranje - zahtjev se analizira, te se ili odbija uz obrazloženje, ili se šalje komitetu za promjene na dodatnu analizu i odobravanje. Komitet za promjene ima mogućnost pregleda svih promjena koje su im poslane od strane tima za upravljanje promjenama, te odbijanje ili odobravanje promjena. Te informacije prosljeđuju se timu za upravljanje promjenama, te ukoliko se odobri vršenje promjena, iste se dodjeljuju jednom od dostupnih timova za razvoj softvera. \\
 
 Na osnovu ovih informacija, moguće je dodijeliti određene funkcionalnosti sistema različitim vrstama korisnika, na način kako slijedi:
 
 \begin{itemize}
 \renewcommand\labelitemi{$\square$}
+\item Slanje novog zahtjeva za promjenama - \textcolor{orange}{korisnici sistema};
 \item Pregled svih zahtjeva za promjenama - \textcolor{blue}{tim za upravljanje promjenama};
 \item Pisanje izvještaja (PSO dokumenta) o predloženoj promjeni te slanje istog komitetu za promjene na pregled - \textcolor{blue}{tim za upravljanje promjenama};
 \item Prihvatanje i odbijanje promjena, te njihovo označavanje kompletiranim nakon implementacije - \textcolor{blue}{tim za upravljanje promjenama};
@@ -139,12 +140,11 @@ U skladu s ovim, potrebno je izvršiti definisanje svih različitih događaja u 
 \begin{table}[H]
 \centering
 \begin{tabular}{| c | c | c |} \hline
-\cellcolor{gray!25}\textbf{Vrsta događaja}		& \cellcolor{gray!25}\textbf{Inicijator}			& \cellcolor{gray!25}\textbf{Prioritet} 		\\ \hline
-Greška u sistemu										& \cellcolor{green!25}Korisnik						& \cellcolor{blue!15}3							\\ \hline
-Pogrešno korištenje sistema							& \cellcolor{green!25}Korisnik						& \cellcolor{blue!15}1							\\ \hline
-Nemogućnost implementacije promjene			& \cellcolor{green!25}Razvojni tim					& \cellcolor{blue!15}2							\\ \hline
-Greška nakon uvođenja promjena					& \cellcolor{yellow!25}Korisnik						& \cellcolor{blue!35}3							\\ \hline
-Greška pri testiranju sistema							& \cellcolor{red!25}Razvojni tim					& \cellcolor{blue!55}2							\\ \hline
+\cellcolor{gray!25}\textbf{Vrsta događaja}		& \cellcolor{gray!25}\textbf{Inicijator}			& \cellcolor{gray!25}\textbf{Prioritet} 			\\ \hline
+Greška u aplikaciji									& \cellcolor{green!25}Korisnik						& \cellcolor{blue!15}3							\\ \hline
+Pogrešno korištenje aplikacije						& \cellcolor{green!25}Korisnik						& \cellcolor{blue!15}1							\\ \hline
+Greška nakon uvođenja promjena					& \cellcolor{yellow!25}Razvojni tim				& \cellcolor{blue!35}2							\\ \hline
+Nemogućnost implementacije promjene			& \cellcolor{yellow!25}Razvojni tim				& \cellcolor{blue!15}3							\\ \hline
 \end{tabular}
 \caption{Svi događaji sistema}
 \label{tabela1}
@@ -155,8 +155,8 @@ Svi događaji prikazuju se timu za upravljanje promjenama, koji vrše odziv na d
 \begin{itemize}
 \renewcommand\labelitemi{-}
 \item \textit{Otkazivanje promjena}, koje se vrši ukoliko razvojni tim prijavi da nije u mogućnosti da implementira promjene iz nekog razloga (poput samog načina na koji sistem funkcioniše, nedovoljnog broja informacija o samoj promjeni koju je potrebno izvršiti, nemogućnosti povezivanja sa postojećim sistemom i sl.).
-\item \textit{Slanje razvojnom timu na popravljanje}, koje se vrši ukoliko korisnici prijave grešku u sistemu prije ili nakon uvođenja promjena ili ukoliko dođe do greške pri testiranju sistema.
-\item \textit{Organizacija edukacije korisnika ili razgovor s korisnikom}, koji se vrše ukoliko korisnik prijavi da ne zna kako ispravno koristiti sistem.
+\item \textit{Slanje razvojnom timu na popravljanje}, koje se vrši ukoliko korisnici prijave grešku u sistemu prije ili nakon uvođenja promjena ili ukoliko dođe do greške pri testiranju sistema nakon uvođenja promjena.
+\item \textit{Organizacija edukacije korisnika ili razgovor s korisnikom}, koji se vrše ukoliko korisnik prijavi da ne zna kako ispravno koristiti sistem, što nije dio samog sistema koji se razvija.
 \end{itemize}
 
 Na osnovu ovih informacija, moguće je dodijeliti određene funkcionalnosti sistema različitim vrstama korisnika, na način kako slijedi:
@@ -175,7 +175,7 @@ Na osnovu ovih informacija, moguće je dodijeliti određene funkcionalnosti sist
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.4]{../res/useCase1.PNG}
+\includegraphics[scale=0.4]{../res/UseCase/useCase1.PNG}
 \caption{Dijagram slučajeva upotrebe za upravljanje promjenama u sistemu}
 \label{useCase1}
 \end{figure}
@@ -184,7 +184,7 @@ Slučajevi upotrebe sistema koji odgovaraju funkcionalnostima vezanim za upravlj
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.45]{../res/useCase2.PNG}
+\includegraphics[scale=0.45]{../res/UseCase/useCase2.PNG}
 \caption{Dijagram slučajeva upotrebe za upravljanje događajima u sistemu}
 \label{useCase2}
 \end{figure}
@@ -215,16 +215,34 @@ Zadaci se dijele u tri skupine:
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.6]{../res/trello1.PNG}
+\includegraphics[scale=0.6]{../res/Trello/trello1.PNG}
 \caption{\textit{Trello board} projekta, zadaci koji se trebaju izvršiti i koji se trenutno izvršavaju}
 \label{trello1}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.6]{../res/trello2.PNG}
+\includegraphics[scale=0.6]{../res/Trello/trello2.PNG}
 \caption{\textit{Trello board} projekta, zadaci koji su završeni te dijelovi sistema koji se testiraju ili popravljaju}
 \label{trello2}
+\end{figure}
+
+Prvi sprint razvoja aplikacije podrazumijevao je postojanje dva odvojena tima za razvoj. Timovi koji su razvijali \textit{backend} i \textit{frontend} dijelove aplikacije radili su odvojeno, budući da je konfigurisanje sistema, kreiranje CRUD operacija i ruta, kao i kreiranje početnih formi bilo nezavisno, te se na taj način sam proces završio brže i jednostavnije. Za dokumentaciju je bila zadužena jedna osoba, čije je zaduženje bilo koordinisanje timova i kreiranje pomoćne dokumentacije za razvoj. Prvi sprint prikazan je na slici \ref{trello3}, odakle je vidljivo da su zadaci timova bili potpuno različiti i nezavisni jedni od drugih.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.4]{../res/Trello/trello3.PNG}
+\caption{Prvi sprint projekta}
+\label{trello3}
+\end{figure}
+
+Drugi sprint razvoja aplikacije podrazumijevao je povezivanje dva dijela projekta koji su prethodno razvijeni. U okviru ovog sprinta \textit{frontend} tim izvršio je povezivanje na prethodno kreirane servise \textit{backend} tima, dok je \textit{backend} tim kreirao dodatne rute neophodne za prikaz izvještaja sistema. U ovom sprintu kreirana je formalna dokumentacija sistema koja opisuje funkcionalne i nefunkcionalne zahtjeve, prethodno kreiranu arhitekturu i korištene tehnologije, kao i sve ostale dijelove od kojih se ovaj dokument sastoji. Drugi sprint prikazan je na slici \ref{trello4}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.4]{../res/Trello/trello4.PNG}
+\caption{Drugi sprint projekta}
+\label{trello4}
 \end{figure}
 
 \newpage
@@ -288,5 +306,576 @@ Na Slici \ref{pt6} prikazan je izgled ekrana za prijavu \textit{bug}-a od strane
 \caption{Izgled interfejsa za prijavu \textit{bug}-a u sistemu}
 \label{pt6}
 \end{figure}
+
+\section{Funkcionalni zahtjevi}
+
+\subsection{FZ 1. Prijava na sistem}
+
+\subsubsection{Uvod}
+
+Budući da nije omogućeno javno korištenje sistema, neophodno je izvršiti autorizaciju prije nego se korisniku dozvoli pristup. Osim toga, različite vrste korisnika imaju različite uloge u sistemu, te je potrebno izvršiti provjeru koju ulogu određeni korisnik ima, na osnovu čega se odobrava pristup samo određenim dijelovima sistema.
+
+\subsubsection{Preduslovi}
+
+Nema preduslova za ovaj funkcionalni zahtjev, budući da je svim korisnicima omogućena prijava na sistem.
+
+\subsubsection{Ulazi}
+
+Ulazi u proces prijave na sistem su korisnički podaci korisnika, koji se sastoje od \textit{korisničkog imena} i \textit {šifre}.
+
+\subsubsection{Obrada}
+
+Nakon što korisnik sistema unese svoje podatke, vrši se njihova usporedba s podacima iz baze podataka. Radi sigurnosti, u bazi se šifre čuvaju kao \textit{hash}-irane, te se pri provjeri validnosti podataka vrši \textit{hash}-iranje unesene šifre i usporedba s dobavljenim podacima iz baze. Ukoliko se pronađe poklapanje korisničkog imena i šifre, sistem preuzima podatke o ulozi korisnika u sistemu, te ovisno o ulozi korisnika preusmjerava na određenu početnu formu.
+
+Cijeli proces prikazan je na Slici \ref{act1} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity1.JPG}
+\caption{Proces prijave na sistem}
+\label{act1}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Postoje dva moguća izlaza iz sistema - u slučaju unosa ispravnih korisničkih podataka, korisniku se omogućava pristup sistemu i preusmjerava se na odgovarajuću početnu formu, dok se u suprotnom slučaju prikazuje poruka o neispravnom unosu.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je visok, budući da je vrlo važno omogućiti svim korisnicima prijavu na svoje korisničke račune.
+
+\subsection{FZ 2. Odjava sa sistema}
+
+\subsubsection{Uvod}
+
+Nakon što korisnik završi s korištenjem sistema, može se odjaviti s istog. Svim korisnicima sistema omogućeno je vršenje odjave sa sistema na isti način. Zbog sigurnosti, nakon vršenja odjave sa sistema završava se korisnička sesija, te se onemogućava pristup sistemu dok se ponovo ne unesu ispravni korisnički podaci.
+
+\subsubsection{Preduslovi}
+
+Da bi se korisnik mogao odjaviti, prvo mora biti prijavljen na svoj korisnički račun.
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavlja pritisak na dugme za odjavu.
+
+\subsubsection{Obrada}
+
+Nakon što korisnik pritisne na dugme za odjavu, sistem vrši završavanje korisničke sesije, odnosno onemogućava datom korisniku dalje korištenje sistema. Nakon toga, korisnik se preusmjerava na formu za prijavu.
+
+Cijeli proces prikazan je na Slici \ref{act2} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity2.JPG}
+\caption{Proces odjave sa sistema}
+\label{act2}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema je preusmjeravanje na formu za prijavu.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog zahtjeva je visok, jer neuspješna odjava sa sistema omogućava zlonamjernim korisnicima zloupotrebu aktivne sesije.
+
+\subsection{FZ 3. Slanje zahtjeva za promjenom}
+
+\subsubsection{Uvod}
+
+Korisnici aplikacija koje firma Idea razvija mogu poslati zahtjeve za promjenama. Kako bi to izvršili, potrebno je unijeti odgovarajuće podatke o zahtjevu te poslati isti kako bi ga nakon toga nadležna lica mogla obraditi.
+
+\subsubsection{Preduslovi}
+
+Slanje zahtjeva za promjenom omogućeno je samo korisnicima koji su prijavljeni kao korisnici softvera koje firma Idea razvija.
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavlja sam zahtjev za promjenom, koji je opisan putem sljedećih podataka:
+
+\begin{itemize}
+\item Naziv zahtjeva:
+\item Opis zahtjeva;
+\item Vrsta zahtjeva (jedna od predefinisanih vrijednosti iz liste: nova funkcionalnost, izmjena postojeće aktivnosti).
+\end{itemize}
+
+\subsubsection{Obrada}
+
+Nakon što se korisnik softvera prijavi na sistem, treba unijeti podatke o zahtjevu i odabrati opciju za slanje. U svakom trenutku prije slanja omogućeno je brisanje zahtjeva.
+
+Cijeli proces prikazan je na Slici \ref{act3} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity3.JPG}
+\caption{Proces slanja zahtjeva za promjenom}
+\label{act3}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja poruka o uspješnom slanju zahtjeva za promjenom.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je nizak, jer je slanje zahtjeva za promjenom proces koji se može odložiti u slučaju nedostupnosti sistema.
+
+\subsection{FZ 4. Prijava grešaka}
+
+\subsubsection{Uvod}
+
+Korisnici sistema kojima je omogućeno prijavljivanje grešaka su korisnici softvera i članovi tima za razvoj i produkciju. Korisnici sistema mogu prijavljivati greške pri korištenju softvera, dok članovi razvojnog tima mogu prijaviti \textit{bug}-ove (funkcionalnosti koje ne rade ispravno te koje je potrebno popraviti) i nemogućnost implementacije nekog od zahtjeva za promjene. U svim slučajevima, prijave se prosljeđuju \textit{helpdesk}-u koji vrši njihovo raspoređivanje.
+
+\subsubsection{Preduslovi}
+
+Prijava grešaka omogućena je korisnicima softvera koje firma Idea razvija i članovima razvojnog tima firme.
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavlja prijava greške, koja je opisana putem sljedećih podataka:
+
+\begin{itemize}
+\item Opis greške:
+\item Opis načina na koji se dolazi do greške;
+\item Vrsta greške (u slučaju razvojnog tima, moguće je grešku klasificirati kao \textit{bug} ili kao nemogućnost implementacije nekog zahtjeva).
+\end{itemize}
+
+\subsubsection{Obrada}
+
+Nakon što se korisnik prijavi na sistem, treba unijeti podatke o grešci i odabrati opciju za slanje. U svakom trenutku prije slanja omogućeno je brisanje prijave.
+
+Cijeli proces prikazan je na Slici \ref{act4} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity4.JPG}
+\caption{Proces slanja prijave greške}
+\label{act4}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja poruka o uspješnom slanju prijave greške.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, jer je važno ispraviti greške što prije kako bi korisnici mogli nesmetano koristiti aplikacije firme Idea.
+
+\subsection{FZ 5. Pregled svih prijava}
+
+\subsubsection{Uvod}
+
+Članovi razvojnog tima mogu pregledati listu svih pristiglih prijava koje su im dodijeljene od strane \textit{helpdesk}-a. U okviru liste koju mogu pregledati nalaze se greške u sistemu (koje su prijavili korisnici ili članovi razvojnog tima), kao i zahtjevi koje je potrebno implementirati. Nakon uspješne implementacije ili popravljanja grešaka, omogućeno je njihovo arhiviranje.
+
+\subsubsection{Preduslovi}
+
+Pregled svih prijava omogućen je članovima razvojnog tima, budući da je lista prijava prilagođena aktivnostima koje razvojni tim vrši (implementacija novih zahtjeva i ispravljanje grešaka). Da bi se prijava prikazala u listi, potrebno je da je \textit{helpdesk} prvo rasporedi datom razvojnom timu.
+
+\subsubsection{Ulazi}
+
+Nema ulaza u sistem - nakon uspješne prijave, svim članovima razvojnog tima omogućen je isti pregled svih prijava.
+
+\subsubsection{Obrada}
+
+Obrada zahtjeva sastoji se u dobavljanju svih podataka o prijavama te vršenje njihovog filtriranja ovisno o tome kojem razvojnom timu korisnik pripada.
+
+Cijeli proces prikazan je na Slici \ref{act5} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity5.JPG}
+\caption{Proces pregleda svih prijava}
+\label{act5}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz liste svih dodijeljenih prijava sa svim pripadajućim podacima.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, budući da je neophodno što prije prikazati prijave timu za produkciju kako bi se greške mogle ispraviti.
+
+\subsection{FZ 6. Arhiviranje prijava}
+
+\subsubsection{Uvod}
+
+Članovi razvojnog tima vrše popravljanje prijavljenih grešaka te implementiranje dodijeljenih zahtjeva za promjenama. Nakon uspješnog vršenja implementacije, vrše arhiviranje istih kako bi se uklonile s liste aktivnih prijava.
+
+\subsubsection{Preduslovi}
+
+Arhiviranje prijava omogućeno je isključivo članovima tima za razvoj. Da bi se prijava arhivirala, prvo se mora početi s njenom implementacijom (njen status mora biti \textit{U toku}).
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem je pritisak na dugme za arhiviranje prijave.
+
+\subsubsection{Obrada}
+
+Nakon što član razvojnog tima pritisne na dugme za arhiviranje, sistem vrši označavanje prijave arhiviranom te je uklanja iz liste aktivnih prijava.
+
+Cijeli proces prikazan je na Slici \ref{act6} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity6.JPG}
+\caption{Proces arhiviranja prijave}
+\label{act6}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema je ažurirana lista prijava, koja ne sadrži arhiviranu prijavu.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je nizak, budući da arhiviranje implementirane prijave nije prioritetna akcija.
+
+\subsection{FZ 7. Pregled svih pristiglih zahtjeva}
+
+\subsubsection{Uvod}
+
+Nakon što korisnik pošalje zahtjev za promjenom i \textit{helpdesk} napravi studiju izvodljivosti i odobri zahtjev, on se šalje komitetu za promjene na pregled i konačno odlučivanje. Iz tog razloga komitet za promjene treba imati omogućen pregled svih pristiglih zahtjeva o kojima je potrebno odlučivati.
+
+\subsubsection{Preduslovi}
+
+Pregled svih pristiglih zahtjeva omogućen je samo komitetu za promjene. Da bi se zahtjev prikazao u listi, \textit{helpdesk} ga prvo mora odobriti i priložiti PSO dokument za komitet.
+
+\subsubsection{Ulazi}
+
+Nema ulaza u sistem - nakon uspješne prijave, svim članovima komiteta za promjene omogućen je isti pregled svih pristiglih zahtjeva.
+
+\subsubsection{Obrada}
+
+Obrada zahtjeva sastoji se u dobavljanju svih podataka o zahtjevima koje je \textit{helpdesk} odobrio.
+
+Cijeli proces prikazan je na Slici \ref{act7} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity7.JPG}
+\caption{Proces pregleda svih pristiglih zahtjeva}
+\label{act7}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz liste svih dodijeljenih prijava sa svim pripadajućim podacima.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, budući da je potrebno što prije pregledati novopristigle zahtjeve, no ukoliko bi sistem bio nedostupan, ta akcija bi mogla biti odložena.
+
+\subsection{FZ 8. Odlučivanje po zahtjevu}
+
+\subsubsection{Uvod}
+
+Nakon pregleda svih informacija o pristiglom zahtjevu (uključujući detalje zahtjeva i PSO dokument), komitet za promjene donosi konačnu odluku. Ovisno o tome kakva je konačna odluka, zahtjev se ili arhivira, ili vraća u listu za \textit{helpdesk} kako bi se moglo početi s njegovom implementacijom.
+
+\subsubsection{Preduslovi}
+
+Odlučivanje po zahtjevima omogućeno je samo komitetu za promjene. Da bi se odlučivalo o nekom zahtjevu, on prvo mora biti u listi pristiglih zahtjeva (mora biti odobren od strane \textit{helpdesk}-a).
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavlja konačna odluka komiteta - odobravanje ili odbijanje zahtjeva.
+
+\subsubsection{Obrada}
+
+Nakon unosa konačne odluke o zahtjevu (pritiska na dugme za odobravanje ili odbijanje zahtjeva), sistem vrši ažuriranje liste događaja \textit{helpdesk}-a ili arhiviranje zahtjeva.
+
+Cijeli proces prikazan je na Slici \ref{act8} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity8.JPG}
+\caption{Proces odlučivanja po zahtjevu}
+\label{act8}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaza iz sistema nema - nakon što se odluči po zahtjevu, isti se uklanja iz liste pristiglih zahtjeva tako da član komiteta za promjene može postupati po drugim zahtjevima.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, budući da je potrebno što prije poslati zahtjev na implementaciju (ukoliko se odobri), no to nije akcija s najvišim prioritetom.
+
+\subsection{FZ 9. Pregled svih događaja u sistemu}
+
+\subsubsection{Uvod}
+
+Članovi \textit{helpdesk}-a trebaju vršiti raspoređivanje zahtjeva i prijava odgovarajućim korisnicima sistema na dalju obradu. Iz tog razloga komitet za promjene treba imati omogućen pregled svih događaja (pristiglih zahtjeva i prijava) koje je potrebno raspoređivati.
+
+\subsubsection{Preduslovi}
+
+Pregled svih događaja u sistemu omogućen je samo \textit{helpdesk}-u.
+
+\subsubsection{Ulazi}
+
+Nema ulaza u sistem - nakon uspješne prijave, svim članovima \textit{helpdesk}-a omogućen je isti pregled svih događaja u sistemu.
+
+\subsubsection{Obrada}
+
+Obrada zahtjeva sastoji se u dobavljanju svih podataka o događajima (svi pristigli zahtjevi, odobreni zahtjevi te prijave korisnika i članova razvojnog tima).
+
+Cijeli proces prikazan je na Slici \ref{act9} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity9.JPG}
+\caption{Proces pregleda svih događaja u sistemu}
+\label{act9}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz liste svih događaja u sistemu sa svim pripadajućim podacima.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je visok, jer \textit{helpdesk} mora moći nesmetano vršiti raspoređivanje događaja, a preduslov za to je mogućnost pregledanja svih događaja.
+
+\subsection{FZ 10. Slanje zahtjeva na konačno odlučivanje}
+
+\subsubsection{Uvod}
+
+Nakon što korisnik softvera pošalje zahtjev, on se prikazuje \textit{helpdesk}-u u listi svih događaja u sistemu. Nakon toga članovi \textit{helpdesk}-a vrše procjenu izvodljivosti koja se, zajedno sa svim ostalim relevantnim informacijama, nalazi u PSO dokumentu. Tada se zahtjev šalje komitetu za promjene na konačno odlučivanje.
+
+\subsubsection{Preduslovi}
+
+Slanje zahtjeva na konačno odlučivanje omogućeno je samo \textit{helpdesk}-u. Zahtjev prvo treba ispuniti uslove za odobravanje, odnosno studija izvodljivosti treba dati pozitivne rezultate.
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavlja PSO dokument, koji je neophodno priložiti uz zahtjev kako bi se isti poslao na konačno odlučivanje. PSO dokument prilaže se u obliku PDF dokumenta.
+
+\subsubsection{Obrada}
+
+Nakon uspješne prijave i odabira zahtjeva iz liste svih događaja u sistemu, član \textit{helpdesk}-a prilaže PSO dokument i vrši pritisak na dugme za slanje zahtjeva na konačno odlučivanje. Nakon toga se ažurira status zahtjeva u listi koju \textit{helpdesk} vidi, te se zahtjev dodaje u listu pristiglih zahtjeva o kojima komitet treba odlučivati.
+
+Cijeli proces prikazan je na Slici \ref{act10} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity10.JPG}
+\caption{Proces slanja zahtjeva na konačno odlučivanje}
+\label{act10}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz ažurirane liste svih događaja u sistemu, u kojoj poslani zahtjev ima promijenjen status.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je nizak, budući da slanje zahtjeva na konačno odlučivanje nije hitno i može se odložiti u slučaju nedostupnosti sistema.
+
+\subsection{FZ 11. Raspoređivanje događaja}
+
+\subsubsection{Uvod}
+
+\textit{Helpdesk} predstavlja skup korisnika sistema koji mogu pregledati sve događaje u sistemu, i čija je dužnost njihovo raspoređivanje onim korisnicima sistema koji trebaju postupati po njima. Jedna od najvažnijih funkcionalnosti ovih korisnika je olakšavanje rada ostalim korisnicima, jer će svi vidjeti samo one događaje koji su za njih relevantni.
+
+\subsubsection{Preduslovi}
+
+Raspoređivanje događaja može vršiti samo \textit{helpdesk}.
+
+\subsubsection{Ulazi}
+
+Postoje sljedeći ulazi u sistem:
+
+\begin{itemize}
+\item Odabir vrste korisnika kojem se dati događaj treba dodijeliti:
+\item Odabir prioriteta događaja;
+\item Odabir statusa događaja.
+\end{itemize}
+
+\subsubsection{Obrada}
+
+Nakon prijave na sistem, član \textit{helpdesk}-a odabire događaj koji je potrebno rasporediti. Nakon unosa neophodnih podataka i pritiska na dugme za raspoređivanje, prikazuje se ažurirana lista događaja na kojoj je prikazano kome je događaj dodijeljen i kakav je njegov status.
+
+Cijeli proces prikazan je na Slici \ref{act11} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity11.JPG}
+\caption{Proces raspoređivanja događaja}
+\label{act11}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz ažurirane liste svih događaja u sistemu, u kojoj raspoređeni događaj ima promijenjen status.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je visok, jer \textit{helpdesk} treba u svakom trenutku moći izvršiti raspoređivanje događaja (poput grešaka zbog kojih su aplikacije nedostupne korisnicima) adekvatnim korisnicima sistema.
+
+\subsection{FZ 12. Pregled izvještaja}
+
+\subsubsection{Uvod}
+
+Članovi \textit{helpdesk}-a, osim mogućnosti pregleda svih trenutno aktivnih događaja u sistemu, trebaju biti u mogućnosti pregledati i historijat svih događaja. To uključuje sve događaje arhivirane od strane članova tima za razvoj (greške koje su uspješno ispravljene, promjene koje su uspješno implementirane) ili od strane komiteta za promjene (promjene koje su odbačene), posebno ukoliko je potrebno pregledati sve faze u kojima su se neki zahtjev ili prijava nalazili od početka do kraja svoje aktivnosti u sistemu.
+
+\subsubsection{Preduslovi}
+
+Pregled izvještaja omogućen je samo \textit{helpdesk}-u.
+
+\subsubsection{Ulazi}
+
+Ulaz u sistem predstavljaju podaci o događajima prema kojima se historijat treba filtrirati:
+
+\begin{itemize}
+\item Vrsta događaja (zahtjev ili prijava);
+\item Status događaja (na čekanju, u obradi, završen);
+\item Datum aktivnosti.
+\end{itemize}
+
+\subsubsection{Obrada}
+
+Nakon prijave na sistem i odabira opcije za pregled izvještaja, član \textit{helpdesk}-a unosi informacije prema kojima je potrebno filtrirati događaje (ukoliko se ne odabere nijedna opcija za filtriranje, prikazuju se svi događaji u historijatu sistema). Nakon toga lista svih događaja se ažurira i prikazuju se samo relevantni događaji sistema.
+
+Cijeli proces prikazan je na Slici \ref{act12} u vidu dijagrama aktivnosti.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/Activity/activity12.JPG}
+\caption{Proces pregleda izvještaja i filtriranja događaja}
+\label{act12}
+\end{figure}
+
+\subsubsection{Izlazi}
+
+Izlaz iz sistema predstavlja prikaz ažurirane liste svih događaja u sistemu, u kojoj su prikazani samo događaji koji ispunjavaju uslov filtriranja.
+
+\subsubsection{Prioritet realizacije}
+
+Prioritet realizacije ovog funkcionalnog zahtjeva je nizak, jer je pregled izvještaja statičan i nema snažan utjecaj na funkcionisanje sistema.
+
+\newpage
+
+\section{Arhitekturalni \textit{stack}}
+
+\subsection{Dijagram klase}
+
+Najjednostavniji način za opis arhitekture sistema je putem dijagrama klasa, na kojem su vidljive najvažniji dijelovi modela (klase) i veze između njih (generalizacija i asocijacija - kompozicija ili agregacija). Ovaj dijagram prikazan je na Slici \ref{class}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.45]{../res/class.JPG}
+\caption{Dijagram klasa sistema}
+\label{erd}
+\end{figure}
+
+\subsection{\textit{Entity Relationship} dijagram (ERD)}
+
+Još jedan način za opis arhitekture sistema omogućen je putem \textit{entity relationship} dijagrama sistema, u kojem je prikazan model baze podataka koju sistem koristi. Ovaj dijagram prikazan je na Slici \ref{erd}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{../res/erd.JPG}
+\caption{\textit{Entity relationship} dijagram sistema}
+\label{erd}
+\end{figure}
+
+\newpage
+
+\section{Tehnološki \textit{stack}}
+
+\subsection{Opis korištenih tehnologija}
+
+Pri razvoju sistema korištene su sljedeće tehnologije:
+
+\begin{itemize}
+\item \textbf{Frontend}: \\
+\textit{Boostrap} za generisanje izgleda formi (koristeći HTML i CSS); \\
+\textit{Angular framework} za izgradnju web-aplikacije;
+\item \textbf{Backend}: \\
+\textit{Node.js} tehnologija (programski jezik: \textit{JavaScript}); \\
+\textit{MySQL} baza podataka;
+\item \textbf{Dokumentacija}: \\
+\textit{LaTex} za generisanje SRS dokumenta; \\
+\textit{Visual Paradigm} za kreiranje UML dijagrama.
+\end{itemize}
+
+Tehnološki \textit{stack} sistema najlakše je predstaviti koristeći dijagram raspoređivanja, koji je prikazan na Slici \ref{deployment}. Na dijagramu je vidljivo da korisnik koristi \textit{interface}-e koje pruža \textit{frontend} dio sistema. \textit{Frontend} koristi servise backenda, a \textit{backend} jedini ima pristup bazi podataka. Na dijagramu je prikazano i koji dio sistema koristi koje od tehnologija koje su prethodno navedene.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.55]{../res/deployment.JPG}
+\caption{Dijagram raspoređivanja sistema}
+\label{deployment}
+\end{figure}
+
+\newpage
+
+\section{Nefunkcionalni zahtjevi}
+
+\subsection{Odziv sistema}
+
+\quad Odziv sistema predstavlja količinu vremena od slanja zahtjeva do početka slanja odgovora sistema. Odziv sistema je veoma važna karakteristika za performanse sistema, te spor odziv (odnosno, dugo vrijeme odziva sistema) uzrokuje slabije performanse sistema. Vrijeme odziva sistema ovisi o mnogo faktora, a primarno o mogućnosti sistema da se nosi s velikim brojem korisnika bez da dođe do zagušenja mreže, te se zbog tog razloga hardverske komponente sistema trebaju prilagoditi na način da omogućavaju normalno funkcionisanje sistema i pri velikom broju zahtjeva od strane korisnika. \\
+
+Budući da je sistem koji se razvija web-aplikacija koju će koristiti veliki broj, kako zaposlenika firme Idea, tako i kompanija za koje firma Idea razvija aplikacije, neophodno je da odziv sistema bude brz i u slučajevima kada u jednom trenutku bude poslan veliki broj zahtjeva. Ovakav odziv omogućiti će se putem osposobljavanja više kopija istog servisa na koji će se preusmjeravati zahtjevi ovisno o stanju u redovima čekanja (koji trebaju biti približno isto napunjeni).
+
+\subsection{Propusnost}
+
+\quad Propusnost sistema se definiše kao količina informacija koje sistem može obraditi po jedinici vremena, te je također veoma važna za performanse sistema. Ona ovisi o mnogo faktora, uključujući brzinu procesiranja pojedinih informacija, kao i vrijeme odziva sistema, s kojim je propusnost direktno povezana. Budući da se propusnost odnosi na količinu informacija koje se mogu prenijeti preko mreže, pročitati ili napisati na medije za spašavanje podataka ili na broj operacija ulazno-izlaznih (I/O) uređaja, i propusnost sistema ovisi o više hardverskih komponenti, te je potrebno analizirati koja od naprijed navedenih propusnosti je esencijalna za funkcionisanje sistema te se analogno prilagoditi i hardverske komponente. \\
+
+Propusnost sistema koji se razvija u vezi je s odzivom sistema koji je prethodno definisan - propusnost sistema treba biti velika (veliki broj istovremeno prijavljenih korisnika), što će se omogućiti povećanjem kapaciteta redova čekanja, odnosno povećanjem broja redova čekanja (budući da je skaliranje u širinu jeftinije).
+
+\subsection{Poruke o greškama}
+
+\quad Za normalno funkcionisanje sistema potrebno je predvidjeti da korisnici neće uvijek na korektan način unositi tražene podatke i vršiti zadane operacije na ispravan način te se trebaju omogućiti poruke o greškama. Ukoliko korisnik napravi grešku, sistem istu treba prepoznati i prikazati korisniku adekvatne informacije kako bi se ponavljanje iste greške spriječilo. \\
+
+Ovaj nefunkcionalni zahtjev ispunjen je tokom razvoja aplikacije, budući da je napravljen intuitivan korisnički \textit{interface} koji je jednostavan za korištenje.
+
+\subsection{Dostupnost}
+
+\quad Dostupnost sistema definiše se kao vjerovatnoća da će poslani zahtjev od strane korisnika rezultovati odgovorom od strane sistema. Čak i mala količina vremena nedostupnosti sistema neprihvatljiva je (jer uzrokuje velike štete, što je dokazano u mnogim studijama) te se stoga treba osigurati da će sistem biti u stanju da uvijek ispravno funkcioniše, te ukoliko to ne bude moguće, da će se svaki kvar brzo i efikasno otkloniti od strane tima za održavanje, te da će korisnici biti obaviješteni kada i koliko dugo će sistem biti nedostupan (ukoliko je to moguće). \\
+
+Dostupnost sistema također je u korelaciji s odzivom sistema, kao i s njegovom propusnošću, te još jednom potvrđuje neophodnost kreiranja većeg broja redundantnih kopija istih servisa - što više kopija istog servisa postoji, to je manja mogućnost da će u jednom trenutku sve dostupne kopije biti nedostupne, te da nijedan od servisa neće biti u mogućnosti odgovoriti na korisnički zahtjev.
+
+\subsection{Skalabilnost}
+
+\quad Skalabilnost je sposobnost sistema da se prilagođava sve većim zahtjevima u pogledu resursa i performansi. Pri dizajnu sistema i izbora hardverskih komponenti potrebno je uzeti u obzir informacije o broju korisnika koji će isti koristiti, vrsti usluga koje će sistem pružati te da li je potrebno omogućiti horizontalno ili vertikalno skaliranje (u skladu sa predviđenim budžetom). Budući da je pri dizajnu sistema korištena klijent-server arhitektura, skalabilnost je omogućena odvajanjem funkcionalnosti sistema u zasebne servise koji će se zasebno i skalirati (te time smanjiti i troškovi), te će sistem biti u stanju da funkcioniše i ukoliko jedna od komponenti ne bude funkcionisala (ili se bude nadograđivala), čime se direktno utječe i na dostupnost sistema. \\
+
+Iako firma Idea ne planira da uskoro širi svoje poslovanje na veći broj firmi (jer je njena primarna djelatnost održavanje postojećih sistema), sistem koji se dizajnira svakako treba biti skalabilan, ukoliko se u budućnosti ipak odluči za ovakvo nešto. Skalabilnost je postignuta putem korištenja servis-klijent arhitekture sistema, koja omogućava dodavanje proizvoljnog broja kopija istog servisa, modifikaciju i nadogradnju određenih servisa bez utjecanja na ostale servise te čak i potpunu nezavisnost o operativnim sistemima koje korisnici koriste, budući da korisnik jedino treba posjedovati \textit{web-browser} kako bi pristupio sistemu.
+
+\subsection{Dokumentovanost sistema}
+
+\quad Za ispravno funkcionisanje sistema neophodno je da isti posjeduje što više što detaljnije dokumentacije, kako bi tim za održavanje u svakom trenutku mogao pronaći relevantne informacije za održavanje konkretnog servisa ili sistema kao cjeline. Osim dokumentacije za tim za održavanje, i korisnici trebaju imati adekvatnu dokumentaciju u obliku uputstava za korištenje, kako bi u svakom trenutku mogli pronaći relevantna uputstva za funkcionalnosti sistema koje žele koristiti.Uputstva za korištenje trebaju biti precizna i jasna, te koristiti terminologiju prilagođenu korisnicima sistema, kako ih ne bi zbunjivala te kako bi se rješenje nastalih problema pronašlo što brže i lakše. \\
+
+Dokumentacija sistema predstavljena je u obliku SRS dokumenta, koji definiše sve bitne funkcionalnosti i ostale detalje o samom sistemu. U budućnosti je planirano i pravljenje korisničkog priručnika, kako bi korisnici mogli pronaći odgovore na sva eventualna pitanja i rješenja za sve nedoumice pri korištenju sistema.
+
+\subsection{Autorizacija korisnika}
+
+\quad Pristup neautorizovanim korisnicima treba biti onemogućen, te se iz tog razloga pri ulasku u sistem korisnici trebaju autorizovati, a to će uraditi putem unošenja ispravnih i jedinstvenih korisničkih podataka za koje će se izvršiti provjera unutar sistema. Ukoliko se uneseni korisnički podaci pronađu u sistemu, korisniku će biti omogućen pristup istom, te ukoliko se uneseni korisnički podaci ne pronađu u sistemu, korisniku će se prikazati poruka o neuspješnoj prijavi bez omogućavanja korištenja većine funkcionalnosti sistema. \\
+
+Problem autorizacije u sistemu riješen je koristeći korisničke uloge i sesije. Postoji predefinisano vrijeme nakon kojeg se korisnik automatski odjavljuje iz sistema, kako bi se smanjila mogućnost zloupotrebe ukoliko se korisnik zaboravi odjaviti sistema. Rute sistema nisu blokirane na način da su samo sakriveni putevi koji vode do stranica za različite vrste korisnika, već se pri pristupu svakoj stranici provjerava uloga korisnika te se pristup dopušta isključivo ukoliko je korisnik autorizovan za pristup. Šifre korisnika u bazi podataka se čuvaju \textit{hash}-irane, tako da eventualno vršenje \textit{SQL Injections} neće ugroziti sigurnost korisnika.
+
+\newpage
+
+\section{Korisnički \textit{interface}-i}
+
+\newpage
+
+\section{Zakonska ograničenja dizajna}
+
+Sistem će biti razvijen u skladu s ograničenjima koja su propisana u sljedećim zakonima:
+
+\begin{enumerate}
+\item \textbf{Zakon o privrednim društvima Federacije Bosne i Hercegovine}: \\
+\textit{Član 38.} Poslovnom tajnom smatraju se informacije o poslovanju za koje je očito da bi prouzrokovale značajnu štetu društvu ako dođu u posjed trećeg lica bez saglasnosti društva. \\
+\textit{Član 39. (1)} Nadležni organ društva dužan je pismenim aktom odrediti informacije koje imaju karakter poslovne tajne i lica odgovorna za njihovo korištenje i zaštitu.
+U skladu sa prethodno navedenim članom, zakonska ograničenja predstavljaju i svi pisani akti doneseni od strane vrtića, a kojima se definišu podaci za koje je potrebno onemogućiti pristup svim neovlaštenim licima. \\
+Naprijed navedeni članovi (kao i svi pisani akti doneseni od strane firme Idea, a koji se odnose na podatke koje je potrebno zaštititi od neovlaštenog pristupa) postavljaju ograničenja pristupa različitih vrsta korisnika podacima za koje nisu ovlašteni. Budući da će razvijenoj aplikaciji biti u mogućnosti pristupiti osobe koje nisu zaposlenici firme Idea, sve podatke je potrebno zaštititi putem obavezne autorizacije pri pokušaja pristupa svim funkcionalnostima sistema.
+\item \textbf{Zakon o zaštiti ličnih podataka Bosne i Hercegovine}:
+\textit{Član 11. (1)} Kontrolor podataka i, u okviru svoje nadležnosti, obrađivač podataka staraju se o bezbjednosti podataka te preduzimaju sve tehničke i organizacione mjere i utvrđuju pravila postupka, koji su neophodni kako bi se sproveo ovaj zakon i drugi propisi u vezi sa zaštitom i tajnošću podataka. \\
+\textit{Član 11. (2)} Kontrolor i obrađivač dužni su da preduzmu mjere protiv neovlašćenog ili slučajnog pristupa ličnim podacima, mijenjanja, uništavanja ili gubitka podataka, neovlašćenog prenosa, drugih oblika nezakonite obrade podataka, kao i mjere protiv zloupotrebe ličnih podataka. Ova obaveza ostaje na snazi i nakon završene obrade podataka. \\
+Naprijed navedeni članovi postavljaju ograničenja na pristup podacima za korisnike sistema. Pregled korisnika će biti onemogućen te će biti poduzete sve mjere zaštite od krađe podataka korisnika (njihovih korisničkih imena i šifri, te svih ostalih reevantnih podataka) od strane zlonamjernih korisnika aplikacije. \\
+\end{enumerate}
+
+Dokument je napisan u skladu sa IEEE 830-1998 standardom (\textit{IEEE Recommended Practice for Software Requirements Specification}).
 
 \end{document}

@@ -1,11 +1,111 @@
-\contentsline {section}{\numberline {1}ITIL procesi}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}\textit {Change Management}}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}\textit {Event Management}}{2}{subsection.1.2}
-\contentsline {section}{\numberline {2}Opis i namjena sistema}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Osnovne informacije o kompaniji}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Poslovni procesi}{4}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Upravljanje promjenama}{5}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Upravljanje događajima}{6}{subsubsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}Pregled slučajeva upotrebe}{7}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Metodologija razvoja sistema}{8}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Prototip sistema}{10}{subsection.2.5}
+\contentsline {section}{\numberline {1}ITIL procesi}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}\textit {Change Management}}{1}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}\textit {Event Management}}{2}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}Opis i namjena sistema}{4}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Osnovne informacije o kompaniji}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Poslovni procesi}{4}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Upravljanje promjenama}{5}{subsubsection.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Upravljanje događajima}{6}{subsubsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Pregled slučajeva upotrebe}{7}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Metodologija razvoja sistema}{8}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Prototip sistema}{11}{subsection.2.5}% 
+\contentsline {section}{\numberline {3}Funkcionalni zahtjevi}{14}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}FZ 1. Prijava na sistem}{14}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Uvod}{14}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Preduslovi}{14}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}Ulazi}{14}{subsubsection.3.1.3}% 
+\contentsline {subsubsection}{\numberline {3.1.4}Obrada}{14}{subsubsection.3.1.4}% 
+\contentsline {subsubsection}{\numberline {3.1.5}Izlazi}{15}{subsubsection.3.1.5}% 
+\contentsline {subsubsection}{\numberline {3.1.6}Prioritet realizacije}{15}{subsubsection.3.1.6}% 
+\contentsline {subsection}{\numberline {3.2}FZ 2. Odjava sa sistema}{15}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}Uvod}{15}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Preduslovi}{15}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}Ulazi}{15}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.4}Obrada}{15}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.5}Izlazi}{15}{subsubsection.3.2.5}% 
+\contentsline {subsubsection}{\numberline {3.2.6}Prioritet realizacije}{16}{subsubsection.3.2.6}% 
+\contentsline {subsection}{\numberline {3.3}FZ 3. Slanje zahtjeva za promjenom}{16}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}Uvod}{16}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Preduslovi}{16}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}Ulazi}{16}{subsubsection.3.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.4}Obrada}{16}{subsubsection.3.3.4}% 
+\contentsline {subsubsection}{\numberline {3.3.5}Izlazi}{17}{subsubsection.3.3.5}% 
+\contentsline {subsubsection}{\numberline {3.3.6}Prioritet realizacije}{17}{subsubsection.3.3.6}% 
+\contentsline {subsection}{\numberline {3.4}FZ 4. Prijava grešaka}{17}{subsection.3.4}% 
+\contentsline {subsubsection}{\numberline {3.4.1}Uvod}{17}{subsubsection.3.4.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2}Preduslovi}{17}{subsubsection.3.4.2}% 
+\contentsline {subsubsection}{\numberline {3.4.3}Ulazi}{17}{subsubsection.3.4.3}% 
+\contentsline {subsubsection}{\numberline {3.4.4}Obrada}{17}{subsubsection.3.4.4}% 
+\contentsline {subsubsection}{\numberline {3.4.5}Izlazi}{18}{subsubsection.3.4.5}% 
+\contentsline {subsubsection}{\numberline {3.4.6}Prioritet realizacije}{18}{subsubsection.3.4.6}% 
+\contentsline {subsection}{\numberline {3.5}FZ 5. Pregled svih prijava}{18}{subsection.3.5}% 
+\contentsline {subsubsection}{\numberline {3.5.1}Uvod}{18}{subsubsection.3.5.1}% 
+\contentsline {subsubsection}{\numberline {3.5.2}Preduslovi}{18}{subsubsection.3.5.2}% 
+\contentsline {subsubsection}{\numberline {3.5.3}Ulazi}{18}{subsubsection.3.5.3}% 
+\contentsline {subsubsection}{\numberline {3.5.4}Obrada}{18}{subsubsection.3.5.4}% 
+\contentsline {subsubsection}{\numberline {3.5.5}Izlazi}{19}{subsubsection.3.5.5}% 
+\contentsline {subsubsection}{\numberline {3.5.6}Prioritet realizacije}{19}{subsubsection.3.5.6}% 
+\contentsline {subsection}{\numberline {3.6}FZ 6. Arhiviranje prijava}{19}{subsection.3.6}% 
+\contentsline {subsubsection}{\numberline {3.6.1}Uvod}{19}{subsubsection.3.6.1}% 
+\contentsline {subsubsection}{\numberline {3.6.2}Preduslovi}{19}{subsubsection.3.6.2}% 
+\contentsline {subsubsection}{\numberline {3.6.3}Ulazi}{19}{subsubsection.3.6.3}% 
+\contentsline {subsubsection}{\numberline {3.6.4}Obrada}{19}{subsubsection.3.6.4}% 
+\contentsline {subsubsection}{\numberline {3.6.5}Izlazi}{20}{subsubsection.3.6.5}% 
+\contentsline {subsubsection}{\numberline {3.6.6}Prioritet realizacije}{20}{subsubsection.3.6.6}% 
+\contentsline {subsection}{\numberline {3.7}FZ 7. Pregled svih pristiglih zahtjeva}{20}{subsection.3.7}% 
+\contentsline {subsubsection}{\numberline {3.7.1}Uvod}{20}{subsubsection.3.7.1}% 
+\contentsline {subsubsection}{\numberline {3.7.2}Preduslovi}{20}{subsubsection.3.7.2}% 
+\contentsline {subsubsection}{\numberline {3.7.3}Ulazi}{20}{subsubsection.3.7.3}% 
+\contentsline {subsubsection}{\numberline {3.7.4}Obrada}{20}{subsubsection.3.7.4}% 
+\contentsline {subsubsection}{\numberline {3.7.5}Izlazi}{21}{subsubsection.3.7.5}% 
+\contentsline {subsubsection}{\numberline {3.7.6}Prioritet realizacije}{21}{subsubsection.3.7.6}% 
+\contentsline {subsection}{\numberline {3.8}FZ 8. Odlučivanje po zahtjevu}{21}{subsection.3.8}% 
+\contentsline {subsubsection}{\numberline {3.8.1}Uvod}{21}{subsubsection.3.8.1}% 
+\contentsline {subsubsection}{\numberline {3.8.2}Preduslovi}{21}{subsubsection.3.8.2}% 
+\contentsline {subsubsection}{\numberline {3.8.3}Ulazi}{21}{subsubsection.3.8.3}% 
+\contentsline {subsubsection}{\numberline {3.8.4}Obrada}{21}{subsubsection.3.8.4}% 
+\contentsline {subsubsection}{\numberline {3.8.5}Izlazi}{22}{subsubsection.3.8.5}% 
+\contentsline {subsubsection}{\numberline {3.8.6}Prioritet realizacije}{22}{subsubsection.3.8.6}% 
+\contentsline {subsection}{\numberline {3.9}FZ 9. Pregled svih događaja u sistemu}{22}{subsection.3.9}% 
+\contentsline {subsubsection}{\numberline {3.9.1}Uvod}{22}{subsubsection.3.9.1}% 
+\contentsline {subsubsection}{\numberline {3.9.2}Preduslovi}{22}{subsubsection.3.9.2}% 
+\contentsline {subsubsection}{\numberline {3.9.3}Ulazi}{22}{subsubsection.3.9.3}% 
+\contentsline {subsubsection}{\numberline {3.9.4}Obrada}{22}{subsubsection.3.9.4}% 
+\contentsline {subsubsection}{\numberline {3.9.5}Izlazi}{23}{subsubsection.3.9.5}% 
+\contentsline {subsubsection}{\numberline {3.9.6}Prioritet realizacije}{23}{subsubsection.3.9.6}% 
+\contentsline {subsection}{\numberline {3.10}FZ 10. Slanje zahtjeva na konačno odlučivanje}{23}{subsection.3.10}% 
+\contentsline {subsubsection}{\numberline {3.10.1}Uvod}{23}{subsubsection.3.10.1}% 
+\contentsline {subsubsection}{\numberline {3.10.2}Preduslovi}{23}{subsubsection.3.10.2}% 
+\contentsline {subsubsection}{\numberline {3.10.3}Ulazi}{23}{subsubsection.3.10.3}% 
+\contentsline {subsubsection}{\numberline {3.10.4}Obrada}{23}{subsubsection.3.10.4}% 
+\contentsline {subsubsection}{\numberline {3.10.5}Izlazi}{24}{subsubsection.3.10.5}% 
+\contentsline {subsubsection}{\numberline {3.10.6}Prioritet realizacije}{24}{subsubsection.3.10.6}% 
+\contentsline {subsection}{\numberline {3.11}FZ 11. Raspoređivanje događaja}{24}{subsection.3.11}% 
+\contentsline {subsubsection}{\numberline {3.11.1}Uvod}{24}{subsubsection.3.11.1}% 
+\contentsline {subsubsection}{\numberline {3.11.2}Preduslovi}{24}{subsubsection.3.11.2}% 
+\contentsline {subsubsection}{\numberline {3.11.3}Ulazi}{24}{subsubsection.3.11.3}% 
+\contentsline {subsubsection}{\numberline {3.11.4}Obrada}{25}{subsubsection.3.11.4}% 
+\contentsline {subsubsection}{\numberline {3.11.5}Izlazi}{25}{subsubsection.3.11.5}% 
+\contentsline {subsubsection}{\numberline {3.11.6}Prioritet realizacije}{25}{subsubsection.3.11.6}% 
+\contentsline {subsection}{\numberline {3.12}FZ 12. Pregled izvještaja}{25}{subsection.3.12}% 
+\contentsline {subsubsection}{\numberline {3.12.1}Uvod}{25}{subsubsection.3.12.1}% 
+\contentsline {subsubsection}{\numberline {3.12.2}Preduslovi}{26}{subsubsection.3.12.2}% 
+\contentsline {subsubsection}{\numberline {3.12.3}Ulazi}{26}{subsubsection.3.12.3}% 
+\contentsline {subsubsection}{\numberline {3.12.4}Obrada}{26}{subsubsection.3.12.4}% 
+\contentsline {subsubsection}{\numberline {3.12.5}Izlazi}{26}{subsubsection.3.12.5}% 
+\contentsline {subsubsection}{\numberline {3.12.6}Prioritet realizacije}{26}{subsubsection.3.12.6}% 
+\contentsline {section}{\numberline {4}Arhitekturalni \textit {stack}}{27}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Dijagram klase}{27}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}\textit {Entity Relationship} dijagram (ERD)}{27}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Tehnološki \textit {stack}}{28}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Opis korištenih tehnologija}{28}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}Nefunkcionalni zahtjevi}{29}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Odziv sistema}{29}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Propusnost}{29}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Poruke o greškama}{29}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Dostupnost}{29}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.5}Skalabilnost}{30}{subsection.6.5}% 
+\contentsline {subsection}{\numberline {6.6}Dokumentovanost sistema}{30}{subsection.6.6}% 
+\contentsline {subsection}{\numberline {6.7}Autorizacija korisnika}{30}{subsection.6.7}% 
+\contentsline {section}{\numberline {7}Korisnički \textit {interface}-i}{32}{section.7}% 
+\contentsline {section}{\numberline {8}Zakonska ograničenja dizajna}{33}{section.8}% 
