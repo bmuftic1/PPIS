@@ -3,6 +3,9 @@
 		Promjena1
 	</div>
 	<div class="col">
+		Vrsta promjene
+	</div>
+	<div class="col">
 		<select class="form-control">
 			<option>Nije postavljeno</option>
 			<option>Razvojni tim 1</option>
@@ -10,7 +13,7 @@
 		</select> 
 	</div>
 <div class="col">
-	<select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default">
+	<select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default" >
 			<option *ngFor="let status of Statuses" [(ngValue)]="status">
 				{{status.text}}
 			</option>
