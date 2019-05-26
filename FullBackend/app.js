@@ -20,6 +20,7 @@ const promjenaRoutes = require('./routes/promjena.router')
 const statusDogadjajaRoutes = require('./routes/statusdogadjaja.router')
 const statusPromjeneRoutes = require('./routes/statuspromjene.router')
 const tipDogadjajaRoutes = require('./routes/tipdogadjaja.router')
+const authRoutes = require('./routes/auth.router')
 
 
 // create connection to database
@@ -77,6 +78,7 @@ app.use('/statuspromjene', statusPromjeneRoutes)
 app.use('/tipdogadjaja', tipDogadjajaRoutes)
 app.use('/historijapromjena', historijaPromjenaRoutes)
 app.use('/statusdogadjaja', statusDogadjajaRoutes)
+app.use('/auth', authRoutes);
 
 
 //app.use('/problems', problemRoutes);

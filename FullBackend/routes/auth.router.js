@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const md5 = require("md5");
 const jwt = require("jsonwebtoken");
-const config = require("../config");
+const config = require("../config/jwt.json");
 const { Korisnik } = require("../models");
 
 router.post("/login", (req, res, next) => {
@@ -29,6 +29,7 @@ router.post("/login", (req, res, next) => {
       res.status(200).json({ token });
     })
     .catch(err => {
+      console.log(err);
       res.status(404).json({
         message: "No user found for given username/password combination!"
       });
@@ -45,7 +46,7 @@ router.post("/register", (req, res, next) => {
         username: username,
         permissions: "user"
       };
-      var token = jwt.sign(claims, jwtConfig.secret, {
+      var token = jwt.sign(claims, config.secret, {
         expiresIn: "1000d"
       });
       res.status(201).json({
