@@ -26,15 +26,15 @@ export class StatusdogadjajaService {
     return this.request('get',baseUrl+'/statusdogadjaja')
   }
   getStatusDogadjaja(id:number){
-    return this.request('get',baseUrl+'/statusdogadjaja/:'+String(id))
+    return this.request('get',baseUrl+'/statusdogadjaja/'+String(id))
   }
   createStatusDogadjaja(statusDogadjaja:StatusDogadjaja){
     return this.request('post',baseUrl+'/statusdogadjaja',statusDogadjaja)
   }
   updateStatusDogadjaja(id:number){
-    return this.request('put',baseUrl+'/statusdogadjaja/:'+String(id))
+    return this.request('put',baseUrl+'/statusdogadjaja/'+String(id))
   }
   deleteStatusDogadjaja(id:number){
-    return this.request('delete',baseUrl+'/statusdogadjaja/:'+String(id))
+    return this.request('delete',baseUrl+'/statusdogadjaja/'+String(id))
   }
 }

@@ -27,17 +27,17 @@ export class KategorijapromjeneService {
     return this.request('get', baseUrl + '/kategorijapromjene')
   }
   getKategorijaPromjene(id:number){
-    return this.request('get', baseUrl + '/kategorijapromjene/:' + String(id));
+    return this.request('get', baseUrl + '/kategorijapromjene/' + String(id));
   }
   
   createKategorijaPromjene(kategorijaPromjene: KategorijaPromjene){
     return this.request('post', baseUrl + '/kategorijapromjene', kategorijaPromjene)
   }
   updateKategorijaPromjene(id:number){
-    return this.request('put', baseUrl + '/kategorijapromjene/:' + String(id));
+    return this.request('put', baseUrl + '/kategorijapromjene/' + String(id));
   }
   deleteKategorijaPromjene(id:number){
-    return this.request('delete', baseUrl + '/kategorijapromjene/:' + String(id))
+    return this.request('delete', baseUrl + '/kategorijapromjene/' + String(id))
   }
 
 }

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,HostBinding, Input } from '@angular/core';
+import {Korisnik} from '../app/_services/korisnik'
+import {ModalService} from'../app/_services/modal.service'
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'my-app',
@@ -7,8 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Rocket Raccoon';
-  helpdesk:boolean=true;
-  dev:boolean=true;
-  user:boolean=true;
-  
+
+  constructor(public modalService: ModalService, private router:Router) {
+  }
+  ngOnInit(){
+    
+  }
+
 }

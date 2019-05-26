@@ -26,15 +26,15 @@ export class StatuspromjeneService {
     return this.request('get',baseUrl+'/statuspromjene')
   }
   getStatusPromjene(id:number){
-    return this.request('get',baseUrl+'/statuspromjene/:'+String(id))
+    return this.request('get',baseUrl+'/statuspromjene/'+String(id))
   }
   createStatusPromjene(statusPromjene:StatusPromjene){
     return this.request('post',baseUrl+'/statuspromjene',statusPromjene)
   }
   updateStatusPromjene(id:number){
-    return this.request('put',baseUrl+'/statuspromjene/:'+String(id))
+    return this.request('put',baseUrl+'/statuspromjene/'+String(id))
   }
   deleteStatusPromjene(id:number){
-    return this.request('delete',baseUrl+'/statuspromjene/:'+String(id))
+    return this.request('delete',baseUrl+'/statuspromjene/'+String(id))
   }
 }

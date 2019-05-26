@@ -29,16 +29,16 @@ export class PromjeneService {
     return this.request('get',baseUrl+'/promjena')
   }
   getPromjena(id:number){
-    return this.request('get',baseUrl+'/promjena/:'+String(id))
+    return this.request('get',baseUrl+'/promjena/'+String(id))
   }
   createPromjena(promjena:Promjena){
     return this.request('post',baseUrl+'/promjena',promjena)
   }
   deletePromjena(id:number){
-    return this.request('delete',baseUrl+'/promjena/:'+String(id))
+    return this.request('delete',baseUrl+'/promjena/'+String(id))
   }
   updatePromjena(id:number){
-    return this.request('put',baseUrl+'/promjena/:'+String(id)) 
+    return this.request('put',baseUrl+'/promjena/'+String(id)) 
   }
   
 }
