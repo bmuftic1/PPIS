@@ -26,15 +26,15 @@ export class TipdogadjajaService {
     return this.request('get',baseUrl+'/tipdogadjaja')
   }
   getTipDogadjaja(id:number){
-    return this.request('get',baseUrl+'/tipdogadjaja/'+String(id))
+    return this.request('get',baseUrl+'/tipdogadjaja/:'+String(id))
   }
   createTipDogadjaja(tipDogadjaja:TipDogadjaja){
     return this.request('post',baseUrl+'/tipdogadjaja',tipDogadjaja)
   }
   updateTipDogadjaja(id:number){
-    return this.request('put',baseUrl+'/tipdogadjaja/'+String(id))
+    return this.request('put',baseUrl+'/tipdogadjaja/:'+String(id))
   }
   deleteTipDogadjaja(id:number){
-    return this.request('delete',baseUrl+'/tipdogadjaja/'+String(id))
+    return this.request('delete',baseUrl+'/tipdogadjaja/:'+String(id))
   }
 }

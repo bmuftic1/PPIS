@@ -57,15 +57,9 @@
     padding-top: 2%;
   }
   .modal-fade{
-    border-radius: 0px;
-    border: 0px;
+    border-radius: 15px;
+    border: 1px;
     border-color:#0E4168; 
-  
-  }
-  .modal-header{
-    background-color: #0E4168;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
   }
 
   .red{

@@ -25,15 +25,15 @@ export class HistorijadogadjajService {
     return this.request('get', baseUrl + "/historijadogadjaj");
   }
   getHistorijaDogadjaj(id:number){
-    return this.request('get', baseUrl + '/historijadogadjaj/' + String(id));
+    return this.request('get', baseUrl + '/historijadogadjaj/:' + String(id));
   }
   createHistorijaDogadjaj(historijaDogadjaj: HistorijaDogadjaj){
     return this.request('post', baseUrl + "/historijadogadjaj", historijaDogadjaj);
   }
   updateHistorijaDogadjaj(id:number){
-    return this.request('put', baseUrl + '/historijadogadjaj/' + String(id));
+    return this.request('put', baseUrl + '/historijadogadjaj/:' + String(id));
   }
   deleteHistorijaDogadjaj(id:number){
-    return this.request('delete', baseUrl + '/historijadogadjaj/' + String(id))
+    return this.request('delete', baseUrl + '/historijadogadjaj/:' + String(id))
   }
 }

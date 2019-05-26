@@ -27,16 +27,16 @@ export class PrioritetpromjeneService {
     return this.request('get',baseUrl+'/prioritetpromjene')
   }
   getPrioritetPromjene(id:number){
-    return this.request('get',baseUrl+'/prioritetpromjene/'+String(id))
+    return this.request('get',baseUrl+'/prioritetpromjene/:'+String(id))
   }
   createPrioritetPromjene(prioritetPromjene:PrioritetPromjene){
     return this.request('post',baseUrl+'/prioritetpromjene',prioritetPromjene)
   }
   updatePrioritetPromjene(id:number){
-    return this.request('put',baseUrl+'/prioritetpromjene/'+String(id))
+    return this.request('put',baseUrl+'/prioritetpromjene/:'+String(id))
   }
   deletePrioritetPromjene(id:number){
-    return this.request('delete',baseUrl+'/prioritetpromjene/'+String(id))
+    return this.request('delete',baseUrl+'/prioritetpromjene/:'+String(id))
   }
 
 }

@@ -8,26 +8,10 @@ const { Korisnik } = require("../models");
 
 router.post("/korisnik", (req, res, next) => {
   const { firstName, lastName, username, password, ulogaId } = req.body;
-  Korisnik.create({
-    firstName,
-    lastName,
-    username,
-    password: md5(password),
-    ulogaId
-  })
+  Korisnik.create({ firstName, lastName, username, password, ulogaId })
     .then(result => {
-      const claims = {
-        userId: result.id,
-        name: firstName + " " + lastName,
-        username: username,
-        permissions: "user"
-      };
-      var token = jwt.sign(claims, jwtConfig.secret, {
-        expiresIn: "1000d"
-      });
       res.status(201).json({
-        success: true,
-        token: token
+        success: true
       });
     })
     .catch(err => {
@@ -68,7 +52,7 @@ router.put("/korisnik/:id", (req, res, next) => {
   let id = req.params.id;
   const { firstName, lastName, username, password, ulogaId } = req.body;
   Korisnik.update(
-    { firstName, lastName, username, password: md5(password), ulogaId },
+    { firstName, lastName, username, password, ulogaId },
     {
       where: { id },
       attributes: ["firstName", "lastName", "username", "password", "ulogaId"],

@@ -22,16 +22,16 @@
   margin-bottom: 5%
 }
 .form-status-greska{
-  background-color:grey;
+  background-color: red;
 }
 .form-status-cekanje{
-  background-color: rgb(119, 121, 3);
+  background-color: #DDCE00;
 }
 .form-status-uToku{
-  background-color: rgb(1, 86, 151)
+  background-color: #0090FF
 }
 .form-status-zavrseno{
-  background-color: rgb(2, 129, 57)
+  background-color: #0FBE5A
 }
 .btn-status{
   display: block;

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
+
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
@@ -17,23 +18,13 @@ import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
 import { DeveloperContentListComponent } from './developer-content-list/developer-content-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import {APP_BASE_HREF} from '@angular/common';
+import { ReportComponent } from './report/report.component';
+import { ReportWrapperComponent } from './report-wrapper/report-wrapper.component';
 @NgModule({
-  imports:      [ 
-    BrowserModule, 
-    FormsModule, 
-    NgbModule,
-    HttpClientModule, 
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      {path:'helpdesk', component: WrapperComponent},
-      {path:'developer',component:DeveloperWrapperComponent},
-      {path:'korisnik', component:GuestWrapperComponent}
-    ])
-  ],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent ],
+  imports:      [ BrowserModule, FormsModule, NgbModule,HttpClientModule, ReactiveFormsModule,ChartsModule],
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent, ReportComponent, ReportWrapperComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [NgbActiveModal],
   entryComponents: [LoginComponent],
   exports: [LoginComponent]
 })

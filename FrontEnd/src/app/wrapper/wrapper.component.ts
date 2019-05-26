@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PromjeneService} from '../_services/promjene.service'
-import {Promjena}from '../_services/promjena'
+import {PromjeneService} from 'src/app/_services/promjene.service'
+import {Promjena}from 'src/app/_services/promjena'
 
 
 @Component({
@@ -15,8 +15,8 @@ export class WrapperComponent implements OnInit {
   constructor(public promjeneService: PromjeneService) { }
 
   ngOnInit() {
-    //this.createPromjena();
-    //this.refresh();
+    this.createPromjena();
+    this.refresh();
   }
   async refresh() {
     const data = await this.promjeneService.getPromjene();
