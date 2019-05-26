@@ -108,4 +108,9 @@
 \contentsline {subsection}{\numberline {6.6}Dokumentovanost sistema}{30}{subsection.6.6}% 
 \contentsline {subsection}{\numberline {6.7}Autorizacija korisnika}{30}{subsection.6.7}% 
 \contentsline {section}{\numberline {7}Korisnički \textit {interface}-i}{32}{section.7}% 
-\contentsline {section}{\numberline {8}Zakonska ograničenja dizajna}{33}{section.8}% 
+\contentsline {subsection}{\numberline {7.1}Forme vidljive svim korisnicima}{32}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Forme vidljive \textit {helpdesk}-u}{34}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Forme vidljive razvojnom timu}{36}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Forme vidljive korisniku aplikacije}{38}{subsection.7.4}% 
+\contentsline {subsection}{\numberline {7.5}Forme vidljive komitetu za promjene}{39}{subsection.7.5}% 
+\contentsline {section}{\numberline {8}Zakonska ograničenja dizajna}{40}{section.8}% 

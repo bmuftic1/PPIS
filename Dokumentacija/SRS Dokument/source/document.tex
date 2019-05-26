@@ -765,7 +765,7 @@ Najjednostavniji način za opis arhitekture sistema je putem dijagrama klasa, na
 \center
 \includegraphics[scale=0.45]{../res/class.JPG}
 \caption{Dijagram klasa sistema}
-\label{erd}
+\label{class}
 \end{figure}
 
 \subsection{\textit{Entity Relationship} dijagram (ERD)}
@@ -857,6 +857,136 @@ Problem autorizacije u sistemu riješen je koristeći korisničke uloge i sesije
 \newpage
 
 \section{Korisnički \textit{interface}-i}
+
+\subsection{Forme vidljive svim korisnicima}
+
+Svi korisnici mogu vidjeti \textbf{početnu formu} (prikazanu na Slici \ref{s1}), na kojoj je prikazan logo firme Idea, godina objavljivanja web-aplikacije te informacije o timu koji je razvio samu web-aplikaciju. Jedina mogućnost koju mogu koristiti svi korisnici je pristup formi \textbf{Login}, nakon što se klikne na dugme u gornjem desnom uglu aplikacije.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/pocetna.PNG}
+\caption{Izgled početne forme}
+\label{s1}
+\end{figure}
+
+Forma za prijavu zapravo je \textit{pop-up} koji omogućava korisnicima unos korisničkog imena i korisničke šifre (koje dodjeljuje tehnički administrator sistema, jer i korisnici sistema, a i osobe koje ga razvijaju i poboljšavaju, moraju imati neophodnu autorizaciju za pristup sistemu, budući da se u njemu nalaze osjetljivi podaci o javnim ustanovama, softveru koji se razvija, te dokumentima koje koristi komitet za promjene). \\
+
+Forma za prijavu prikazana je na Slici \ref{s2}. Na Slici \ref{s3} prikazan je izgled forme nakon neuspješne prijave korisnika, odakle je vidljivo da poruke o greškama pri validaciji nisu napadne niti zbunjujuće, već da je korisniku omogućen jednostavan i intuitivan unos traženih podataka te lak pristup sistemu.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/login.PNG}
+\caption{Izgled \textit{pop-up}-a za prijavu korisnika}
+\label{s2}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.6]{../res/UI/login2.PNG}
+\caption{Izgled poruke o neuspješnoj validaciji}
+\label{s3}
+\end{figure}
+
+\newpage
+
+\subsection{Forme vidljive \textit{helpdesk}-u}
+
+Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao radnika u okviru sektora za podršku, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{upravljanje zahtjevima za promjene}, te \textbf{raspoređivanje događajima}. \\
+
+Nakon vršenja prijave koristeći svoje korisničke podatke, korisniku se prikazuje forma sa statusima događaja i njihovih trenutnih statusa. Izgled ove forme prikazan je na slici \ref{s4}, te je vidljivo da se na stranici nalazi glavni menu koji omogućava prelaz s jedne na drugu formu, te lista svih događaja i njihovih trenutnih statusa. \\
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/helpdesk.PNG}
+\caption{Izgled forme za pregled svih događaja}
+\label{s4}
+\end{figure}
+
+Mogući statusi događaja prikazani su na Slici \ref{s5}, te se mogu definisati na sljedeći način:
+
+\begin{enumerate}
+\item \textbf{Čekanje}: događaj nije raspoređen;
+\item \textbf{U toku}: događaj je raspoređen (poslan timu za razvoj na implementaciju);
+\item \textbf{Greška}: razvojni tim je prijavio grešku pri implementaciji promjene, te je neophodno hitno započeti s rješavanjem nastalog problema (koji može rezultovati promjenom specifikacije zahtjeva, ili odbacivanjem promjene);
+\item \textbf{Završeno}: promjena je uspješno implementirana, te je potrebno izvršiti izdavanje nove verzije sistema i njegovo ažuriranje u skladu sa standardnom procedurom.
+\end{enumerate}
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.4]{../res/UI/helpdesk2.PNG}
+\caption{Svi mogući statusi promjena}
+\label{s5}
+\end{figure}
+
+Ovisno o statusu promjene, boja polja koje informiše \textit{helpdesk} o statusu mijenja boju, u skladu s preporukama o dobrom dizajnu te postojećim implementacijama sličnih sistema. \\
+
+Druga forma vidljiva \textit{helpdesk}-u je forma za pregled svih trenutnih zahtjeva za promjenama koji su na čekanju. Izgled ove forme prikazan je na Slici \ref{s6}, odakle je vidljivo da se zahtjev za promjenom sastoji od imena i opisa, te da je zahtjev za promjenu moguće prihvatiti ili odbiti, kao i da je moguće (i neophodno, u slučaju prihvatanja zahtjeva) \textit{upload}-ovati PSO dokument koji će predstavljati osnovu za analizu zahtjeva za promjenom kada se isti prihvati i pošalje komitetu za promjene.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/helpdesk3.PNG}
+\caption{Izgled forme za pregled svih zahtjeva za promjene}
+\label{s6}
+\end{figure}
+
+Predviđena je i mogućnost pregleda izvještaja o statusima svih događaja kroz historiju, koja će biti prikazana u budućim verzijama dokumenta.
+
+\newpage
+
+\subsection{Forme vidljive razvojnom timu}
+
+Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao radnika u okviru sektora za razvoj firme Idea, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{prijava greške} i \textbf{pregled svih prijava }. \\
+
+Nakon vršenja prijave na sistem koristeći svoje korisničke podatke, korisniku se prikazuje forma sa poljima za unos opisa greške pri implementaciji promjene ili greške koja je detektovana u softveru, te detalja o istima. Izgled ove forme prikazan je na slici \ref{s7}. \\
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/developer.PNG}
+\caption{Izgled forme za prijavu greške}
+\label{s7}
+\end{figure}
+
+Na stranici se nalazi glavni menu koji omogućava prelaz s jedne forme na drugu. Druga forma omogućava pregled svih \textit{bug}-ova, odnosno grešaka pri korištenju neke od aplikacija koje firma Idea razvija, koje su prijavili korisnici, a koje razvojni tim ima dužnost ispraviti. Na ovoj formi nalaze se i zahtjevi za promjenama koji su dodijeljeni razvojnom timu kojem korisnik pripada, te koje je potrebno implementirati. \\
+
+Način na koji se tretiraju greške pri implementiranju promjena i \textit{bug}-ovi otkriveni nakon uvođenja promjena fundamentalno je različit, te je opisan kako slijedi:
+\begin{enumerate}
+\item Ukoliko član razvojnog tima prijavi \textbf{grešku pri implementaciji promjene}, odnosno ukoliko razvojni tim prijavi da iz nekog razloga u postojeći sistem ne može inkorporisati zahtjev za promjenom koji je ocijenjen kao isplativ i odobren za razvoj, \textit{helpdesk} je dužan odmah izvršiti reviziju PSO dokumenta, dodatno se konsultovati s komitetom te da donijeti konačnu odluku o odbacivanju zahtjeva ili promjeni specifikacije zahtjeva na osnovu koje se vrši implementacija promjene;
+\item Ukoliko korisnik aplikacije prijavi \textbf{\textit{bug}} u aplikaciji (sam način prijave biti će detaljnije opisan u narednom poglavlju), \textit{helpdesk} ne dobiva nikakvu notifikaciju, no lista svih \textit{bug}-ova (kojoj samo razvojni tim ima pristup) ažurira se na način da se prijava dodaje u listu kao novi unos. Unosi iz te liste svakodnevno se pokušavaju riješiti i lista se svakodnevno ažurira u ovisnosti o ispravljenim \textit{bug}-ovima (mada tim za razvoj mora odlučiti da li je prijavljeni \textit{bug} uopće zaista greška u aplikaciji, te ukoliko nije, unos je moguće obrisati iz liste jednostavnim odbacivanjem \textit{bug}-a).
+\end{enumerate}
+
+Izgled forme za prikaz liste sa svim prijavama prikazan je na Slici \ref{s8}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/developer2.PNG}
+\caption{Izgled forme za pregled liste svih prijavljenih \textit{bug}-ova}
+\label{s8}
+\end{figure}
+
+\newpage
+
+\subsection{Forme vidljive korisniku aplikacije}
+
+Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao nekog od korisnika aplikacija koje firma Idea razvija, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{prijava greške pri korištenju aplikacije} i \textbf{slanje zahtjeva za promjenama}. \\
+
+Nakon vršenja prijave koristeći svoje korisničke podatke, korisniku se prikazuje forma sa poljima za unos opisa greške pri korištenju aplikacije, te detalja o istoj. Izgled ove forme prikazan je na slici \ref{s9}. \\
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/user.PNG}
+\caption{Izgled forme za prijavu greške pri korištenju}
+\label{s9}
+\end{figure}
+
+Forma za podnošenje zahtjeva još uvijek je u razvoju, te će biti prikazana u budućim verzijama dokumenta.
+
+\newpage
+
+\subsection{Forme vidljive komitetu za promjene}
+
+Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao člana komiteta za promjene firme Idea, takvom korisniku omogućene je jedna funkcionalnost - \textbf{upravljanje svim zahtjevima koji su prihvaćeni od strane \textit{helpdesk}-a} i poslani komitetu na pregled i konačnu odluku. \\
+
+Kako bi komitet donio konačnu odluku o promjeni, neophodno je moći pregledati PSO dokument koji je \textit{helpdesk upload}-ovao, kao i osnovne informacije o promjenama. Sve ove funkcionalnosti biti će omogućene na jednoj formi, koja je još uvijek u razvoju, te koja će biti prikazana u budućim verzijama dokumenta. \\
 
 \newpage
 
