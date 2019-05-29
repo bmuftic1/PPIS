@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     this.users=[
       {id:0,firstName:'' ,lastName:'',username: 'helpdesk',password: 'helpdesk',inicijator:0,prijavio: 0,odobrio: 0,izvrsio: 0,napravioIzmjenu: 0,ulogaId: 0},
       {id:1,firstName:'' ,lastName:'',username: 'developer',password: 'developer',inicijator:0,prijavio: 0,odobrio: 0,izvrsio: 0,napravioIzmjenu: 0,ulogaId: 1},
-      {id:0,firstName:'' ,lastName:'',username: 'korisnik',password: 'korisnik',inicijator:0,prijavio: 0,odobrio: 0,izvrsio: 0,napravioIzmjenu: 0,ulogaId: 2}
+      {id:0,firstName:'' ,lastName:'',username: 'korisnik',password: 'korisnik',inicijator:0,prijavio: 0,odobrio: 0,izvrsio: 0,napravioIzmjenu: 0,ulogaId: 2},
+      {id:0,firstName:'' ,lastName:'',username: 'komitet',password: 'komitet',inicijator:0,prijavio: 0,odobrio: 0,izvrsio: 0,napravioIzmjenu: 0,ulogaId: 3}
       ]
   //console.log(this.loginForm.value.username);
   }
@@ -64,6 +65,9 @@ export class LoginComponent implements OnInit {
           break;
         case 2:
           this.router.navigate(['../korisnik'])
+          break;
+        case 3:
+          this.router.navigate(['../komitet'])
           break;
         
       }

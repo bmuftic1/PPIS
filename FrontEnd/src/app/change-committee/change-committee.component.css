@@ -1,0 +1,37 @@
+.row{
+    padding: 0%;
+  }
+  .col{
+    border: 1px solid white;
+  
+  }
+  .btn{
+    background-color:#0E4168;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5%;
+    float: right
+  }
+
+  
+.form-prioritet-jn{
+    color:white;
+    background-color: green;
+}
+.form-prioritet-n{
+    color:white;
+    background-color: blue;
+}
+.form-prioritet-s{
+    color:white;
+    background-color: orange;
+}
+.form-prioritet-v{
+    color:black;
+    background-color: yellow;
+}
+.form-prioritet-jv{
+    color:white;
+    background-color: red;
+}
