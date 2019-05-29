@@ -18,6 +18,10 @@ import { DeveloperContentListComponent } from './developer-content-list/develope
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import {APP_BASE_HREF} from '@angular/common';
+import { HelpdeskEventsComponent } from './helpdesk-events/helpdesk-events.component';
+import {ReportWrapperComponent} from './report-wrapper/report-wrapper.component'
+import { ReportComponent } from './report/report.component';
+import {ChartsModule} from 'ng2-charts';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -25,13 +29,14 @@ import {APP_BASE_HREF} from '@angular/common';
     NgbModule,
     HttpClientModule, 
     ReactiveFormsModule,
+    ChartsModule,
     RouterModule.forRoot([
       {path:'helpdesk', component: WrapperComponent},
       {path:'developer',component:DeveloperWrapperComponent},
       {path:'korisnik', component:GuestWrapperComponent}
     ])
   ],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent ],
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent, HelpdeskEventsComponent,ReportWrapperComponent,ReportComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [LoginComponent],
