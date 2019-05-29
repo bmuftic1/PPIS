@@ -1,6 +1,6 @@
 :host ::ng-deep .modal-header {
     color: #FFFFFF;
-    background-color: #0E4168;
+    background:rgba(14, 65, 104, 0.7);
     border-color: #0E4168;
     font-size: 18px;
     text-align: center
@@ -10,7 +10,7 @@
     font-size: 19px
   }
   .modal-body{
-    background-color: #071F32;
+    background:rgba(7, 31, 50, 0.8);
     color: #FFFFFF;
     padding: 5%;
   
@@ -63,7 +63,7 @@
   
   }
   .modal-header{
-    background-color: #0E4168;
+    background:rgba(14, 65, 104, 0.9);
     border-top-left-radius: 0rem;
     border-top-right-radius: 0rem;
   }

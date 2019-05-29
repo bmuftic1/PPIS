@@ -1,12 +1,16 @@
 .row{
-  padding: 0%;
+  margin: 1%;
+  -webkit-box-shadow: 8px 10px 23px 0.1px rgba(3,19,31,1);
+  -moz-box-shadow: 8px 10px 23px 0.1px rgba(3,19,31,1);
+  box-shadow: 8px 10px 23px 0.1px rgba(3,19,31,1);
 }
 .col{
-  border: 1px solid white;
+  background-color: #0E4168;
+  
 
 }
 .btn{
-  background-color:#0E4168;
+  background-color:#052842;
   color: white;
   margin-top: 5%;
   margin-bottom: 5%;
