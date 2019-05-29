@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   closeResult: string;
   submitted = false;
+  badLogin=false;
 
   users: Korisnik[];
   loginID:Korisnik;
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit {
   //console.log(this.loginForm.value.username);
   }
   closeModal() {
-    this.activeModal.close('Modal Closed');
+    this.activeModal.close(this.loginID);
+
   }
   get f() { 
     return this.loginForm.controls; }
@@ -48,11 +50,10 @@ export class LoginComponent implements OnInit {
         return;
     }
     this.loginID = this.users.find(x=>x.username==this.loginForm.value.username);
-    this.modalService.logIn(this.loginID);
-    //da sve aplikacije preko ovog servisa mogu dobiti info ko je logovan
-    //this.modalService.login.subscribe(logged=>this.loggedUser=logged); za dobivanje informacije u bilo kojoj komponenti
-    //komponenta mora imati importovani modalService i inicijaliziran u konstruktoru(ima iznad)
+    //this.modalService.logIn(this.loginID);
+    //this.modalService.login.subscribe(logged=>this.loggedUser=logged);
     if(this.loginID){
+      this.badLogin=false;
       this.closeModal();
       switch(this.loginID.ulogaId){
         case 0:
@@ -67,6 +68,8 @@ export class LoginComponent implements OnInit {
         
       }
     }
+    else
+    this.badLogin=true;
   }
   
 }

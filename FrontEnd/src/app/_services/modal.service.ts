@@ -12,6 +12,7 @@ export class ModalService {
   logIn(korisnik:Korisnik){
     this.loggedIn =korisnik;
     this.login.emit(this.loggedIn);
+
   }
   
 }
