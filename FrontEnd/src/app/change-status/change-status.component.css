@@ -17,7 +17,8 @@
   margin-left: 5%;
 }
 .controlBtn{
-  text-align: end
+  text-align: end;
+  vertical-align: bottom
 }
 .form-control{
   background-color:#0E4168;
@@ -41,4 +42,24 @@
   display: block;
   width: 100%;
   border: none;
+}
+.button {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(5, 40, 66);
+  padding: 6px 9px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  margin: 1%;
+  margin-top: 5%;
+
+}
+
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  background: rgb(26, 118, 194);
+  box-shadow: 0 5px 15px rgba(36, 156, 255, 0.6);
 }
