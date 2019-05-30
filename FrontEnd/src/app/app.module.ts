@@ -25,6 +25,7 @@ import {ChartsModule} from 'ng2-charts';
 import { ChangeRequestComponent } from './change-request/change-request.component';
 import { CommitteeWrapperComponent } from './committee-wrapper/committee-wrapper.component';
 import { ChangeCommitteeComponent } from './change-committee/change-committee.component';
+import { IdeaComponent } from './idea/idea.component';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -34,13 +35,14 @@ import { ChangeCommitteeComponent } from './change-committee/change-committee.co
     ReactiveFormsModule,
     ChartsModule,
     RouterModule.forRoot([
+      {path:'', component:IdeaComponent},
       {path:'helpdesk', component: WrapperComponent},
       {path:'developer',component:DeveloperWrapperComponent},
       {path:'korisnik', component:GuestWrapperComponent},
       {path:'komitet', component:CommitteeWrapperComponent}
     ])
   ],
-  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent, HelpdeskEventsComponent,ReportWrapperComponent,ReportComponent, ChangeRequestComponent, CommitteeWrapperComponent, ChangeCommitteeComponent ],
+  declarations: [ AppComponent, HelloComponent, WrapperComponent, ChangeStatusComponent, DeveloperContentComponent, DeveloperWrapperComponent, HelpdeskChangesComponent, HeaderComponent, LoginComponent, GuestComponent, GuestWrapperComponent, DeveloperContentListComponent, FooterComponent, HelpdeskEventsComponent,ReportWrapperComponent,ReportComponent, ChangeRequestComponent, CommitteeWrapperComponent, ChangeCommitteeComponent, IdeaComponent ],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [LoginComponent],
