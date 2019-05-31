@@ -1,0 +1,34 @@
+<div class="card">
+<div class = "card-header">
+  Zahtjevi za promjenama
+</div>
+<div class ="card-body">
+  <app-change *ngFor="let promjena of DefaultPromjene"></app-change>
+  <div [ngbCollapse]="isCollapsed">
+      <app-change *ngFor="let promjena of ExpandPromjene"></app-change>
+      <div [ngbCollapse]="isNewChangeCollapsed">
+          <!--New change input-->
+              
+      <div class="row rowstyle">
+          <input type="text" class="col col-sm-4" placeholder="Naziv promjene">
+          <input type="text" class="col col-sm-4" placeholder = "Kategorija promjene">
+          <div class="col col-sm-4">
+            <div class="col-sm-12">
+              <input class="button glow-button col-sm-12" type="button" (click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Pošalji">
+            </div>
+            <div class="col-sm-12">
+              <input class="button glow-button col-sm-12" type="button"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Odbaci">
+              </div>
+          </div>
+          </div>
+        </div>
+  <div class="row">
+      <button type="button"class="button glow-button col-sm-12"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" >Kreiraj zahtjev za promjenom</button>
+  </div>
+</div>
+<div class="row">
+  <button type="button"class="button glow-button col-sm-12" (click)="isCollapsed = !isCollapsed">...</button>
+</div>
+</div>
+  </div>
+

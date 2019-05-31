@@ -1,0 +1,44 @@
+
+<div class="row rowstyle" (click)="CollapseData=!CollapseData">
+    <div class="col col-sm-2" style=" display: flex;align-items: center;justify-content: center;">
+      Promjena1
+    </div>
+    <div class="col col-sm-4"style=" display: flex;align-items: center;justify-content: center;">
+      Vrsta promjene
+    </div>
+    <div class="col col-sm-3">
+      <select class="form-control" [disabled]="disableRazvojnitim">
+        <option>Nije postavljeno</option>
+        <option>Razvojni tim 1</option>
+        <option>Razvojni tim 2</option>
+      </select> 
+    </div>
+  <div class="col col-sm-3">
+    <select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default" [disabled]="disableStatus">
+        <option *ngFor="let status of Statuses" [(ngValue)]="status" >
+          {{status.text}}
+        </option>
+      </select>
+  </div>
+  <div class="col col-sm-12"[ngbCollapse]="CollapseData">
+    <div class="row">
+        <div class="col">Prijavio: korisnik</div>
+        <div class="col">Datum kreiranja: datum</div>
+        <div class="col">Zadnja izmjena: izmjena</div>
+      </div>
+      <div class="row">
+        <div class="col">Zadnja izmjena: izmjena</div>
+        <div class="col">Odobrio: komitet</div>
+        <div class="col">Prioritet: 1</div> 
+      </div>
+      <div class="row">    
+        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Započni">
+        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Pošalji">
+        <input class="button glow-button col" type="button"value="Izbriši">
+        <input *ngIf="Developer" class="button glow-button col" type="button"value="Arhiviraj">
+        <input *ngIf="Komitet" class="button glow-button col" type="button"value="PSO">
+        <input *ngIf="Komitet" class="button glow-button col" type="button"value="Odobri">
+       </div>
+  </div>
+  </div>
+
