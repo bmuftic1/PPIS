@@ -18,7 +18,6 @@ import { ChangeComponent } from './change/change.component';
 import { EventComponent } from './event/event.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { ReportComponent } from './report/report.component';
-import { GuestComponent } from './guest/guest.component';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -32,7 +31,7 @@ import { GuestComponent } from './guest/guest.component';
       {path:'korisnik',component:DashboardUserComponent}
 ])
   ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, GuestComponent],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [LoginComponent],
