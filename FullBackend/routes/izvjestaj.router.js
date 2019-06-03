@@ -75,17 +75,18 @@ router.get("/dogadjajPrvi/:id", (req, res, next) => {
 
 });
 
-router.get("/promjeneUser/:id", (req, res, next) => {
+router.get("/dogadjajUser/:id", (req, res, next) => {
   let id = req.params.id;
-  var sql = 'SELECT * FROM Promjenas where prijavio = ' + mysql.escape(id);
+  var sql = 'SELECT * FROM Dogadjajs where inicijator = ' + mysql.escape(id);
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);
   });
 
-});router.get("/dogadjajUser/:id", (req, res, next) => {
+});
+router.get("/brojKorisnika", (req, res, next) => {
   let id = req.params.id;
-  var sql = 'SELECT * FROM Dogadjajs where inicijator = ' + mysql.escape(id);
+  var sql = 'select count(*) brojKorisnika from Korisniks'
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);
