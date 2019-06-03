@@ -21,7 +21,7 @@ const statusDogadjajaRoutes = require('./routes/statusdogadjaja.router')
 const statusPromjeneRoutes = require('./routes/statuspromjene.router')
 const tipDogadjajaRoutes = require('./routes/tipdogadjaja.router')
 const authRoutes = require('./routes/auth.router')
-
+const izvjestajRoutes = require('./routes/izvjestaj.router')
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
@@ -79,7 +79,7 @@ app.use('/tipdogadjaja', tipDogadjajaRoutes)
 app.use('/historijapromjena', historijaPromjenaRoutes)
 app.use('/statusdogadjaja', statusDogadjajaRoutes)
 app.use('/auth', authRoutes);
-
+app.use('/promjeneIzvjestaj', izvjestajRoutes);
 
 //app.use('/problems', problemRoutes);
 //app.use('/users', userRoutes);
