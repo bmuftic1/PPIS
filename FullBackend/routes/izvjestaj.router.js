@@ -84,6 +84,15 @@ router.get("/dogadjajUser/:id", (req, res, next) => {
   });
 
 });
+router.get("/dogadjajPrioritet", (req, res, next) => {
+  let id = req.params.id;
+  var sql = 'SELECT * from PrioritetDogadjajas p right join Dogadjajs d   on d.prioritetId = p.id;'
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
 router.get("/brojKorisnika", (req, res, next) => {
   let id = req.params.id;
   var sql = 'select count(*) brojKorisnika from Korisniks'
