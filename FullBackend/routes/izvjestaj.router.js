@@ -52,4 +52,44 @@ router.get("/promjenePrva/:id", (req, res, next) => {
   });
 
 });
+
+
+router.get("/dogadjajZadnji/:id", (req, res, next) => {
+  let id = req.params.id;
+  var sql = 'SELECT * FROM HistorijaDogadjajs where datumOd = (SELECT max(h.datumOd) FROM HistorijaDogadjajs h where h.dogadjajId =' + mysql.escape(id) + ') and dogadjajId =' + mysql.escape(id);
+ 
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
+router.get("/dogadjajPrvi/:id", (req, res, next) => {
+  let id = req.params.id;
+  var sql = 'SELECT * FROM HistorijaDogadjajs where datumOd = (SELECT min(h.datumOd) FROM HistorijaDogadjajs h where h.dogadjajId =' + mysql.escape(id) + ') and dogadjajId =' + mysql.escape(id);
+ 
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
+
+router.get("/promjeneUser/:id", (req, res, next) => {
+  let id = req.params.id;
+  var sql = 'SELECT * FROM Promjenas where prijavio = ' + mysql.escape(id);
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});router.get("/dogadjajUser/:id", (req, res, next) => {
+  let id = req.params.id;
+  var sql = 'SELECT * FROM Dogadjajs where inicijator = ' + mysql.escape(id);
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
 module.exports = router;

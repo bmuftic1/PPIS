@@ -79,7 +79,7 @@ app.use('/tipdogadjaja', tipDogadjajaRoutes)
 app.use('/historijapromjena', historijaPromjenaRoutes)
 app.use('/statusdogadjaja', statusDogadjajaRoutes)
 app.use('/auth', authRoutes);
-app.use('/promjeneIzvjestaj', izvjestajRoutes);
+app.use('/izvjestaj', izvjestajRoutes);
 
 //app.use('/problems', problemRoutes);
 //app.use('/users', userRoutes);
