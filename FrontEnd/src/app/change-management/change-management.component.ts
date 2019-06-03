@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {Promjena} from '../_services/promjena';
 import {PromjeneService } from '../_services/promjene.service';
+import {KategorijaPromjene} from '../_services/kategorijapromjene'
 
 @Component({
   selector: 'app-change-management',
@@ -15,8 +16,12 @@ export class ChangeManagementComponent implements OnInit {
 
   isCollapsed:boolean =true;
   isNewChangeCollapsed:boolean=true;
+
   DefaultPromjene:Promjena[];
   ExpandPromjene:Promjena[];
+
+  KategorijePromjene:KategorijaPromjene[];
+  selectedKategorija:KategorijaPromjene;
   constructor() {
     this.DefaultPromjene=[];
     this.ExpandPromjene =[];
@@ -28,6 +33,7 @@ export class ChangeManagementComponent implements OnInit {
     if(this.AllPromjene) this.getAllPromjene();
     if(this.PromjeneForMe) this.getPromjeneForDev();
     if(this.PromjeneKomitet) this.getPromjeneForCommity();
+    this.getAllKategorijePromjene();
 
   }
   async getPromjeneOfUser(id:number){
@@ -55,4 +61,17 @@ export class ChangeManagementComponent implements OnInit {
     this.ExpandPromjene=Promjene;
   }
 
+  async getAllKategorijePromjene(){
+    let kategorije = await [new KategorijaPromjene(),new KategorijaPromjene(),]
+    this.KategorijePromjene =kategorije;
+  }
+  submitPromjena(){
+    this.isNewChangeCollapsed=!this.isNewChangeCollapsed
+  }
+  setKategorija(kategorija:any){
+    this.selectedKategorija=kategorija;
+  }
+  async savePromjena(promjena:Promjena){
+
+  }
 }

@@ -27,6 +27,10 @@
     transition: all 0.2s ease-in-out;
     border: none;
     margin: 1%;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
   
   .glow-button:hover {
@@ -41,3 +45,26 @@
     box-shadow: 8px 10px 23px 0.1px rgba(3,19,31,1);
     color: white;
   }
+  .text{
+    text-align: center
+}
+
+.input{
+  background-color:#0E4168;
+  border-color: white;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.form-control{
+  position: relative;
+  display: inline-block;
+  left: 18%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  background-color:#0E4168;
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}

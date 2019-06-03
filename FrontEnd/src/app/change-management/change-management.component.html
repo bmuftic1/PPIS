@@ -5,25 +5,28 @@
 <div class ="card-body">
   <app-change *ngFor="let promjena of DefaultPromjene"></app-change>
   <div [ngbCollapse]="isCollapsed">
-      <app-change *ngFor="let promjena of ExpandPromjene"></app-change>
+      <app-change *ngFor="let promjena of ExpandPromjene" [promjena]="promjena"></app-change>
       <div [ngbCollapse]="isNewChangeCollapsed">
           <!--New change input-->
               
       <div class="row rowstyle">
-          <input type="text" class="col col-sm-4" placeholder="Naziv promjene">
-          <input type="text" class="col col-sm-4" placeholder = "Kategorija promjene">
-          <div class="col col-sm-4">
-            <div class="col-sm-12">
-              <input class="button glow-button col-sm-12" type="button" (click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Pošalji">
+          <input type="text" class="input col-sm-4" placeholder="Opis promjene" name="opis">
+          
+      <select class="form-control col-sm-4 "(ngModelChange)="setKategorija($event)"[(ngModel)]="selectedKategorija" [ngModelOptions]="{standalone: true}">
+        <option *ngFor ="let kategorija of KategorijePromjene" [(ngValue)]="kategorija">{{kategorija.nazivKategorije}}</option>
+      </select> 
+          <div class="col col-sm-4" style="margin-top: 2% ;margin-bottom:2%" >
+            <div class="col-sm-12" >
+              <input class="button glow-button col-sm-12" type="button"  (click)="submitPromjena()" value="Pošalji">
             </div>
-            <div class="col-sm-12">
-              <input class="button glow-button col-sm-12" type="button"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Odbaci">
+            <div class="col-sm-12" >
+              <input class="button glow-button col-sm-12" type="button" (click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Odbaci">
               </div>
           </div>
           </div>
         </div>
   <div class="row">
-      <button type="button"class="button glow-button col-sm-12"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" >Kreiraj zahtjev za promjenom</button>
+      <button *ngIf="isNewChangeCollapsed" type="button"class="button glow-button col-sm-12"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" style ="width: 80%">Kreiraj zahtjev za promjenom</button>
   </div>
 </div>
 <div class="row">
