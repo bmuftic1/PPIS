@@ -143,5 +143,15 @@ router.get("/korisnici", (req, res, next) => {
 
 });
 
+router.get("/status/:status", (req, res, next) => {
+  let status = req.params.status;
+  status.replace('_', ' ')
+  var sql = `SELECT * FROM Promjenas where opis like '%${status}%'`;
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
 
 module.exports = router;
