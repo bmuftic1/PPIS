@@ -105,7 +105,6 @@ router.get("/brojKorisnika", (req, res, next) => {
 
 
 router.get("/promjenecr", (req, res, next) => {
-  let id = req.params.id;
   var sql = `SELECT * FROM Promjenas where opis like '%cekanje%' or opis like '%rjesavanje%'`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
@@ -116,7 +115,6 @@ router.get("/promjenecr", (req, res, next) => {
 
 
 router.get("/promjenekategorija", (req, res, next) => {
-  let id = req.params.id;
   var sql = `SELECT k.nazivKategorije, count(p.kategorijaPromjeneId) broj FROM KategorijaPromjenes k, Promjenas p where k.id=p.kategorijaPromjeneId group by k.nazivKategorije`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
@@ -127,7 +125,6 @@ router.get("/promjenekategorija", (req, res, next) => {
 
 
 router.get("/tipovidogadjaja", (req, res, next) => {
-  let id = req.params.id;
   var sql = `SELECT t.tipDogadjaja, count(d.tipId) broj FROM Dogadjajs d, TipDogadjajas t where t.id=d.tipId group by t.id`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
@@ -135,5 +132,16 @@ router.get("/tipovidogadjaja", (req, res, next) => {
   });
 
 });
+
+router.get("/korisnici", (req, res, next) => {
+
+  var sql = `SELECT k.firstName, k.lastName, k.username, k.password, u.naziv FROM Korisniks k, Ulogas u where u.id=k.ulogaId`;
+  db.query(sql, function(err, rez) {
+	  if (err) console.log(err);
+	  else res.status(200).send(rez);
+  });
+
+});
+
 
 module.exports = router;
