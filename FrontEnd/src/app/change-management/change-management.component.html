@@ -3,9 +3,9 @@
   Zahtjevi za promjenama
 </div>
 <div class ="card-body">
-  <app-change *ngFor="let promjena of DefaultPromjene"></app-change>
+  <app-change *ngFor="let promjena of DefaultPromjene" [changeSettings]='ChangeSettings'></app-change>
   <div [ngbCollapse]="isCollapsed">
-      <app-change *ngFor="let promjena of ExpandPromjene" [promjena]="promjena"></app-change>
+      <app-change *ngFor="let promjena of ExpandPromjene" [promjena]="promjena" [changeSettings]='ChangeSettings'></app-change>
       <div [ngbCollapse]="isNewChangeCollapsed">
           <!--New change input-->
               

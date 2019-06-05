@@ -18,6 +18,7 @@ import { ChangeComponent } from './change/change.component';
 import { EventComponent } from './event/event.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { ReportComponent } from './report/report.component';
+import { DashboardHelpdeskComponent } from './dashboard-helpdesk/dashboard-helpdesk.component';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -28,10 +29,11 @@ import { ReportComponent } from './report/report.component';
     ChartsModule,
     RouterModule.forRoot([
       {path:'', component:IdeaComponent},
-      {path:'korisnik',component:DashboardUserComponent}
+      {path:'korisnik',component:DashboardUserComponent},
+      {path:'helpdesk',component:DashboardHelpdeskComponent}
 ])
   ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [LoginComponent],

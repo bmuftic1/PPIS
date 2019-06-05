@@ -8,7 +8,9 @@ import {KategorijaPromjene} from '../_services/kategorijapromjene'
   templateUrl: './change-management.component.html',
   styleUrls: ['./change-management.component.css']
 })
+
 export class ChangeManagementComponent implements OnInit {
+  @Input()ChangeSettings:any;
   @Input()MyPromjene:boolean=false;
   @Input()AllPromjene:boolean =false;
   @Input()PromjeneKomitet:boolean =false;
