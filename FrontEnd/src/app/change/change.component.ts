@@ -30,7 +30,8 @@ export class ChangeComponent implements OnInit {
   @Output() onApproved = new EventEmitter<boolean>();
 
   default:any;
-  historija:HistorijaPromjena;
+  historijaZadnja:HistorijaPromjena;
+  historijaPrva:HistorijaPromjena;
 
   CollapseData:boolean=true;
 
@@ -43,7 +44,7 @@ export class ChangeComponent implements OnInit {
     {text: "Završeno", style:"form-control form-status-zavrseno"}
   ]
   ngOnInit() {
-    this.GetHistory();
+    this.GetHistories();
     this.default =this.Statuses[0];//ovdje se treba uzeti status iz historije
 
   }
@@ -51,8 +52,9 @@ export class ChangeComponent implements OnInit {
     this.default = status
   }
 
-  async GetHistory(){
-    this.historija= await new HistorijaPromjena();
+  async GetHistories(){
+    this.historijaZadnja= await new HistorijaPromjena();
+    this.historijaPrva =await new HistorijaPromjena();
     this.default =this.Statuses[0];//ovdje se treba uzeti status iz historije
   }
   async delete(){}
