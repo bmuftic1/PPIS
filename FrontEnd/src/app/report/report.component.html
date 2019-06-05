@@ -8,24 +8,26 @@
     <br>
   <table class="table">
       <thead>
+        <th><div class="text-center">Ime</div></th>
+        <th><div class="text-center">Prezime</div></th>
         <th><div class="text-center">Username</div></th>
-        <th><div class="text-center">Email</div></th>
         <th><div class="text-center">Uloga</div></th>
-        <th><div class="text-center">Kreiran</div></th>
         <th></th>
       </thead>
       <tbody>
-          <tr *ngFor="let korisnik of korisnici">
-            <td>{{korisnik.username}}</td>
-            <td>{{korisnik.email}}</td>
-            <td>{{korisnik.uloga}}</td>
-            <td>{{korisnik.kreiran}}</td>
+          <tr *ngFor="let korisnik of listaKorisnika">
+            <td class="text-center">{{korisnik.firstName}}</td>
+            <td class="text-center">{{korisnik.lastName}}</td>
+            <td class="text-center">{{korisnik.username}}</td>
+            <td class="text-center">{{korisnik.naziv}}</td>
             <!---<td>
             <button class="w3-button w3-white"><i class="fas fa-edit" style="font-size:24px;color:green;position:relatice;top:7px"></i></button>
             </td>-->
             <td>
+              <div class="text-center">
                 <button class="button-user">Detalji</button>
-            </td>
+              </div>
+              </td>
            </tr>
       </tbody>
     </table>
@@ -38,8 +40,7 @@
     <div class="col col-sm-3">
         <div class="text-center">
             <legend>Broj registovanih korisnika</legend>
-            <legend>55</legend></div>
-            <!--<legend>{{korisnik.ukupno}}</legend>-->
+            <legend>{{broj}}</legend></div>
             <hr>
     </div>
     <div class="col col-sm-4">

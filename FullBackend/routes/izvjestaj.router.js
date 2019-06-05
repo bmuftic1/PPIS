@@ -135,7 +135,7 @@ router.get("/tipovidogadjaja", (req, res, next) => {
 
 router.get("/korisnici", (req, res, next) => {
 
-  var sql = `SELECT k.firstName, k.lastName, k.username, k.password, u.naziv FROM Korisniks k, Ulogas u where u.id=k.ulogaId`;
+  var sql = `SELECT k.firstName, k.lastName, k.username, u.naziv FROM Korisniks k, Ulogas u where u.id=k.ulogaId`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);

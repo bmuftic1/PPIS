@@ -47,3 +47,6 @@ legend{
   box-shadow: 0 3px #666;
   transform: translateY(2px);
 }
+td{
+  color:white;
+}
