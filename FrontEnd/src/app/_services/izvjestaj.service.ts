@@ -24,4 +24,7 @@ export class IzvjestajService {
     listaKorisnika(){
         return this.request('get',baseUrl+'/izvjestaj/korisnici')
     }
+    kategorijaPromjene(){
+        return this.request('get',baseUrl+'/izvjestaj/promjenekategorija')
+    }
 }
