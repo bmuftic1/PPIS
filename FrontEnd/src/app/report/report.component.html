@@ -91,14 +91,14 @@
       <table class="table">
           <thead>
             <th><div class="text-center">Opis</div></th>
-            <th><div class="text-center">Status</div></th>
+            <th><div class="text-center">Kategorija</div></th>
             <th><div class="text-center">Prioritet</div></th>
           </thead>
           <tbody>
-              <tr *ngFor="let promjena of promjene">
+              <tr *ngFor="let promjena of nizPromjena">
                 <td>{{promjena.opis}}</td>
-                <td>{{promjena.status}}</td>
-                <td>{{promjena.prioritet}}</td>
+                <td>{{promjena.nazivKategorije}}</td>
+                <td>{{promjena.prioritetPromjene}}</td>
                </tr>
           </tbody>
         </table>
@@ -252,10 +252,10 @@
               <th><div class="text-center">Tip</div></th>
             </thead>
             <tbody>
-                <tr *ngFor="let dogadjaj of dogadjaji">
-                  <td>{{dogadjaj.opis}}</td>
-                  <td>{{dogadjaj.prioritet}}</td>
-                  <td>{{dogadjaj.tip}}</td>
+                <tr *ngFor="let dogadjaj of nizDogadjaja">
+                  <td class="text-center">{{dogadjaj.dogadjaj}}</td>
+                  <td class="text-center">{{dogadjaj.prioritetId}}</td>
+                  <td class="text-center">{{dogadjaj.tipId}}</td>
                  </tr>
             </tbody>
           </table>

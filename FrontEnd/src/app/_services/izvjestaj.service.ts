@@ -27,4 +27,13 @@ export class IzvjestajService {
     kategorijaPromjene(){
         return this.request('get',baseUrl+'/izvjestaj/promjenekategorija')
     }
+    tipoviDogadjaja(){
+        return this.request('get',baseUrl+'/izvjestaj/tipovidogadjaja')
+    }
+    promjeneCekanjeRjesavanje(){
+        return this.request('get',baseUrl+'/izvjestaj/promjenecr')
+    }
+    dogadjajPrioritet(){
+        return this.request('get',baseUrl+'/izvjestaj/dogadjajPrioritet')
+    }
 }
