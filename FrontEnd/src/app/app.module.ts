@@ -19,6 +19,8 @@ import { EventComponent } from './event/event.component';
 import { DashboardUserComponent } from './dashboard-user/dashboard-user.component';
 import { ReportComponent } from './report/report.component';
 import { DashboardHelpdeskComponent } from './dashboard-helpdesk/dashboard-helpdesk.component';
+import { DashboardDevComponent } from './dashboard-dev/dashboard-dev.component';
+import { DashboardCommitteeComponent } from './dashboard-committee/dashboard-committee.component';
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -30,10 +32,12 @@ import { DashboardHelpdeskComponent } from './dashboard-helpdesk/dashboard-helpd
     RouterModule.forRoot([
       {path:'', component:IdeaComponent},
       {path:'korisnik',component:DashboardUserComponent},
-      {path:'helpdesk',component:DashboardHelpdeskComponent}
+      {path:'helpdesk',component:DashboardHelpdeskComponent},
+      {path:'developer',component:DashboardDevComponent},
+      {path:'komitet',component:DashboardCommitteeComponent}
 ])
   ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent, DashboardDevComponent, DashboardCommitteeComponent],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
   entryComponents: [LoginComponent],

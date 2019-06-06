@@ -1,3 +1,39 @@
-<p>
-  event-management works!
-</p>
+<div class="card">
+  <div class = "card-header">
+    Prijave grešaka
+  </div>
+  <div class ="card-body">
+    <app-event *ngFor="let greska of DefaultGreske" [changeSettings]='ChangeSettings'></app-event>
+    <div [ngbCollapse]="isCollapsed">
+        <app-event *ngFor="let greska of ExpandGreske" [greska]="greska" [changeSettings]='ChangeSettings'></app-event>
+        <div [ngbCollapse]="isNewEventCollapsed">
+            <!--New change input-->
+                
+        <div class="row rowstyle">
+            <input type="text" class="col col-sm-4" placeholder="Opis greške" name="opis">
+            
+            <select class="form-control col-sm-4 "(ngModelChange)="setKategorija($event)"[(ngModel)]="selectedKategorija" [ngModelOptions]="{standalone: true}">
+              <option *ngFor ="let kategorija of KategorijaGreske" [(ngValue)]="kategorija">{{kategorija.tipDogadjaja}}</option>
+            </select> 
+
+            <div class="col col-sm-4">
+              <div class="col-sm-12">
+                <input class="button glow-button col-sm-12" type="button" (click)="submitGreska()" value="Pošalji">
+              </div>
+              <div class="col-sm-12">
+                <input class="button glow-button col-sm-12" type="button"(click)="isNewEventCollapsed = !isNewChangeCollapsed" value="Odbaci">
+                </div>
+            </div>
+            </div>
+          </div>
+    <div class="row">
+        <button type="button"class="button glow-button col-sm-12"(click)="isNewEventCollapsed = !isNewEventCollapsed" >Prijavi grešku</button>
+    </div>
+  </div>
+  <div class="row">
+    <button type="button"class="button glow-button col-sm-12" (click)="isCollapsed = !isCollapsed">...</button>
+  </div>
+  </div>
+</div>
+  
+  
