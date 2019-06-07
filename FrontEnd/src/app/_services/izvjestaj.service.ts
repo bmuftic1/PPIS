@@ -54,6 +54,28 @@ export class IzvjestajService {
     promjenePrijavio(prijavioId:number){
         return this.request('get',baseUrl+'/promjeneUser/'+String(prijavioId))
     }
+    promjeneIzvrsava(izvrsavaId:number){
+        return this.request('get', baseUrl+'/promjeneDev/'+String(izvrsavaId))
+    }
+    promjeneOdobrava(odobravaId:number){
+        return this.request('get', baseUrl+'/promjeneKomitet/'+String(odobravaId))
+    }
+    zadnjaHistorijaPromjene(promjenaId){
+        return this.request('get', baseUrl+'/promjeneZadnja/'+String(promjenaId))
+    }
+    prvaHistorijaPromjene(promjenaId){
+        return this.request('get', baseUrl+'/promjenePrva/'+String(promjenaId))
+    }
+    zadnjaHistorijaDogadjaja(eventId){
+        return this.request('get', baseUrl+'/dogadjajZadnji/'+String(eventId))
+    }
+    prvaHistorijaDogadjaja(eventId){
+        return this.request('get', baseUrl+'/dogadjajPrvi/'+String(eventId))
+    }
+    dogadjajInicirao(inicijatorId){
+        return this.request('get', baseUrl+'/dogadjajUser/'+String(inicijatorId))
+    }
+
 
 
 }
