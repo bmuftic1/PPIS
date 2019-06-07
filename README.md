@@ -15,6 +15,20 @@ The information system has the following types of users:
 3. Development team;
 4. Software users.
 
+4 different test users have been created to represent each of these roles and to demonstrate their responsibilities:
+1. Change management team:
+Username: ekrupalija1
+Password: helpdesk
+2. Change comitee
+Username: khalilbegovic1
+Password: komitet
+3. Development team:
+Username: tpribisic1
+Password: developer
+4. Software user:
+Username: ikubat1
+Password: korisnik
+
 ## Functionalities
 
 The system offers the following functionalities:
