@@ -5,6 +5,8 @@ import { ChartsModule } from 'ng2-charts';
 import { TestBed } from '@angular/core/testing';
 import { Promjena } from '../_services/promjena';
 import { Dogadjaj } from '_old/src/app/_services/dogadjaj';
+import { HistorijaPromjena } from '../_services/historijapromjena';
+import { HistorijaDogadjaj } from '../_services/historijadogadjaj';
 
 @Component({
   selector: 'app-report',
@@ -13,9 +15,20 @@ import { Dogadjaj } from '_old/src/app/_services/dogadjaj';
 })
 export class ReportComponent implements OnInit {
 
+  promjenaId:number;
+  eventId:number;
+  inicijatorId:number;
   nizKorisnika:Korisnik[];
   nizPromjena:Promjena[];
   nizDogadjaja:Dogadjaj[];
+  nizPromjenePrijavio:Promjena[];
+  nizPromjeneIzvrsava:Promjena[];
+  nizPromjeneOdobrava:Promjena[];
+  nizZadnjaHistorijaPromjene:HistorijaPromjena[];
+  nizPrvaHistorijaPromjene:HistorijaPromjena[];
+  nizZadnjaHistorijaDogadjaja:HistorijaDogadjaj[];
+  nizPrvaHistorijaDogadjaja:HistorijaDogadjaj[];
+  nizDogadjajInicirao:HistorijaDogadjaj[];
   broj:any;
   kategorija1:any;
   kategorija2:any;
@@ -31,13 +44,29 @@ export class ReportComponent implements OnInit {
   constructor(public report:IzvjestajService) { }
 
   ngOnInit() {
-    this.brojKorisnika();
     this.nizKorisnika=[];
+    this.nizPromjenePrijavio=[];
+    this.nizPromjeneIzvrsava=[];
+    this.nizPromjeneOdobrava=[];
+    this.nizZadnjaHistorijaPromjene=[];
+    this.nizPrvaHistorijaPromjene=[];
+    this.nizZadnjaHistorijaDogadjaja=[];
+    this.nizPrvaHistorijaDogadjaja=[];
+    this.nizDogadjajInicirao=[];
+    this.brojKorisnika();
     this.listaKorisnika();
     this.kategorijePromjena();
     this.tipoviDogadjaja();
     this.promjeneCekanjeRjesavanje();
     this.dogadjajPrioritet();
+    this.promjenePrijavio(this.promjenaId);
+    this.promjeneIzvrsava(this.promjenaId);
+    this.promjeneOdobrava(this.promjenaId);
+    this.zadnjaHistorijaPromjene(this.promjenaId);
+    this.prvaHistorijaPromjene(this.promjenaId);
+    this.zadnjaHistorijaDogadjaja(this.eventId);
+    this.prvaHistorijaDogadjaja(this.eventId);
+    this.dogadjajInicirao(this.inicijatorId);
   }
 
   async brojKorisnika(){
@@ -100,5 +129,45 @@ export class ReportComponent implements OnInit {
     const data = await this.report.dogadjajPrioritet();
     console.log(data);
     this.nizDogadjaja=data;  
+  }
+  async promjenePrijavio(prijavioId:number){
+    const data = await this.report.promjenePrijavio(prijavioId);
+    console.log(data);
+    this.nizPromjenePrijavio=data;
+  }
+  async promjeneIzvrsava(izvrsavaId:number){
+    const data = await this.report.promjeneIzvrsava(izvrsavaId);
+    console.log(data);
+    this.nizPromjeneIzvrsava=data;
+  }
+  async promjeneOdobrava(odobravaId:number){
+    const data = await this.report.promjeneOdobrava(odobravaId);
+    console.log(data);
+    this.nizPromjeneOdobrava=data;
+  }
+  async zadnjaHistorijaPromjene(promjenaId:number){
+    const data = await this.report.zadnjaHistorijaPromjene(promjenaId);
+    console.log(data);
+    this.nizZadnjaHistorijaPromjene=data;
+  }
+  async prvaHistorijaPromjene(promjenaId:number){
+    const data = await this.report.prvaHistorijaPromjene(promjenaId);
+    console.log(data);
+    this.nizPrvaHistorijaPromjene=data;
+  }
+  async zadnjaHistorijaDogadjaja(eventId:number){
+    const data = await this.report.zadnjaHistorijaDogadjaja(eventId);
+    console.log(data);
+    this.nizZadnjaHistorijaDogadjaja=data;
+  }
+  async prvaHistorijaDogadjaja(eventId:number){
+    const data = await this.report.prvaHistorijaDogadjaja(eventId);
+    console.log(data);
+    this.nizPrvaHistorijaDogadjaja=data;
+  }
+  async dogadjajInicirao(inicijatorId:number){
+    const data = await this.report.dogadjajInicirao(inicijatorId);
+    console.log(data);
+    this.nizDogadjajInicirao=data;
   }
 }

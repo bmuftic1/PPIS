@@ -122,8 +122,8 @@
         <tbody>
             <tr *ngFor="let promjena of promjene">
               <td>{{promjena.opis}}</td>
-              <td>{{promjena.kategorija}}</td>
-              <td>{{promjena.prioritet}}</td>
+              <td>{{promjena.nazivKategorije}}</td>
+              <td>{{promjena.prioritetPromjene}}</td>
              </tr>
         </tbody>
       </table>
@@ -147,8 +147,8 @@
       <tbody>
           <tr *ngFor="let promjena of promjene">
             <td>{{promjena.opis}}</td>
-            <td>{{promjena.status}}</td>
-            <td>{{promjena.prioritet}}</td>
+            <td>{{promjena.nazivKategorije}}</td>
+            <td>{{promjena.prioritetPromjene}}</td>
            </tr>
       </tbody>
     </table>
@@ -172,8 +172,8 @@
       <tbody>
           <tr *ngFor="let promjena of promjene">
             <td>{{promjena.opis}}</td>
-            <td>{{promjena.status}}</td>
-            <td>{{promjena.prioritet}}</td>
+            <td>{{promjena.nazivKategorije}}</td>
+            <td>{{promjena.prioritetPromjene}}</td>
            </tr>
       </tbody>
     </table>
@@ -196,9 +196,9 @@
       </thead>
       <tbody>
           <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.datum}}</td>
+            <td>{{promjena.datumOd}}</td>
             <td>{{promjena.status}}</td>
-            <td>{{promjena.izmjena}}</td>
+            <td>{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -221,9 +221,9 @@
       </thead>
       <tbody>
           <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.datum}}</td>
+            <td>{{promjena.datumDo}}</td>
             <td>{{promjena.status}}</td>
-            <td>{{promjena.izmjena}}</td>
+            <td>{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -277,9 +277,9 @@
           </thead>
           <tbody>
               <tr *ngFor="let dogadjaj of dogadjaji">
-                <td>{{dogadjaj.opis}}</td>
-                <td>{{dogadjaj.prioritet}}</td>
-                <td>{{dogadjaj.tip}}</td>
+                <td class="text-center">{{dogadjaj.dogadjaj}}</td>
+                <td class="text-center">{{dogadjaj.prioritetId}}</td>
+                <td class="text-center">{{dogadjaj.tipId}}</td>
                </tr>
           </tbody>
         </table>
@@ -300,7 +300,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let togadjaj of dogadjaji">
-              <td>{{dogadjaj.datum}}</td>
+              <td>{{dogadjaj.datumDo}}</td>
               <td>{{dogadjaj.status}}</td>
              </tr>
         </tbody>
@@ -322,7 +322,7 @@
       </thead>
       <tbody>
           <tr *ngFor="let togadjaj of dogadjaji">
-            <td>{{dogadjaj.datum}}</td>
+            <td>{{dogadjaj.datumOd}}</td>
             <td>{{dogadjaj.status}}</td>
            </tr>
       </tbody>
