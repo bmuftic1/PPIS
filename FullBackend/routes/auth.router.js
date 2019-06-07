@@ -12,15 +12,16 @@ router.post("/login", (req, res, next) => {
       username,
       password: md5(password)
     },
-    attributes: ["id", "firstName", "lastName", "username"],
+    attributes: ["id", "firstName", "lastName", "username", "ulogaId"],
     raw: true
   })
     .then(result => {
-      const { id, firstName, lastName, username } = result;
+      const { id, firstName, lastName, username, ulogaId } = result;
       const claims = {
         userId: id,
         name: firstName + " " + lastName,
         username,
+        ulogaId,
         permissions: "user"
       };
       const token = jwt.sign(claims, config.secret, {

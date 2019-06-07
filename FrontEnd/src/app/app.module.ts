@@ -21,6 +21,7 @@ import { ReportComponent } from './report/report.component';
 import { DashboardHelpdeskComponent } from './dashboard-helpdesk/dashboard-helpdesk.component';
 import { DashboardDevComponent } from './dashboard-dev/dashboard-dev.component';
 import { DashboardCommitteeComponent } from './dashboard-committee/dashboard-committee.component';
+import {RouteGuardService} from './_services/route-guard.service'
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -31,15 +32,15 @@ import { DashboardCommitteeComponent } from './dashboard-committee/dashboard-com
     ChartsModule,
     RouterModule.forRoot([
       {path:'', component:IdeaComponent},
-      {path:'korisnik',component:DashboardUserComponent},
-      {path:'helpdesk',component:DashboardHelpdeskComponent},
-      {path:'developer',component:DashboardDevComponent},
-      {path:'komitet',component:DashboardCommitteeComponent}
+      {path:'korisnik',component:DashboardUserComponent,canActivate: [RouteGuardService], data:{expectedRole:0}},
+      {path:'helpdesk',component:DashboardHelpdeskComponent,canActivate: [RouteGuardService], data:{expectedRole:2}},
+      {path:'developer',component:DashboardDevComponent,canActivate: [RouteGuardService], data:{expectedRole:1}},
+      {path:'komitet',component:DashboardCommitteeComponent,canActivate: [RouteGuardService], data:{expectedRole:3}}
 ])
   ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent, DashboardDevComponent, DashboardCommitteeComponent],
   bootstrap:    [ AppComponent ],
-  providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' },RouteGuardService],
   entryComponents: [LoginComponent],
   exports: [LoginComponent]
 })
