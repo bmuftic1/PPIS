@@ -62,3 +62,23 @@
     background: rgb(26, 118, 194);
     box-shadow: 0 5px 15px rgba(36, 156, 255, 0.6);
   }
+  .form-prioritet-jn{
+    color:white;
+    background-color: green;
+}
+.form-prioritet-n{
+    color:white;
+    background-color: blue;
+}
+.form-prioritet-s{
+    color:white;
+    background-color: orange;
+}
+.form-prioritet-v{
+    color:black;
+    background-color: yellow;
+}
+.form-prioritet-jv{
+    color:white;
+    background-color: red;
+}

@@ -75,16 +75,17 @@ export class LoginComponent implements OnInit {
       this.authService.token=data.token;
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(data.token);
+      console.log(decodedToken);
       this.closeModal();
       switch(decodedToken.ulogaId){
         case 0:
-          this.router.navigate(['../helpdesk'])
+          this.router.navigate(['../korisnik'])
           break;
         case 1:
           this.router.navigate(['../developer'])
           break;
         case 2:
-          this.router.navigate(['../korisnik'])
+          this.router.navigate(['../helpdesk'])
           break;
         case 3:
           this.router.navigate(['../komitet'])

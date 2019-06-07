@@ -1,7 +1,22 @@
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Injectable } from '@angular/core';
+import { environment } from '../environment.prod';
+import { Dogadjaj } from './dogadjaj';
+import { HistorijaDogadjaj } from './historijadogadjaj';
+import { HistorijaPromjena } from './historijapromjena';
+import { KategorijaPromjene } from './kategorijapromjene';
+import { Korisnik } from './korisnik';
+import { PrioritetDogadjaja } from './prioritetdogadjaja';
+import {PrioritetPromjene} from './prioritetpromjene';
+import { Promjena }from './promjena'
+import { StatusDogadjaja }from './statusdogadjaja';
+import { StatusPromjene } from './statuspromjene';
+import { TipDogadjaja } from './tipdogadjaja';
+import { Uloga } from './uloga'
 
-const baseUrl='http://localhost:3000'
+
+
+const baseUrl = environment.url + 'izvjestaj';
 @Injectable({
     providedIn:'root'
 })
@@ -19,21 +34,26 @@ export class IzvjestajService {
         });
     }
     brojKorisnika(){
-        return this.request('get',baseUrl+'/izvjestaj/brojKorisnika')
+        return this.request('get',baseUrl+'/brojKorisnika')
     }
     listaKorisnika(){
-        return this.request('get',baseUrl+'/izvjestaj/korisnici')
+        return this.request('get',baseUrl+'/korisnici')
     }
     kategorijaPromjene(){
-        return this.request('get',baseUrl+'/izvjestaj/promjenekategorija')
+        return this.request('get',baseUrl+'/promjenekategorija')
     }
     tipoviDogadjaja(){
-        return this.request('get',baseUrl+'/izvjestaj/tipovidogadjaja')
+        return this.request('get',baseUrl+'/tipovidogadjaja')
     }
     promjeneCekanjeRjesavanje(){
-        return this.request('get',baseUrl+'/izvjestaj/promjenecr')
+        return this.request('get',baseUrl+'/promjenecr')
     }
     dogadjajPrioritet(){
-        return this.request('get',baseUrl+'/izvjestaj/dogadjajPrioritet')
+        return this.request('get',baseUrl+'/dogadjajPrioritet')
     }
+    promjenePrijavio(prijavioId:number){
+        return this.request('get',baseUrl+'/promjeneUser/'+String(prijavioId))
+    }
+
+
 }

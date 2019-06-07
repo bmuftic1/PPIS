@@ -14,9 +14,14 @@
       </select> 
     </div>
   <div class="col col-sm-3">
-    <select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default" [disabled]="disableStatus">
+    <select [className]=default.style *ngIf="!Komitet"(ngModelChange)="setStatus($event)" [(ngModel)]="defaultStatus" [disabled]="disableStatus">
         <option *ngFor="let status of Statuses" [(ngValue)]="status" >
           {{status.text}}
+        </option>
+      </select>
+      <select [className]=default.style *ngIf="Komitet" (ngModelChange)="setPrioritet($event)" [(ngModel)]="default" >
+        <option *ngFor="let prioritet of Prioriteti" [(ngValue)]="prioritet">
+          {{prioritet.text}}
         </option>
       </select>
   </div>
@@ -29,7 +34,8 @@
       <div class="row">
         <div class="col">Zadnji izmjenio: dev</div>
         <div class="col">Odobrio: komitet</div>
-        <div class="col">Prioritet: 1</div> 
+        <div class="col"*ngIf="!Komitet">Prioritet: 1</div> 
+        <div class="col"*ngIf="Komitet">Status: 1</div> 
       </div>
       <div class="row">    
         <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Započni">
