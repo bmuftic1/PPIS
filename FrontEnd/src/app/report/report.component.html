@@ -51,8 +51,6 @@
                       [data]="pieChartData1"
                       [labels]="pieChartLabels1"
                       [chartType]="pieChartType1"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"
                       [options]="chartOptions"
                       ></canvas>
                       <br>
@@ -66,8 +64,6 @@
                     [data]="pieChartData"
                     [labels]="pieChartLabels"
                     [chartType]="pieChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"
                     [options]="chartOptions"></canvas>
                     <br>
     </div>
@@ -96,9 +92,9 @@
           </thead>
           <tbody>
               <tr *ngFor="let promjena of nizPromjena">
-                <td>{{promjena.opis}}</td>
-                <td>{{promjena.nazivKategorije}}</td>
-                <td>{{promjena.prioritetPromjene}}</td>
+                <td class="text-center">{{promjena.opis}}</td>
+                <td class="text-center">{{promjena.nazivKategorije}}</td>
+                <td class="text-center">{{promjena.prioritetPromjene}}</td>
                </tr>
           </tbody>
         </table>
@@ -120,10 +116,10 @@
           <th><div class="text-center">Prioritet</div></th>
         </thead>
         <tbody>
-            <tr *ngFor="let promjena of promjene">
-              <td>{{promjena.opis}}</td>
-              <td>{{promjena.nazivKategorije}}</td>
-              <td>{{promjena.prioritetPromjene}}</td>
+            <tr *ngFor="let promjena of nizPromjenePrijavio">
+              <td class="text-center">{{promjena.opis}}</td>
+              <td class="text-center">{{promjena.kategorijaPromjeneId}}</td>
+              <td class="text-center">{{promjena.prioritetPromjeneId}}</td>
              </tr>
         </tbody>
       </table>
@@ -145,10 +141,10 @@
         <th><div class="text-center">Prioritet</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.opis}}</td>
-            <td>{{promjena.nazivKategorije}}</td>
-            <td>{{promjena.prioritetPromjene}}</td>
+          <tr *ngFor="let promjena of nizPromjeneOdobrava">
+            <td class="text-center">{{promjena.opis}}</td>
+            <td class="text-center">{{promjena.nazivKategorije}}</td>
+            <td class="text-center">{{promjena.prioritetPromjene}}</td>
            </tr>
       </tbody>
     </table>
@@ -170,10 +166,10 @@
         <th><div class="text-center">Prioritet</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.opis}}</td>
-            <td>{{promjena.nazivKategorije}}</td>
-            <td>{{promjena.prioritetPromjene}}</td>
+          <tr *ngFor="let promjena of nizPromjeneIzvrsava">
+            <td class="text-center">{{promjena.opis}}</td>
+            <td class="text-center">{{promjena.nazivKategorije}}</td>
+            <td class="text-center">{{promjena.prioritetPromjene}}</td>
            </tr>
       </tbody>
     </table>
@@ -195,10 +191,10 @@
         <th><div class="text-center">Izmjena</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.datumOd}}</td>
-            <td>{{promjena.status}}</td>
-            <td>{{promjena.korisnik}}</td>
+          <tr *ngFor="let promjena of nizZadnjaHistorijaPromjene">
+            <td class="text-center">{{promjena.datumOd}}</td>
+            <td class="text-center">{{promjena.status}}</td>
+            <td class="text-center">{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -220,10 +216,10 @@
         <th><div class="text-center">Izmjena</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let promjena of promjene">
-            <td>{{promjena.datumDo}}</td>
-            <td>{{promjena.status}}</td>
-            <td>{{promjena.korisnik}}</td>
+          <tr *ngFor="let promjena of nizPrvaHistorijaPromjene">
+            <td class="text-center">{{promjena.datumDo}}</td>
+            <td class="text-center">{{promjena.status}}</td>
+            <td class="text-center">{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -276,7 +272,7 @@
             <th><div class="text-center">Tip</div></th>
           </thead>
           <tbody>
-              <tr *ngFor="let dogadjaj of dogadjaji">
+              <tr *ngFor="let dogadjaj of nizDogadjajInicirao">
                 <td class="text-center">{{dogadjaj.dogadjaj}}</td>
                 <td class="text-center">{{dogadjaj.prioritetId}}</td>
                 <td class="text-center">{{dogadjaj.tipId}}</td>
@@ -299,9 +295,9 @@
           <th><div class="text-center">Status</div></th>
         </thead>
         <tbody>
-            <tr *ngFor="let togadjaj of dogadjaji">
-              <td>{{dogadjaj.datumDo}}</td>
-              <td>{{dogadjaj.status}}</td>
+            <tr *ngFor="let togadjaj of nizZadnjaHistorijaDogadjaja">
+              <td class="text-center">{{dogadjaj.datumDo}}</td>
+              <td class="text-center">{{dogadjaj.status}}</td>
              </tr>
         </tbody>
       </table>
@@ -321,9 +317,9 @@
           <th><div class="text-center">Status</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let togadjaj of dogadjaji">
-            <td>{{dogadjaj.datumOd}}</td>
-            <td>{{dogadjaj.status}}</td>
+          <tr *ngFor="let togadjaj of nizPrvaHistorijaDogadjaja">
+            <td class="text-center">{{dogadjaj.datumOd}}</td>
+            <td class="text-center">{{dogadjaj.status}}</td>
            </tr>
       </tbody>
     </table>
