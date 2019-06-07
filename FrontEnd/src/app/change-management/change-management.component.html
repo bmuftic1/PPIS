@@ -8,7 +8,7 @@
       <app-change *ngFor="let promjena of ExpandPromjene" [promjena]="promjena" [changeSettings]='ChangeSettings'></app-change>
       <div [ngbCollapse]="isNewChangeCollapsed">
           <!--New change input-->
-              
+    <form (ngSubmit)="submitPromjena($event)">
       <div class="row rowstyle">
           <input type="text" class="input col-sm-4" placeholder="Opis promjene" name="opis">
           
@@ -17,13 +17,14 @@
       </select> 
           <div class="col col-sm-4" style="margin-top: 2% ;margin-bottom:2%" >
             <div class="col-sm-12" >
-              <input class="button glow-button col-sm-12" type="button"  (click)="submitPromjena()" value="Pošalji">
+              <input class="button glow-button col-sm-12" type="submit" value="Pošalji">
             </div>
             <div class="col-sm-12" >
               <input class="button glow-button col-sm-12" type="button" (click)="isNewChangeCollapsed = !isNewChangeCollapsed" value="Odbaci">
               </div>
           </div>
           </div>
+        </form>    
         </div>
   <div class="row">
       <button *ngIf="isNewChangeCollapsed" type="button"class="button glow-button col-sm-12"(click)="isNewChangeCollapsed = !isNewChangeCollapsed" style ="width: 80%">Kreiraj zahtjev za promjenom</button>

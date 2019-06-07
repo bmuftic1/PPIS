@@ -13,7 +13,6 @@ export class RouteGuardService implements CanActivate {
     // this will be passed from the route config
     // on the data property
     const expectedRole = route.data.expectedRole;
-    const token = localStorage.getItem('token');
     // decode the token to get its payload
 
     const helper = new JwtHelperService();
