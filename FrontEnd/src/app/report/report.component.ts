@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IzvjestajService } from '../_services/izvjestaj.service';
 import { Korisnik } from '_old/src/app/_services/korisnik';
 import { ChartsModule } from 'ng2-charts';
@@ -14,6 +14,14 @@ import { HistorijaDogadjaj } from '../_services/historijadogadjaj';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
+
+  @Input() changeSettings:any;
+  disableSth:boolean=false;
+  
+  Helpdesk=false;
+  Korisnik=false;
+  Developer=false;
+  Komitet=false;
 
   promjenaId:number;
   eventId:number;
@@ -32,8 +40,12 @@ export class ReportComponent implements OnInit {
   broj:any;
   kategorija1:any;
   kategorija2:any;
+  kategorija3:any;
+  kategorija4:any;
   broj1:any;
   broj2:any;
+  broj3:any;
+  broj4:any;
   public pieChartLabels:any;
   public pieChartData:any;
   public pieChartType: any;
@@ -53,20 +65,20 @@ export class ReportComponent implements OnInit {
     this.nizZadnjaHistorijaDogadjaja=[];
     this.nizPrvaHistorijaDogadjaja=[];
     this.nizDogadjajInicirao=[];
-    this.listaKorisnika();
-    this.brojKorisnika();
-    this.kategorijePromjena();
-    this.tipoviDogadjaja();
-    this.promjeneCekanjeRjesavanje();
-    this.promjenePrijavio(this.promjenaId);
-    this.promjeneOdobrava(this.promjenaId);
-    this.promjeneIzvrsava(this.promjenaId);
-    this.zadnjaHistorijaPromjene(this.promjenaId);
-    this.prvaHistorijaPromjene(this.promjenaId);
-    this.dogadjajPrioritet();
-    this.dogadjajInicirao(this.inicijatorId);
-    this.zadnjaHistorijaDogadjaja(this.eventId);
-    this.prvaHistorijaDogadjaja(this.eventId);
+    this.listaKorisnika();//helpdesk
+    this.brojKorisnika();//helpdesk
+    this.kategorijePromjena();//helpdesk
+    this.tipoviDogadjaja();//helpdesk
+    this.promjeneCekanjeRjesavanje();//helpdesk
+    this.promjenePrijavio(this.promjenaId);//user
+    this.promjeneOdobrava(this.promjenaId);//komitet
+    this.promjeneIzvrsava(this.promjenaId);//dev
+    this.zadnjaHistorijaPromjene(this.promjenaId);//no helpdesk
+    this.prvaHistorijaPromjene(this.promjenaId);//no helpdesk
+    this.dogadjajPrioritet();//helpdesk
+    this.dogadjajInicirao(this.inicijatorId);//user
+    this.zadnjaHistorijaDogadjaja(this.eventId);//no helpdesk
+    this.prvaHistorijaDogadjaja(this.eventId);//no helpdesk
   }
 
   async brojKorisnika(){
@@ -102,9 +114,15 @@ export class ReportComponent implements OnInit {
     const data = await this.report.kategorijaPromjene();
     console.log(data);
     this.kategorija1=data[0].nazivKategorije;
+    this.kategorija2=data[1].nazivKategorije;
+    this.kategorija3=data[2].nazivKategorije;
+    this.kategorija4=data[3].nazivKategorije;
     this.broj1=data[0].broj;
-    this.pieChartLabels = [];
-    this.pieChartData = [];
+    this.broj2=data[1].broj;
+    this.broj3=data[2].broj;
+    this.broj4=data[3].broj;
+    this.pieChartLabels = [this.kategorija1,this.kategorija2,this.kategorija3,this.kategorija4];
+    this.pieChartData = [this.broj1,this.broj2,this.broj3,this.broj4];
     this.pieChartType= 'pie';
     this.chartOptions={
       responsive:true,
