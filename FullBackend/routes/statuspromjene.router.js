@@ -59,7 +59,7 @@ router.put("/statuspromjene/:id", (req, res, next) => {
 
 router.delete("/statuspromjene/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["status"], raw: true })
+  StatusPromjene.destroy({ where: { id }, attributes: ["status"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })

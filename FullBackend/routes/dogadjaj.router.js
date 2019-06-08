@@ -68,7 +68,7 @@ router.put("/dogadjaj/:id", (req, res, next) => {
 
 router.delete("/dogadjaj/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({
+  Dogadjaj.destroy({
     where: { id },
     attributes: ["dogadjaj", "prioritetId", "tipId", "inicijator"],
     raw: true

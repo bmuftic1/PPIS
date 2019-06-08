@@ -126,7 +126,7 @@ router.put("/promjena/:id", (req, res, next) => {
 
 router.delete("/promjena/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({
+  Promjena.destroy({
     where: { id },
     attributes: [
       "opis",

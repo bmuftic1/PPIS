@@ -63,7 +63,7 @@ router.put("/prioritetpromjene/:id", (req, res, next) => {
 
 router.delete("/prioritetpromjene/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["prioritetPromjene"], raw: true })
+  PrioritetPromjene.destroy({ where: { id }, attributes: ["prioritetPromjene"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })

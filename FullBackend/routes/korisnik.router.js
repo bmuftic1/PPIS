@@ -83,7 +83,7 @@ router.put("/korisnik/:id", (req, res, next) => {
 
 router.delete("/korisnik/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({
+  Korisnik.destroy({
     where: { id },
     attributes: ["firstName", "lastName", "username", "password", "ulogaId"],
     raw: true

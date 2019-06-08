@@ -59,7 +59,7 @@ router.put("/uloga/:id", (req, res, next) => {
 
 router.delete("/uloga/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["id", "naziv"], raw: true })
+  Uloga.destroy({ where: { id }, attributes: ["id", "naziv"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })

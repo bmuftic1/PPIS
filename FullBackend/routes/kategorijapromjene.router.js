@@ -65,7 +65,7 @@ router.put("/kategorijapromjene/:id", (req, res, next) => {
 
 router.delete("/kategorijapromjene/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["nazivKategorije"], raw: true })
+  KategorijaPromjene.destroy({ where: { id }, attributes: ["nazivKategorije"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })

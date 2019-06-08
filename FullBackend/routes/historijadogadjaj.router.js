@@ -59,7 +59,7 @@ router.put("/historijadogadjaj/:id", (req, res, next) => {
 
 router.delete("/historijadogadjaj/:id", (req, res, next) => {
   const id = req.params.id;
-  User.destroy({ where: { id }, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true })
+  HistorijaDogadjaj.destroy({ where: { id }, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })
