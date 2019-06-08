@@ -394,9 +394,8 @@ Slanje zahtjeva za promjenom omogućeno je samo korisnicima koji su prijavljeni 
 Ulaz u sistem predstavlja sam zahtjev za promjenom, koji je opisan putem sljedećih podataka:
 
 \begin{itemize}
-\item Naziv zahtjeva:
 \item Opis zahtjeva;
-\item Vrsta zahtjeva (jedna od predefinisanih vrijednosti iz liste: nova funkcionalnost, izmjena postojeće aktivnosti).
+\item Vrsta zahtjeva (jedna od predefinisanih vrijednosti iz liste: promjena sistema, promjena usluge, ostalo).
 \end{itemize}
 
 \subsubsection{Obrada}
@@ -465,11 +464,11 @@ Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, jer je važno ispr
 
 \subsubsection{Uvod}
 
-Članovi razvojnog tima mogu pregledati listu svih pristiglih prijava koje su im dodijeljene od strane \textit{helpdesk}-a. U okviru liste koju mogu pregledati nalaze se greške u sistemu (koje su prijavili korisnici ili članovi razvojnog tima), kao i zahtjevi koje je potrebno implementirati. Nakon uspješne implementacije ili popravljanja grešaka, omogućeno je njihovo arhiviranje.
+Članovi razvojnog tima mogu pregledati listu svih pristiglih prijava koje su im dodijeljene od strane \textit{helpdesk}-a. Korisnici softvera mogu pregledati listu svih prijava koje su poslali. \textit{Helpdesk} može pregledati listu svih prijava za sve korisnike i sve razvojne timove. U okviru liste koju mogu pregledati nalaze se greške u sistemu (koje su prijavili korisnici ili članovi razvojnog tima), kao i zahtjevi koje je potrebno implementirati. Nakon uspješne implementacije ili popravljanja grešaka, omogućeno je njihovo arhiviranje.
 
 \subsubsection{Preduslovi}
 
-Pregled svih prijava omogućen je članovima razvojnog tima, budući da je lista prijava prilagođena aktivnostima koje razvojni tim vrši (implementacija novih zahtjeva i ispravljanje grešaka). Da bi se prijava prikazala u listi, potrebno je da je \textit{helpdesk} prvo rasporedi datom razvojnom timu.
+Pregled svih prijava omogućen je članovima razvojnog tima, budući da je lista prijava prilagođena aktivnostima koje razvojni tim vrši (implementacija novih zahtjeva i ispravljanje grešaka). Da bi se prijava prikazala u listi, potrebno je da je \textit{helpdesk} prvo rasporedi datom razvojnom timu. Pregled svih prijava u sistemu omogućen je i \textit{helpdesk}-u (bez filtriranja), budući da oni u svakom trenutku trebaju imati uvid u sve što se dešava u sistemu. Pregled svih prijava koje je korisnik prijavio omogućene su korisniku softvera.
 
 \subsubsection{Ulazi}
 
@@ -477,7 +476,7 @@ Nema ulaza u sistem - nakon uspješne prijave, svim članovima razvojnog tima om
 
 \subsubsection{Obrada}
 
-Obrada zahtjeva sastoji se u dobavljanju svih podataka o prijavama te vršenje njihovog filtriranja ovisno o tome kojem razvojnom timu korisnik pripada.
+Obrada zahtjeva sastoji se u dobavljanju svih podataka o prijavama te vršenje njihovog filtriranja ovisno o tome kojoj vrsti korisnika ili kojem razvojnom timu korisnik pripada.
 
 Cijeli proces prikazan je na Slici \ref{act5} u vidu dijagrama aktivnosti.
 
@@ -500,11 +499,11 @@ Prioritet realizacije ovog funkcionalnog zahtjeva je srednji, budući da je neop
 
 \subsubsection{Uvod}
 
-Članovi razvojnog tima vrše popravljanje prijavljenih grešaka te implementiranje dodijeljenih zahtjeva za promjenama. Nakon uspješnog vršenja implementacije, vrše arhiviranje istih kako bi se uklonile s liste aktivnih prijava.
+Članovi razvojnog tima vrše popravljanje prijavljenih grešaka te implementiranje dodijeljenih zahtjeva za promjenama. Nakon uspješnog vršenja implementacije, vrše arhiviranje istih kako bi se uklonile s liste aktivnih prijava. Arhiviranje je omogućeno i \textit{helpdesk}-u.
 
 \subsubsection{Preduslovi}
 
-Arhiviranje prijava omogućeno je isključivo članovima tima za razvoj. Da bi se prijava arhivirala, prvo se mora početi s njenom implementacijom (njen status mora biti \textit{U toku}).
+Arhiviranje prijava omogućeno je isključivo članovima tima za razvoj i \textit{helpdesk}-u. Da bi se prijava arhivirala, prvo se mora početi s njenom implementacijom (njen status mora biti \textit{U toku}).
 
 \subsubsection{Ulazi}
 
@@ -512,7 +511,7 @@ Ulaz u sistem je pritisak na dugme za arhiviranje prijave.
 
 \subsubsection{Obrada}
 
-Nakon što član razvojnog tima pritisne na dugme za arhiviranje, sistem vrši označavanje prijave arhiviranom te je uklanja iz liste aktivnih prijava.
+Nakon što autorizovani korisnik pritisne na dugme za arhiviranje, sistem vrši označavanje prijave arhiviranom te je uklanja iz liste aktivnih prijava.
 
 Cijeli proces prikazan je na Slici \ref{act6} u vidu dijagrama aktivnosti.
 
@@ -535,11 +534,11 @@ Prioritet realizacije ovog funkcionalnog zahtjeva je nizak, budući da arhiviran
 
 \subsubsection{Uvod}
 
-Nakon što korisnik pošalje zahtjev za promjenom i \textit{helpdesk} napravi studiju izvodljivosti i odobri zahtjev, on se šalje komitetu za promjene na pregled i konačno odlučivanje. Iz tog razloga komitet za promjene treba imati omogućen pregled svih pristiglih zahtjeva o kojima je potrebno odlučivati.
+Nakon što korisnik pošalje zahtjev za promjenom i \textit{helpdesk} napravi studiju izvodljivosti i odobri zahtjev, on se šalje komitetu za promjene na pregled i konačno odlučivanje. Iz tog razloga komitet za promjene treba imati omogućen pregled svih pristiglih zahtjeva o kojima je potrebno odlučivati. Pregled svih zahtjeva omogućen je i \textit{helpdesk}-u, koji u svakom trenutku treba imati uvid u sve dijelove sistema. Pregled zahtjeva koje je korisnik poslao omogućeno je tom korisniku.
 
 \subsubsection{Preduslovi}
 
-Pregled svih pristiglih zahtjeva omogućen je samo komitetu za promjene. Da bi se zahtjev prikazao u listi, \textit{helpdesk} ga prvo mora odobriti i priložiti PSO dokument za komitet.
+Pregled svih pristiglih zahtjeva omogućen je komitetu za promjene, korisnicima softvera i \textit{helpdesk}-u. Da bi se zahtjev prikazao u listi komiteta za promjene, \textit{helpdesk} ga prvo mora odobriti i priložiti PSO dokument za komitet.
 
 \subsubsection{Ulazi}
 
@@ -716,38 +715,32 @@ Prioritet realizacije ovog funkcionalnog zahtjeva je visok, jer \textit{helpdesk
 
 \subsubsection{Uvod}
 
-Članovi \textit{helpdesk}-a, osim mogućnosti pregleda svih trenutno aktivnih događaja u sistemu, trebaju biti u mogućnosti pregledati i historijat svih događaja. To uključuje sve događaje arhivirane od strane članova tima za razvoj (greške koje su uspješno ispravljene, promjene koje su uspješno implementirane) ili od strane komiteta za promjene (promjene koje su odbačene), posebno ukoliko je potrebno pregledati sve faze u kojima su se neki zahtjev ili prijava nalazili od početka do kraja svoje aktivnosti u sistemu.
+Članovi \textit{helpdesk}-a, osim mogućnosti pregleda svih trenutno aktivnih događaja u sistemu, trebaju biti u mogućnosti pregledati i historijat svih događaja. To uključuje sve događaje arhivirane od strane članova tima za razvoj (greške koje su uspješno ispravljene, promjene koje su uspješno implementirane) ili od strane komiteta za promjene (promjene koje su odbačene), posebno ukoliko je potrebno pregledati sve faze u kojima su se neki zahtjev ili prijava nalazili od početka do kraja svoje aktivnosti u sistemu. Ostali tipovi korisnika mogu vidjeti izvještaje, no  samo one njihove dijelove koji su namijenjeni toj grupi korisnika.
 
 \subsubsection{Preduslovi}
 
-Pregled izvještaja omogućen je samo \textit{helpdesk}-u.
+Pregled kompletnih izvještaja omogućen je samo \textit{helpdesk}-u. Pregled djelimičnih izvještaja omogućen je svim ostalim vrstama korisnika (razvojni tim, korisnik softvera, komitet za promjene).
 
 \subsubsection{Ulazi}
 
-Ulaz u sistem predstavljaju podaci o događajima prema kojima se historijat treba filtrirati:
-
-\begin{itemize}
-\item Vrsta događaja (zahtjev ili prijava);
-\item Status događaja (na čekanju, u obradi, završen);
-\item Datum aktivnosti.
-\end{itemize}
+Nema ulaza u sistem - dovoljno je preći na formu za pregled izvještaja, nakon čega se prikazuju svi relevantni podaci.
 
 \subsubsection{Obrada}
 
-Nakon prijave na sistem i odabira opcije za pregled izvještaja, član \textit{helpdesk}-a unosi informacije prema kojima je potrebno filtrirati događaje (ukoliko se ne odabere nijedna opcija za filtriranje, prikazuju se svi događaji u historijatu sistema). Nakon toga lista svih događaja se ažurira i prikazuju se samo relevantni događaji sistema.
+Nakon prijave na sistem i odabira opcije za pregled izvještaja, prikazuje se izvještaj s informacijama relevantnim za grupu korisnika kojoj prijavljeni korisnik pripada.
 
 Cijeli proces prikazan je na Slici \ref{act12} u vidu dijagrama aktivnosti.
 
 \begin{figure}[H]
 \center
 \includegraphics[scale=0.5]{../res/Activity/activity12.JPG}
-\caption{Proces pregleda izvještaja i filtriranja događaja}
+\caption{Proces pregleda izvještaja}
 \label{act12}
 \end{figure}
 
 \subsubsection{Izlazi}
 
-Izlaz iz sistema predstavlja prikaz ažurirane liste svih događaja u sistemu, u kojoj su prikazani samo događaji koji ispunjavaju uslov filtriranja.
+Izlaz iz sistema predstavlja prikaz adekvatnog izvještaja, u kojoj su prikazani samo događaji koje dati korisnik smije vidjeti.
 
 \subsubsection{Prioritet realizacije}
 
@@ -816,25 +809,25 @@ Tehnološki \textit{stack} sistema najlakše je predstaviti koristeći dijagram 
 
 \quad Odziv sistema predstavlja količinu vremena od slanja zahtjeva do početka slanja odgovora sistema. Odziv sistema je veoma važna karakteristika za performanse sistema, te spor odziv (odnosno, dugo vrijeme odziva sistema) uzrokuje slabije performanse sistema. Vrijeme odziva sistema ovisi o mnogo faktora, a primarno o mogućnosti sistema da se nosi s velikim brojem korisnika bez da dođe do zagušenja mreže, te se zbog tog razloga hardverske komponente sistema trebaju prilagoditi na način da omogućavaju normalno funkcionisanje sistema i pri velikom broju zahtjeva od strane korisnika. \\
 
-Budući da je sistem koji se razvija web-aplikacija koju će koristiti veliki broj, kako zaposlenika firme Idea, tako i kompanija za koje firma Idea razvija aplikacije, neophodno je da odziv sistema bude brz i u slučajevima kada u jednom trenutku bude poslan veliki broj zahtjeva. Ovakav odziv omogućiti će se putem osposobljavanja više kopija istog servisa na koji će se preusmjeravati zahtjevi ovisno o stanju u redovima čekanja (koji trebaju biti približno isto napunjeni).
+Budući da je sistem koji se razvija web-aplikacija koju će koristiti veliki broj, kako zaposlenika firme Idea, tako i kompanija za koje firma Idea razvija aplikacije, neophodno je da odziv sistema bude brz i u slučajevima kada u jednom trenutku bude poslan veliki broj zahtjeva (maksimalno 0.5 sekundi). Ovakav odziv omogućiti će se putem osposobljavanja više kopija istog servisa na koji će se preusmjeravati zahtjevi ovisno o stanju u redovima čekanja (koji trebaju biti približno isto napunjeni).
 
 \subsection{Propusnost}
 
 \quad Propusnost sistema se definiše kao količina informacija koje sistem može obraditi po jedinici vremena, te je također veoma važna za performanse sistema. Ona ovisi o mnogo faktora, uključujući brzinu procesiranja pojedinih informacija, kao i vrijeme odziva sistema, s kojim je propusnost direktno povezana. Budući da se propusnost odnosi na količinu informacija koje se mogu prenijeti preko mreže, pročitati ili napisati na medije za spašavanje podataka ili na broj operacija ulazno-izlaznih (I/O) uređaja, i propusnost sistema ovisi o više hardverskih komponenti, te je potrebno analizirati koja od naprijed navedenih propusnosti je esencijalna za funkcionisanje sistema te se analogno prilagoditi i hardverske komponente. \\
 
-Propusnost sistema koji se razvija u vezi je s odzivom sistema koji je prethodno definisan - propusnost sistema treba biti velika (veliki broj istovremeno prijavljenih korisnika), što će se omogućiti povećanjem kapaciteta redova čekanja, odnosno povećanjem broja redova čekanja (budući da je skaliranje u širinu jeftinije).
+Propusnost sistema koji se razvija u vezi je s odzivom sistema koji je prethodno definisan - propusnost sistema treba biti velika (veliki broj istovremeno prijavljenih korisnika - najmanje 1,000 korisnika bez povećanja trajanja odziva), što će se omogućiti povećanjem kapaciteta redova čekanja, odnosno povećanjem broja redova čekanja (budući da je skaliranje u širinu jeftinije).
 
 \subsection{Poruke o greškama}
 
 \quad Za normalno funkcionisanje sistema potrebno je predvidjeti da korisnici neće uvijek na korektan način unositi tražene podatke i vršiti zadane operacije na ispravan način te se trebaju omogućiti poruke o greškama. Ukoliko korisnik napravi grešku, sistem istu treba prepoznati i prikazati korisniku adekvatne informacije kako bi se ponavljanje iste greške spriječilo. \\
 
-Ovaj nefunkcionalni zahtjev ispunjen je tokom razvoja aplikacije, budući da je napravljen intuitivan korisnički \textit{interface} koji je jednostavan za korištenje.
+Ovaj nefunkcionalni zahtjev ispunjen je tokom razvoja aplikacije, budući da je napravljen intuitivan korisnički \textit{interface} koji je jednostavan za korištenje. Tokom pokušaja prijave na sistem, ukoliko korisnik unese neispravne podatke, biti će mu prikazana adekvatna poruka. Ostatak sistema dizajniran je na način da se maksimalno izbjegnu greške pri unosu centriranjem na prikaz i \textit{button} kontrole umjesto na proizvoljan korisnički unos.
 
 \subsection{Dostupnost}
 
 \quad Dostupnost sistema definiše se kao vjerovatnoća da će poslani zahtjev od strane korisnika rezultovati odgovorom od strane sistema. Čak i mala količina vremena nedostupnosti sistema neprihvatljiva je (jer uzrokuje velike štete, što je dokazano u mnogim studijama) te se stoga treba osigurati da će sistem biti u stanju da uvijek ispravno funkcioniše, te ukoliko to ne bude moguće, da će se svaki kvar brzo i efikasno otkloniti od strane tima za održavanje, te da će korisnici biti obaviješteni kada i koliko dugo će sistem biti nedostupan (ukoliko je to moguće). \\
 
-Dostupnost sistema također je u korelaciji s odzivom sistema, kao i s njegovom propusnošću, te još jednom potvrđuje neophodnost kreiranja većeg broja redundantnih kopija istih servisa - što više kopija istog servisa postoji, to je manja mogućnost da će u jednom trenutku sve dostupne kopije biti nedostupne, te da nijedan od servisa neće biti u mogućnosti odgovoriti na korisnički zahtjev.
+Dostupnost sistema također je u korelaciji s odzivom sistema, kao i s njegovom propusnošću, te još jednom potvrđuje neophodnost kreiranja većeg broja redundantnih kopija istih servisa - što više kopija istog servisa postoji, to je manja mogućnost da će u jednom trenutku sve dostupne kopije biti nedostupne, te da nijedan od servisa neće biti u mogućnosti odgovoriti na korisnički zahtjev. Kako bi se ovaj zahtjev ispunio, neophodno je da sistem bude dostupan 365 dana godišnje, s maksimalno 2 sata ukupne nedostupnosti.
 
 \subsection{Skalabilnost}
 
@@ -860,49 +853,76 @@ Problem autorizacije u sistemu riješen je koristeći korisničke uloge i sesije
 
 \subsection{Forme vidljive svim korisnicima}
 
-Svi korisnici mogu vidjeti \textbf{početnu formu} (prikazanu na Slici \ref{s1}), na kojoj je prikazan logo firme Idea, godina objavljivanja web-aplikacije te informacije o timu koji je razvio samu web-aplikaciju. Jedina mogućnost koju mogu koristiti svi korisnici je pristup formi \textbf{Login}, nakon što se klikne na dugme u gornjem desnom uglu aplikacije.
+Svim korisnicima omogućen je pregled informacija o firmi Idea. To uključuje prikaz osnovnih informacija o firmi (prikazana na Slici \ref{s1}), detalja o načinu poslovanja (prikazana na Slici \ref{s2}), korisničkih iskustava (prikazana na Slici \ref{s3}) te mogućnost kontaktiranja firme od strane zainteresovanih korisnika (prikazana na Slici \ref{s4}). Svim korisnicima omogućen je i pristup formi \textbf{Login}, nakon što se klikne na dugme u gornjem desnom uglu aplikacije.
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/pocetna.PNG}
-\caption{Izgled početne forme}
+\includegraphics[scale=0.35]{../res/UI/home.PNG}
+\caption{Izgled početne stranice}
 \label{s1}
 \end{figure}
 
-Forma za prijavu zapravo je \textit{pop-up} koji omogućava korisnicima unos korisničkog imena i korisničke šifre (koje dodjeljuje tehnički administrator sistema, jer i korisnici sistema, a i osobe koje ga razvijaju i poboljšavaju, moraju imati neophodnu autorizaciju za pristup sistemu, budući da se u njemu nalaze osjetljivi podaci o javnim ustanovama, softveru koji se razvija, te dokumentima koje koristi komitet za promjene). \\
-
-Forma za prijavu prikazana je na Slici \ref{s2}. Na Slici \ref{s3} prikazan je izgled forme nakon neuspješne prijave korisnika, odakle je vidljivo da poruke o greškama pri validaciji nisu napadne niti zbunjujuće, već da je korisniku omogućen jednostavan i intuitivan unos traženih podataka te lak pristup sistemu.
-
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/login.PNG}
-\caption{Izgled \textit{pop-up}-a za prijavu korisnika}
+\includegraphics[scale=0.35]{../res/UI/about.PNG}
+\caption{Detalji o firmi Idea}
 \label{s2}
 \end{figure}
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.6]{../res/UI/login2.PNG}
-\caption{Izgled poruke o neuspješnoj validaciji}
+\includegraphics[scale=0.35]{../res/UI/clients.PNG}
+\caption{Pregled korisničkih iskustava}
 \label{s3}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/contact.PNG}
+\caption{Forma za kontaktiranje firme Idea}
+\label{s4}
+\end{figure}
+
+Forma za prijavu zapravo je \textit{pop-up} koji omogućava korisnicima unos korisničkog imena i korisničke šifre (koje dodjeljuje tehnički administrator sistema, jer i korisnici sistema, a i osobe koje ga razvijaju i poboljšavaju, moraju imati neophodnu autorizaciju za pristup sistemu, budući da se u njemu nalaze osjetljivi podaci o javnim ustanovama, softveru koji se razvija, te dokumentima koje koristi komitet za promjene). \\
+
+Forma za prijavu prikazana je na Slici \ref{s5}. Na Slici \ref{s6} prikazan je izgled forme nakon neuspješne prijave korisnika, odakle je vidljivo da poruke o greškama pri validaciji nisu napadne niti zbunjujuće, već da je korisniku omogućen jednostavan i intuitivan unos traženih podataka te lak pristup sistemu.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/login.PNG}
+\caption{Izgled \textit{pop-up}-a za prijavu korisnika}
+\label{s5}
+\end{figure}
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/loginFailed.PNG}
+\caption{Izgled poruke o neuspješnoj validaciji}
+\label{s6}
 \end{figure}
 
 \newpage
 
-\subsection{Forme vidljive \textit{helpdesk}-u}
+\subsection{Zahtjevi za promjenama}
 
-Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao radnika u okviru sektora za podršku, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{upravljanje zahtjevima za promjene}, te \textbf{raspoređivanje događajima}. \\
+Nakon prijave na sistem, različitim vrstama korisnika vidljiv je različit prikaz zahtjeva za promjenama:
 
-Nakon vršenja prijave koristeći svoje korisničke podatke, korisniku se prikazuje forma sa statusima događaja i njihovih trenutnih statusa. Izgled ove forme prikazan je na slici \ref{s4}, te je vidljivo da se na stranici nalazi glavni menu koji omogućava prelaz s jedne na drugu formu, te lista svih događaja i njihovih trenutnih statusa. \\
+\begin{enumerate}
+\item Prikaz svih zahtjeva za promjenama (\textit{helpdesk});
+\item Prikaz zahtjeva za promjenama koje je korisnik prijavio (korisnik softvera);
+\item Prikaz zahtjeva za promjenama koje je \textit{helpdesk} dodijelio (komitet za promjene).
+\end{enumerate}
+
+Sama forma za prikaz ista je za sve različite vrste korisnika koje joj mogu pristupiti. Na njoj su prikazani samo aktuelni zahtjevi za promjenama. Izgled ove forme prikazan je na Slici \ref{s7}.
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/helpdesk.PNG}
-\caption{Izgled forme za pregled svih događaja}
-\label{s4}
+\includegraphics[scale=0.35]{../res/UI/changeActual.PNG}
+\caption{Prikaz aktuelnih promjena}
+\label{s7}
 \end{figure}
 
-Mogući statusi događaja prikazani su na Slici \ref{s5}, te se mogu definisati na sljedeći način:
+Mogući statusi događaja su:
 
 \begin{enumerate}
 \item \textbf{Čekanje}: događaj nije raspoređen;
@@ -911,42 +931,51 @@ Mogući statusi događaja prikazani su na Slici \ref{s5}, te se mogu definisati 
 \item \textbf{Završeno}: promjena je uspješno implementirana, te je potrebno izvršiti izdavanje nove verzije sistema i njegovo ažuriranje u skladu sa standardnom procedurom.
 \end{enumerate}
 
-\begin{figure}[H]
-\center
-\includegraphics[scale=0.4]{../res/UI/helpdesk2.PNG}
-\caption{Svi mogući statusi promjena}
-\label{s5}
-\end{figure}
-
-Ovisno o statusu promjene, boja polja koje informiše \textit{helpdesk} o statusu mijenja boju, u skladu s preporukama o dobrom dizajnu te postojećim implementacijama sličnih sistema. \\
-
-Druga forma vidljiva \textit{helpdesk}-u je forma za pregled svih trenutnih zahtjeva za promjenama koji su na čekanju. Izgled ove forme prikazan je na Slici \ref{s6}, odakle je vidljivo da se zahtjev za promjenom sastoji od imena i opisa, te da je zahtjev za promjenu moguće prihvatiti ili odbiti, kao i da je moguće (i neophodno, u slučaju prihvatanja zahtjeva) \textit{upload}-ovati PSO dokument koji će predstavljati osnovu za analizu zahtjeva za promjenom kada se isti prihvati i pošalje komitetu za promjene.
+Nakon klika na dugme \texttt{...}, korisniku je omogućen pregled svih zahtjeva za promjenama, kao što je prikazano na Slici \ref{s8}.
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/helpdesk3.PNG}
-\caption{Izgled forme za pregled svih zahtjeva za promjene}
-\label{s6}
+\includegraphics[scale=0.35]{../res/UI/changeAll.PNG}
+\caption{Prikaz svih promjena}
+\label{s8}
 \end{figure}
 
-Predviđena je i mogućnost pregleda izvještaja o statusima svih događaja kroz historiju, koja će biti prikazana u budućim verzijama dokumenta.
-
-\newpage
-
-\subsection{Forme vidljive razvojnom timu}
-
-Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao radnika u okviru sektora za razvoj firme Idea, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{prijava greške} i \textbf{pregled svih prijava }. \\
-
-Nakon vršenja prijave na sistem koristeći svoje korisničke podatke, korisniku se prikazuje forma sa poljima za unos opisa greške pri implementaciji promjene ili greške koja je detektovana u softveru, te detalja o istima. Izgled ove forme prikazan je na slici \ref{s7}. \\
+Omogućen je prikaz i detalja o pojedinačnim promjenama, klikom na samu promjenu, nakon čega se na formi prikazuju sve relevantne informacije o nekoj promjeni (prikazano na Slici \ref{s9}).
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/developer.PNG}
-\caption{Izgled forme za prijavu greške}
-\label{s7}
+\includegraphics[scale=0.35]{../res/UI/changeDetails.PNG}
+\caption{Prikaz detalja o promjeni}
+\label{s9}
 \end{figure}
 
-Na stranici se nalazi glavni menu koji omogućava prelaz s jedne forme na drugu. Druga forma omogućava pregled svih \textit{bug}-ova, odnosno grešaka pri korištenju neke od aplikacija koje firma Idea razvija, koje su prijavili korisnici, a koje razvojni tim ima dužnost ispraviti. Na ovoj formi nalaze se i zahtjevi za promjenama koji su dodijeljeni razvojnom timu kojem korisnik pripada, te koje je potrebno implementirati. \\
+Osim pregleda promjena i detalja o istim, moguće je i poslati novi zahtjev za promjenom, klikom na dugme \texttt{Kreiraj zahtjev za promjenom}. Nakon toga omogućava se unos podataka o promjeni, kao što je prikazano na Slici \ref{s10}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/changeAdd.PNG}
+\caption{Mogućnost dodavanja novog zahtjeva za promjenom}
+\label{s10}
+\end{figure}
+
+\subsection{Prijave grešaka}
+
+Nakon prijave na sistem, različitim vrstama korisnika vidljiv je različit prikaz prijava grešaka:
+
+\begin{enumerate}
+\item Prikaz svih prijava grešaka (\textit{helpdesk});
+\item Prikaz grešaka koje je korisnik prijavio (korisnik softvera);
+\item Prikaz grešaka koje je \textit{helpdesk} dodijelio (razvojni tim).
+\end{enumerate}
+
+Sama forma za prikaz ista je za sve različite vrste korisnika koje joj mogu pristupiti. Na njoj su prikazani samo aktuelne prijave grešaka. Izgled ove forme prikazan je na Slici \ref{s11}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report1.PNG}
+\caption{Prikaz aktuelnih prijava grešaka}
+\label{s11}
+\end{figure}
 
 Način na koji se tretiraju greške pri implementiranju promjena i \textit{bug}-ovi otkriveni nakon uvođenja promjena fundamentalno je različit, te je opisan kako slijedi:
 \begin{enumerate}
@@ -954,39 +983,73 @@ Način na koji se tretiraju greške pri implementiranju promjena i \textit{bug}-
 \item Ukoliko korisnik aplikacije prijavi \textbf{\textit{bug}} u aplikaciji (sam način prijave biti će detaljnije opisan u narednom poglavlju), \textit{helpdesk} ne dobiva nikakvu notifikaciju, no lista svih \textit{bug}-ova (kojoj samo razvojni tim ima pristup) ažurira se na način da se prijava dodaje u listu kao novi unos. Unosi iz te liste svakodnevno se pokušavaju riješiti i lista se svakodnevno ažurira u ovisnosti o ispravljenim \textit{bug}-ovima (mada tim za razvoj mora odlučiti da li je prijavljeni \textit{bug} uopće zaista greška u aplikaciji, te ukoliko nije, unos je moguće obrisati iz liste jednostavnim odbacivanjem \textit{bug}-a).
 \end{enumerate}
 
-Izgled forme za prikaz liste sa svim prijavama prikazan je na Slici \ref{s8}.
+Nakon klika na dugme \texttt{...}, korisniku je omogućen pregled svih prijava grešaka, kao što je prikazano na Slici \ref{s12}.
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/developer2.PNG}
-\caption{Izgled forme za pregled liste svih prijavljenih \textit{bug}-ova}
-\label{s8}
+\includegraphics[scale=0.35]{../res/UI/report1.PNG}
+\caption{Prikaz svih prijava grešaka}
+\label{s12}
+\end{figure}
+
+Omogućen je prikaz i detalja o pojedinačnim prijavama, klikom na samu prijavu, nakon čega se na formi prikazuju sve relevantne informacije o nekoj prijavi (prikazano na Slici \ref{s13}).
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report1.PNG}
+\caption{Prikaz detalja o prijavi greške}
+\label{s13}
+\end{figure}
+
+Osim pregleda prijava i detalja o istim, moguće je i prijaviti novu grešku, klikom na dugme \texttt{Prijavi grešku}. Nakon toga omogućava se unos podataka o prijavi, kao što je prikazano na Slici \ref{s14}.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report1.PNG}
+\caption{Mogućnost prijave nove greške}
+\label{s14}
 \end{figure}
 
 \newpage
 
-\subsection{Forme vidljive korisniku aplikacije}
+\subsection{Izvještaji}
 
-Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao nekog od korisnika aplikacija koje firma Idea razvija, takvom korisniku omogućene su dvije osnovne funkcionalnosti - \textbf{prijava greške pri korištenju aplikacije} i \textbf{slanje zahtjeva za promjenama}. \\
+Različite vrste korisnika imaju mogućnost pregleda različitih izvještaja:
 
-Nakon vršenja prijave koristeći svoje korisničke podatke, korisniku se prikazuje forma sa poljima za unos opisa greške pri korištenju aplikacije, te detalja o istoj. Izgled ove forme prikazan je na slici \ref{s9}. \\
+\begin{enumerate}
+\item \textit{Helpdesk}: prikaz cjelokupnog izvještaja o cijelom sistemu;
+\item \textit{Ostali korisnici}: prikaz izvještaja s podacima samo o onim dijelovima sistema koji su vidljivi datom korisniku.
+\end{enumerate}
+
+Cjelokupni izvještaj uključuje prikaz svih korisnika, te prikaza svih detalja o svim promjenama i greškama, te njihovim promjenama i fazama kroz koje su pojedinačne promjene i greške prolazile u toku svoje aktivnosti, kao što je prikazano na Slici \ref{s15}, \ref{s16}, \ref{s17} i \ref{s18}. Ovakav prikaz neophodan je \textit{helpdesk}-u, za praćenje svih događaja u sistemu. Ostalim korisnicima omogućen je prikaz samo promjena, odnosno grešaka koje su prijavili ili koje su im dodijeljene.
 
 \begin{figure}[H]
 \center
-\includegraphics[scale=0.35]{../res/UI/user.PNG}
-\caption{Izgled forme za prijavu greške pri korištenju}
-\label{s9}
+\includegraphics[scale=0.35]{../res/UI/report1.PNG}
+\caption{Prikaz kompletnog izvještaja - korisnici}
+\label{s15}
 \end{figure}
 
-Forma za podnošenje zahtjeva još uvijek je u razvoju, te će biti prikazana u budućim verzijama dokumenta.
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report2.PNG}
+\caption{Prikaz kompletnog izvještaja - promjene (prvi dio)}
+\label{s16}
+\end{figure}
 
-\newpage
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report3.PNG}
+\caption{Prikaz kompletnog izvještaja - promjene (drugi dio)}
+\label{s17}
+\end{figure}
 
-\subsection{Forme vidljive komitetu za promjene}
-
-Ukoliko se korisnik aplikacije prijavi s korisničkim podacima koji ga identificiraju kao člana komiteta za promjene firme Idea, takvom korisniku omogućene je jedna funkcionalnost - \textbf{upravljanje svim zahtjevima koji su prihvaćeni od strane \textit{helpdesk}-a} i poslani komitetu na pregled i konačnu odluku. \\
-
-Kako bi komitet donio konačnu odluku o promjeni, neophodno je moći pregledati PSO dokument koji je \textit{helpdesk upload}-ovao, kao i osnovne informacije o promjenama. Sve ove funkcionalnosti biti će omogućene na jednoj formi, koja je još uvijek u razvoju, te koja će biti prikazana u budućim verzijama dokumenta. \\
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.35]{../res/UI/report4.PNG}
+\caption{Prikaz kompletnog izvještaja - događaji}
+\label{s18}
+\end{figure}
 
 \newpage
 

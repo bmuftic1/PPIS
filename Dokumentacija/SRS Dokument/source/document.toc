@@ -29,7 +29,7 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Preduslovi}{16}{subsubsection.3.3.2}% 
 \contentsline {subsubsection}{\numberline {3.3.3}Ulazi}{16}{subsubsection.3.3.3}% 
 \contentsline {subsubsection}{\numberline {3.3.4}Obrada}{16}{subsubsection.3.3.4}% 
-\contentsline {subsubsection}{\numberline {3.3.5}Izlazi}{17}{subsubsection.3.3.5}% 
+\contentsline {subsubsection}{\numberline {3.3.5}Izlazi}{16}{subsubsection.3.3.5}% 
 \contentsline {subsubsection}{\numberline {3.3.6}Prioritet realizacije}{17}{subsubsection.3.3.6}% 
 \contentsline {subsection}{\numberline {3.4}FZ 4. Prijava grešaka}{17}{subsection.3.4}% 
 \contentsline {subsubsection}{\numberline {3.4.1}Uvod}{17}{subsubsection.3.4.1}% 
@@ -103,14 +103,13 @@
 \contentsline {subsection}{\numberline {6.1}Odziv sistema}{29}{subsection.6.1}% 
 \contentsline {subsection}{\numberline {6.2}Propusnost}{29}{subsection.6.2}% 
 \contentsline {subsection}{\numberline {6.3}Poruke o greškama}{29}{subsection.6.3}% 
-\contentsline {subsection}{\numberline {6.4}Dostupnost}{29}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.4}Dostupnost}{30}{subsection.6.4}% 
 \contentsline {subsection}{\numberline {6.5}Skalabilnost}{30}{subsection.6.5}% 
 \contentsline {subsection}{\numberline {6.6}Dokumentovanost sistema}{30}{subsection.6.6}% 
-\contentsline {subsection}{\numberline {6.7}Autorizacija korisnika}{30}{subsection.6.7}% 
+\contentsline {subsection}{\numberline {6.7}Autorizacija korisnika}{31}{subsection.6.7}% 
 \contentsline {section}{\numberline {7}Korisnički \textit {interface}-i}{32}{section.7}% 
 \contentsline {subsection}{\numberline {7.1}Forme vidljive svim korisnicima}{32}{subsection.7.1}% 
-\contentsline {subsection}{\numberline {7.2}Forme vidljive \textit {helpdesk}-u}{34}{subsection.7.2}% 
-\contentsline {subsection}{\numberline {7.3}Forme vidljive razvojnom timu}{36}{subsection.7.3}% 
-\contentsline {subsection}{\numberline {7.4}Forme vidljive korisniku aplikacije}{38}{subsection.7.4}% 
-\contentsline {subsection}{\numberline {7.5}Forme vidljive komitetu za promjene}{39}{subsection.7.5}% 
-\contentsline {section}{\numberline {8}Zakonska ograničenja dizajna}{40}{section.8}% 
+\contentsline {subsection}{\numberline {7.2}Zahtjevi za promjenama}{35}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Prijave grešaka}{37}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Izvještaji}{40}{subsection.7.4}% 
+\contentsline {section}{\numberline {8}Zakonska ograničenja dizajna}{42}{section.8}% 
