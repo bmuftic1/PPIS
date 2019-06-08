@@ -54,7 +54,7 @@ The system offers the following functionalities:
   
 2019. © *Team Rocket Racoon*
   
-*University of Sarajevo
+*University of Sarajevo*
   
 *Faculty of Electrical Engineering Sarajevo*
   
