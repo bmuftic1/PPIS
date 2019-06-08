@@ -21,7 +21,11 @@ import { ReportComponent } from './report/report.component';
 import { DashboardHelpdeskComponent } from './dashboard-helpdesk/dashboard-helpdesk.component';
 import { DashboardDevComponent } from './dashboard-dev/dashboard-dev.component';
 import { DashboardCommitteeComponent } from './dashboard-committee/dashboard-committee.component';
-import {RouteGuardService} from './_services/route-guard.service'
+import {RouteGuardService} from './_services/route-guard.service';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ClientsComponent } from './clients/clients.component'
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -31,14 +35,18 @@ import {RouteGuardService} from './_services/route-guard.service'
     ReactiveFormsModule,
     ChartsModule,
     RouterModule.forRoot([
-      {path:'', component:IdeaComponent},
-      {path:'korisnik',component:DashboardUserComponent,canActivate: [RouteGuardService], data:{expectedRole:0}},
-      {path:'helpdesk',component:DashboardHelpdeskComponent,canActivate: [RouteGuardService], data:{expectedRole:2}},
-      {path:'developer',component:DashboardDevComponent,canActivate: [RouteGuardService], data:{expectedRole:1}},
-      {path:'komitet',component:DashboardCommitteeComponent,canActivate: [RouteGuardService], data:{expectedRole:3}}
+		{ path: 'home', component: IdeaComponent },
+		{ path: 'about',      component: AboutComponent },
+		{ path: 'contactus', component: ContactComponent },
+		{ path: 'ourclients', component: ClientsComponent  },
+		{path:'', component:IdeaComponent},
+		{path:'korisnik',component:DashboardUserComponent,canActivate: [RouteGuardService], data:{expectedRole:0}},
+		{path:'helpdesk',component:DashboardHelpdeskComponent,canActivate: [RouteGuardService], data:{expectedRole:2}},
+		{path:'developer',component:DashboardDevComponent,canActivate: [RouteGuardService], data:{expectedRole:1}},
+		{path:'komitet',component:DashboardCommitteeComponent,canActivate: [RouteGuardService], data:{expectedRole:3}}
 ])
   ],
-  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent, DashboardDevComponent, DashboardCommitteeComponent],
+  declarations: [ AppComponent, HelloComponent, HeaderComponent, LoginComponent, FooterComponent, IdeaComponent, ChangeManagementComponent, EventManagementComponent, ChangeComponent, EventComponent, DashboardUserComponent, ReportComponent, DashboardHelpdeskComponent, DashboardDevComponent, DashboardCommitteeComponent, AboutComponent, ContactComponent, NavbarComponent, ClientsComponent],
   bootstrap:    [ AppComponent ],
   providers: [NgbActiveModal,{provide: APP_BASE_HREF, useValue : '/' },RouteGuardService],
   entryComponents: [LoginComponent],

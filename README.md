@@ -20,21 +20,25 @@ Four different test users have been created to represent each of these roles and
 1. **Change Management Team**
   
 Username: *ekrupalija1*
+  
 Password: *helpdesk*
   
 2. **Change Committee**
   
 Username: *khalilbegovic1*
+  
 Password: *komitet*
   
 3. **Development Team**
   
 Username: *tpribisic1*
+  
 Password: *developer*
   
 4. **Software Users**
   
 Username: *ikubat1*
+  
 Password: *korisnik*
   
 ## Functionalities
