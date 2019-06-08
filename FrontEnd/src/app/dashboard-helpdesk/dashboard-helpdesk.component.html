@@ -15,6 +15,6 @@
       <div class="col col-sm-10" >
         <app-change-management *ngIf="selectChange" [AllPromjene]="true" [ChangeSettings]="{Helpdesk:true}"></app-change-management>
         <app-event-management *ngIf="selectEvent" [AllGreske]="true" [ChangeSettings]="{Helpdesk:true}"></app-event-management>
-        <app-report *ngIf="selectReport"></app-report>
+        <app-report *ngIf="selectReport"[Helpdesk]="true"></app-report>
       </div>
 </div>

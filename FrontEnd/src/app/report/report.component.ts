@@ -18,10 +18,10 @@ export class ReportComponent implements OnInit {
   @Input() changeSettings:any;
   disableSth:boolean=false;
   
-  Helpdesk=false;
-  Korisnik=false;
-  Developer=false;
-  Komitet=false;
+  @Input() Helpdesk=false;
+  @Input()Korisnik=false;
+  @Input()Developer=false;
+  @Input()Komitet=false;
 
   promjenaId:number;
   eventId:number;

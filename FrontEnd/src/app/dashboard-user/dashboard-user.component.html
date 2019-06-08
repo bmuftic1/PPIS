@@ -15,6 +15,6 @@
       <div class="col col-sm-10" >
         <app-change-management *ngIf="selectChange" [MyPromjene]="true" [ChangeSettings]="{Korisnik:true}"></app-change-management>
         <app-event-management *ngIf="selectEvent" [MyGreske]="true" [ChangeSettings]="{Korisnik:true}"></app-event-management>
-        <app-report *ngIf="selectReport"></app-report>
+        <app-report *ngIf="selectReport"[Korisnik]="true"></app-report>
       </div>
 </div>
