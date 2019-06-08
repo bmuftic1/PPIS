@@ -115,7 +115,7 @@ router.get("/promjenecr", (req, res, next) => {
 
 
 router.get("/promjenekategorija", (req, res, next) => {
-  var sql = `SELECT k.nazivKategorije, count(p.kategorijaPromjeneId) broj FROM KategorijaPromjenes k, Promjenas p where k.id=p.kategorijaPromjeneId group by k.nazivKategorije`;
+  var sql = `SELECT k.id, k.nazivKategorije, count(p.kategorijaPromjeneId) broj FROM KategorijaPromjenes k, Promjenas p where k.id=p.kategorijaPromjeneId group by k.nazivKategorije`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);
@@ -125,7 +125,7 @@ router.get("/promjenekategorija", (req, res, next) => {
 
 
 router.get("/tipovidogadjaja", (req, res, next) => {
-  var sql = `SELECT t.tipDogadjaja, count(d.tipId) broj FROM Dogadjajs d, TipDogadjajas t where t.id=d.tipId group by t.id`;
+  var sql = `SELECT t.id, t.tipDogadjaja, count(d.tipId) broj FROM Dogadjajs d, TipDogadjajas t where t.id=d.tipId group by t.id`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);
@@ -135,7 +135,7 @@ router.get("/tipovidogadjaja", (req, res, next) => {
 
 router.get("/korisnici", (req, res, next) => {
 
-  var sql = `SELECT k.firstName, k.lastName, k.username, u.naziv FROM Korisniks k, Ulogas u where u.id=k.ulogaId`;
+  var sql = `SELECT k.id, k.firstName, k.lastName, k.username, u.naziv FROM Korisniks k, Ulogas u where u.id=k.ulogaId`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
 	  else res.status(200).send(rez);

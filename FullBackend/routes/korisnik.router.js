@@ -38,7 +38,7 @@ router.post("/korisnik", (req, res, next) => {
 router.get("/korisnik", (req, res, next) => {
   Korisnik.findAll({
     where: {},
-    attributes: ["firstName", "lastName", "username", "password", "ulogaId"],
+    attributes: ["id","firstName", "lastName", "username", "password", "ulogaId"],
     raw: true
   })
     .then(result => {
@@ -53,7 +53,7 @@ router.get("/korisnik/:id", (req, res, next) => {
   let id = req.params.id;
   Korisnik.findOne({
     where: { id },
-    attributes: ["firstName", "lastName", "username", "password", "ulogaId"],
+    attributes: ["id","firstName", "lastName", "username", "password", "ulogaId"],
     raw: true
   })
     .then(result => {

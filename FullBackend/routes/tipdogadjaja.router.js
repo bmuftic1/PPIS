@@ -20,7 +20,7 @@ router.post("/tipdogadjaja", (req, res, next) => {
 });
 
 router.get("/tipdogadjaja", (req, res, next) => {
-  TipDogadjaja.findAll({ where: {}, attributes: ["tipDogadjaja"], raw: true })
+  TipDogadjaja.findAll({ where: {}, attributes: ["id","tipDogadjaja"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })
@@ -33,7 +33,7 @@ router.get("/tipdogadjaja/:id", (req, res, next) => {
   let id = req.params.id;
   TipDogadjaja.findOne({
     where: { id },
-    attributes: ["tipDogadjaja"],
+    attributes: ["id","tipDogadjaja"],
     raw: true
   })
     .then(result => {

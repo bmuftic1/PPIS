@@ -20,7 +20,7 @@ router.post("/historijapromjena", (req, res, next) => {
 });
 
 router.get("/historijapromjena", (req, res, next) => {
-  HistorijaPromjena.findAll({ where: {}, attributes: ["datumOd", "datumDo","promjenaId","statusPromjeneId","napravioIzmjenu"], raw: true })
+  HistorijaPromjena.findAll({ where: {}, attributes: ["id","datumOd", "datumDo","promjenaId","statusPromjeneId","napravioIzmjenu"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })
@@ -33,7 +33,7 @@ router.get("/historijapromjena/:id", (req, res, next) => {
   let id = req.params.id;
   HistorijaPromjena.findOne({
     where: { id },
-    attributes: ["datumOd", "datumDo","promjenaId","statusPromjeneId","napravioIzmjenu"],
+    attributes: ["id","datumOd", "datumDo","promjenaId","statusPromjeneId","napravioIzmjenu"],
     raw: true
   })
     .then(result => {

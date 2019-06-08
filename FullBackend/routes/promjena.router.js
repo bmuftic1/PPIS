@@ -39,6 +39,7 @@ router.get("/promjena", (req, res, next) => {
   Promjena.findAll({
     where: {},
     attributes: [
+	"id",
       "opis",
       "prihvacena",
       "prioritetPromjeneId",
@@ -62,6 +63,7 @@ router.get("/promjena/:id", (req, res, next) => {
   Promjena.findOne({
     where: { id },
     attributes: [
+	"id",
       "opis",
       "prihvacena",
       "prioritetPromjeneId",

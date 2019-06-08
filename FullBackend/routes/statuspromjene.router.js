@@ -20,7 +20,7 @@ router.post("/statuspromjene", (req, res, next) => {
 });
 
 router.get("/statuspromjene", (req, res, next) => {
-  StatusPromjene.findAll({ where: {}, attributes: ["status"], raw: true })
+  StatusPromjene.findAll({ where: {}, attributes: ["id","status"], raw: true })
     .then(result => {
       res.status(200).send(result);
     })
@@ -33,7 +33,7 @@ router.get("/statuspromjene/:id", (req, res, next) => {
   let id = req.params.id;
   StatusPromjene.findOne({
     where: { id },
-    attributes: ["status"],
+    attributes: ["id","status"],
     raw: true
   })
     .then(result => {

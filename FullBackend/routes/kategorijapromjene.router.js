@@ -23,7 +23,7 @@ router.post("/kategorijapromjene", (req, res, next) => {
 router.get("/kategorijapromjene", (req, res, next) => {
   KategorijaPromjene.findAll({
     where: {},
-    attributes: ["nazivKategorije"],
+    attributes: ["id","nazivKategorije"],
     raw: true
   })
     .then(result => {
@@ -38,7 +38,7 @@ router.get("/kategorijapromjene/:id", (req, res, next) => {
   let id = req.params.id;
   KategorijaPromjene.findOne({
     where: { id },
-    attributes: ["nazivKategorije"],
+    attributes: ["id","nazivKategorije"],
     raw: true
   })
     .then(result => {

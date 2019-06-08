@@ -22,7 +22,7 @@ router.post("/prioritetpromjene", (req, res, next) => {
 router.get("/prioritetpromjene", (req, res, next) => {
   PrioritetPromjene.findAll({
     where: {},
-    attributes: ["prioritetPromjene"],
+    attributes: ["id","prioritetPromjene"],
     raw: true
   })
     .then(result => {
@@ -37,7 +37,7 @@ router.get("/prioritetpromjene/:id", (req, res, next) => {
   let id = req.params.id;
   PrioritetPromjene.findOne({
     where: { id },
-    attributes: ["prioritetPromjene"],
+    attributes: ["id","prioritetPromjene"],
     raw: true
   })
     .then(result => {
