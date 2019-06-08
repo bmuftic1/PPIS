@@ -1,20 +1,19 @@
 
 <div class="row rowstyle">
     <div class="col col-sm-2" style=" display: flex;align-items: center;justify-content: center;"  (click)="CollapseData=!CollapseData">
-      Promjena1
+      {{promjena.opis}}
     </div>
     <div class="col col-sm-4"style=" display: flex;align-items: center;justify-content: center;"  (click)="CollapseData=!CollapseData">
-      Vrsta promjene
+      {{kategorijaPromjene.nazivKategorije}}
     </div>
     <div class="col col-sm-3">
       <select class="form-control" [disabled]="disableRazvojnitim">
         <option>Nije postavljeno</option>
-        <option>Razvojni tim 1</option>
-        <option>Razvojni tim 2</option>
+        <option>tpribisic1</option>
       </select> 
     </div>
   <div class="col col-sm-3">
-    <select [className]=default.style *ngIf="!Komitet"(ngModelChange)="setStatus($event)" [(ngModel)]="defaultStatus" [disabled]="disableStatus">
+    <select [className]=defaultStatus.style *ngIf="!Komitet"(ngModelChange)="setStatus($event)" [(ngModel)]="defaultStatus" [disabled]="disableStatus">
         <option *ngFor="let status of Statuses" [(ngValue)]="status" >
           {{status.text}}
         </option>
@@ -27,23 +26,23 @@
   </div>
   <div class="col col-sm-12"[ngbCollapse]="CollapseData">
     <div class="row">
-        <div class="col">Prijavio: </div>
-        <div class="col">Datum kreiranja: datum</div>
-        <div class="col">Zadnja izmjena: izmjena</div>
+        <div class="col">Prijavio: {{prijavio.username}}</div>
+        <div class="col">Datum kreiranja: {{kreiran.toLocaleDateString()}}</div>
+        <div class="col">Zadnja izmjena: {{izmjenjen.toLocaleDateString()}}</div>
       </div>
       <div class="row">
-        <div class="col">Zadnji izmjenio: dev</div>
-        <div class="col">Odobrio: komitet</div>
-        <div class="col"*ngIf="!Komitet">Prioritet: 1</div> 
-        <div class="col"*ngIf="Komitet">Status: 1</div> 
+        <div class="col">odobreno:{{odobreno}} </div>
+        <div class="col">Odobrava: {{odobrio}}</div>
+        <div class="col"*ngIf="!Komitet">Prioritet: {{Prioriteti[0].text}}</div> 
+        <div class="col"*ngIf="Komitet">Status: {{Statuses[0].text}}</div> 
       </div>
       <div class="row">    
-        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Započni">
-        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Pošalji">
-        <input class="button glow-button col" type="button"value="Izbriši">
+        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Započni"(click)="start()">
+        <input *ngIf="Helpdesk" class="button glow-button col" type="button"value="Pošalji"(click)="send()">
+        <input class="button glow-button col" type="button"value="Izbriši" (click)="delete()">
         <input *ngIf="Developer" class="button glow-button col" type="button"value="Arhiviraj">
         <input *ngIf="Komitet" class="button glow-button col" type="button"value="PSO">
-        <input *ngIf="Komitet" class="button glow-button col" type="button"value="Odobri">
+        <input *ngIf="Komitet" class="button glow-button col" type="button"value="Odobri"(click)="approve()">
        </div>
   </div>
   </div>

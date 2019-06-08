@@ -64,7 +64,6 @@ export class EventManagementComponent implements OnInit {
     this.Greske.shift();
     this.Greske.shift();
     this.ExpandGreske = this.Greske;
-    console.log(this.ExpandGreske);
   }
   async getAllGreske(){
     const data = await this.dogadjajService.getDogadjaji();
@@ -125,7 +124,6 @@ export class EventManagementComponent implements OnInit {
     else this.getAllGreske();
   }
   onDeletedGreska(deleted:boolean){
-    console.log("delete");
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(this.authService.token);
     this.DefaultGreske=[];

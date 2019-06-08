@@ -37,8 +37,8 @@ export class PromjeneService {
   deletePromjena(id:number){
     return this.request('delete',baseUrl+'/promjena/'+String(id))
   }
-  updatePromjena(id:number){
-    return this.request('put',baseUrl+'/promjena/'+String(id)) 
+  updatePromjena(id:number, promjena:Promjena){
+    return this.request('put',baseUrl+'/promjena/'+String(id),promjena) 
   }
   
 }

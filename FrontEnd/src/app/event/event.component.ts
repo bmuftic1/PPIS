@@ -75,6 +75,7 @@ export class EventComponent implements OnInit {
     if(this.changeSettings.Korisnik !==undefined)this.Korisnik =this.changeSettings.Korisnik;
     if(this.changeSettings.Developer !==undefined){this.Developer =this.changeSettings.Developer;this.disableStatus = false;}
     if(this.changeSettings.Komitet !==undefined)this.Komitet =this.changeSettings.Komitet;
+  
   }
   async getStatuses(){
     const data = await this.statusdogadjajaService.getStatuseDogadjaja();
@@ -94,7 +95,6 @@ export class EventComponent implements OnInit {
   async getInicijator(id:number){
     const data = await this.korisnikService.getKorisnik(id);
     this.inicijator=data;
-    console.log(this.inicijator);
 
   }
   async getPrioritet(id:number){
@@ -119,6 +119,5 @@ export class EventComponent implements OnInit {
 
     await this.dogadjajService.deleteDogadjaj(this.greska.id);
     this.onDeleted.emit(true);
-    console.log("deleted");
   }
 }

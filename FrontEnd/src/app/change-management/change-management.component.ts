@@ -6,6 +6,8 @@ import {KategorijapromjeneService} from '../_services/kategorijapromjene.service
 import {IzvjestajService}from '../_services/izvjestaj.service'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {AuthService} from '../_services/auth.service'
+import { HistorijaPromjena } from '_old/src/app/_services/historijapromjena';
+import {HistorijapromjenaService} from '../_services/historijapromjena.service'
 
 @Component({
   selector: 'app-change-management',
@@ -26,65 +28,68 @@ export class ChangeManagementComponent implements OnInit {
 
   DefaultPromjene:Promjena[];
   ExpandPromjene:Promjena[];
-
+  promjene:Promjena[];
   user:any;
 
   KategorijePromjene:KategorijaPromjene[];
   selectedKategorija:KategorijaPromjene;
-  constructor(public promjeneService:PromjeneService, public kategorijePromjeneService:KategorijapromjeneService,public izvjestajService:IzvjestajService,public auth:AuthService) {
-    this.DefaultPromjene=[];
-    this.ExpandPromjene =[];
-   }
+  constructor(
+    public promjeneService:PromjeneService, 
+    public kategorijePromjeneService:KategorijapromjeneService,
+    public izvjestajService:IzvjestajService,
+    public auth:AuthService,
+    public historijaPrService:HistorijapromjenaService
+    ) {}
 
   ngOnInit() {
+    this.DefaultPromjene=[];
+    this.ExpandPromjene =[];
     const helper = new JwtHelperService();
      const decodedToken = helper.decodeToken(this.auth.token)
      this.user=decodedToken;
-    if(this.MyPromjene) {this.getPromjeneOfUser(1);console.log('here')}
+    if(this.MyPromjene) {this.getPromjeneOfUser(decodedToken.userId)}
     if(this.AllPromjene) this.getAllPromjene();
-    if(this.PromjeneForMe) this.getPromjeneForDev();
-    if(this.PromjeneKomitet) this.getPromjeneForCommity();
+    if(this.PromjeneForMe) this.getPromjeneForDev(decodedToken.userId);
+    if(this.PromjeneKomitet) this.getPromjeneForCommity(decodedToken.userId);
     this.getAllKategorijePromjene();
+    console.log(this.DefaultPromjene);
 
   }
-  getPromjene(){
-    
-  }
   async getPromjeneOfUser(id:number){
-    const data =await this.izvjestajService.promjenePrijavio(this.user.userId);
-    console.log(data);
-    if(data[0]){this.DefaultPromjene.push(data[0]);}
-    if(data[1]){this.DefaultPromjene.push(data[1]);}
-    this.ExpandPromjene=data;
-    this.ExpandPromjene.shift();
-    this.ExpandPromjene.shift();
+    const data =await this.izvjestajService.promjenePrijavio(id);
+    this.promjene = data;
+    if(this.promjene[0]){this.DefaultPromjene.push(this.promjene[0]);}
+    if(this.promjene[1]){this.DefaultPromjene.push(this.promjene[1]);}
+    this.promjene.shift();
+    this.promjene.shift();
+    this.ExpandPromjene=this.promjene;
   }
   async getAllPromjene(){
     const data =await this.promjeneService.getPromjene()
-    console.log(data);
-    if(data[0]){this.DefaultPromjene.push(data[0]);}
-    if(data[1]){this.DefaultPromjene.push(data[1]);}
-    this.ExpandPromjene=data;
-    this.ExpandPromjene.shift();
-    this.ExpandPromjene.shift();
+    this.promjene = data;
+    if(this.promjene[0]){this.DefaultPromjene.push(this.promjene[0]);}
+    if(this.promjene[1]){this.DefaultPromjene.push(this.promjene[1]);}
+    this.promjene.shift();
+    this.promjene.shift();
+    this.ExpandPromjene=this.promjene;
   }
-  async getPromjeneForDev(){
-    const data =await this.izvjestajService.promjeneIzvrsava(this.user.userId)
-    console.log(data);
-    if(data[0]){this.DefaultPromjene.push(data[0]);}
-    if(data[1]){this.DefaultPromjene.push(data[1]);}
-    this.ExpandPromjene=data;
-    this.ExpandPromjene.shift();
-    this.ExpandPromjene.shift();
+  async getPromjeneForDev(id:number){
+    const data =await this.izvjestajService.promjeneIzvrsava(id)
+    this.promjene = data;
+    if(this.promjene[0]){this.DefaultPromjene.push(this.promjene[0]);}
+    if(this.promjene[1]){this.DefaultPromjene.push(this.promjene[1]);}
+    this.promjene.shift();
+    this.promjene.shift();
+    this.ExpandPromjene=this.promjene;
   }
-  async getPromjeneForCommity(){
-    const data =await this.izvjestajService.promjeneOdobrava(this.user.userId)
-    console.log(data);
-    if(data[0]){this.DefaultPromjene.push(data[0]);}
-    if(data[1]){this.DefaultPromjene.push(data[1]);}
-    this.ExpandPromjene=data;
-    this.ExpandPromjene.shift();
-    this.ExpandPromjene.shift();
+  async getPromjeneForCommity(id:number){
+    const data =await this.izvjestajService.promjeneOdobrava(id)
+    this.promjene = data;
+    if(this.promjene[0]){this.DefaultPromjene.push(this.promjene[0]);}
+    if(this.promjene[1]){this.DefaultPromjene.push(this.promjene[1]);}
+    this.promjene.shift();
+    this.promjene.shift();
+    this.ExpandPromjene=this.promjene;
   }
 
   async getAllKategorijePromjene(){
@@ -93,21 +98,51 @@ export class ChangeManagementComponent implements OnInit {
     this.selectedKategorija=this.KategorijePromjene[0]
   }
   submitPromjena(event:any){
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.auth.token);
     this.isNewChangeCollapsed=!this.isNewChangeCollapsed
     let promjena:Promjena = new Promjena();
     promjena.kategorijaPromjeneId = this.selectedKategorija.id;
-    promjena.prijavio=this.user.userId;
+    promjena.prijavio=decodedToken.userId;
     promjena.opis=event.target.opis.value;
+    promjena.prihvacena=false;
+    promjena.prioritetPromjeneId=0;
+    console.log(promjena);
     this.savePromjena(promjena);
   }
   setKategorija(kategorija:any){
     this.selectedKategorija=kategorija;
   }
   async savePromjena(promjena:Promjena){
-    await this.promjeneService.createPromjena(promjena);
-    if(this.MyPromjene) {this.getPromjeneOfUser(1);console.log('here')}
+    const data =await this.promjeneService.createPromjena(promjena);
+    console.log(data);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.auth.token);
+    let novahistorija:HistorijaPromjena = new HistorijaPromjena();
+    novahistorija.datumOd=new Date();
+    novahistorija.promjenaId = data.id;
+    novahistorija.napravioIzmjenu= decodedToken.userId;
+    novahistorija.statusPromjeneId=0;
+    await this.historijaPrService.createHistorijaPromjena(novahistorija);
+    this.DefaultPromjene=[];
+    this.ExpandPromjene =[];
+    if(this.MyPromjene) {this.getPromjeneOfUser(decodedToken.userId)}
     if(this.AllPromjene) this.getAllPromjene();
-    if(this.PromjeneForMe) this.getPromjeneForDev();
-    if(this.PromjeneKomitet) this.getPromjeneForCommity();
+    if(this.PromjeneForMe) this.getPromjeneForDev(decodedToken.userId);
+    if(this.PromjeneKomitet) this.getPromjeneForCommity(decodedToken.userId);
+
   }
+  onDeletedPromjena(deleted:boolean){
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.auth.token);
+    this.DefaultPromjene=[];
+    this.DefaultPromjene=[];
+    if(this.MyPromjene) {this.getPromjeneOfUser(decodedToken.userId)}
+    if(this.AllPromjene) this.getAllPromjene();
+    if(this.PromjeneForMe) this.getPromjeneForDev(decodedToken.userId);
+    if(this.PromjeneKomitet) this.getPromjeneForCommity(decodedToken.userId);
+  }
+  onSentPromjena(deleted:boolean){}
+  onStartedPromjena(deleted:boolean){}
+  onApprovedPromjena(deleted:boolean){}
 }

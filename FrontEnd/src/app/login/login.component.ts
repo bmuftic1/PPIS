@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
     this.users = data;
   }
   async login(){
+    this.badLogin=false;
     const data = await this.authService.login(this.loginData).catch((reason:any)=>{this.badLogin=true;})
     if(!this.badLogin){
       this.badLogin=false;
