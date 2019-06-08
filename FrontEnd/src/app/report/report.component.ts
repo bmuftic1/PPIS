@@ -53,26 +53,25 @@ export class ReportComponent implements OnInit {
     this.nizZadnjaHistorijaDogadjaja=[];
     this.nizPrvaHistorijaDogadjaja=[];
     this.nizDogadjajInicirao=[];
-    this.brojKorisnika();
     this.listaKorisnika();
+    this.brojKorisnika();
     this.kategorijePromjena();
     this.tipoviDogadjaja();
     this.promjeneCekanjeRjesavanje();
-    this.dogadjajPrioritet();
     this.promjenePrijavio(this.promjenaId);
-    this.promjeneIzvrsava(this.promjenaId);
     this.promjeneOdobrava(this.promjenaId);
+    this.promjeneIzvrsava(this.promjenaId);
     this.zadnjaHistorijaPromjene(this.promjenaId);
     this.prvaHistorijaPromjene(this.promjenaId);
+    this.dogadjajPrioritet();
+    this.dogadjajInicirao(this.inicijatorId);
     this.zadnjaHistorijaDogadjaja(this.eventId);
     this.prvaHistorijaDogadjaja(this.eventId);
-    this.dogadjajInicirao(this.inicijatorId);
   }
 
   async brojKorisnika(){
     const data=await this.report.brojKorisnika();
     console.log(data);
-    console.log(data[0].brojKorisnika);
     this.broj=data[0].brojKorisnika;
   }
 
@@ -85,8 +84,6 @@ export class ReportComponent implements OnInit {
   async kategorijePromjena(){
     const data = await this.report.kategorijaPromjene();
     console.log(data);
-    console.log(data[0].nazivKategorije);
-    console.log(data[0].broj);
     this.kategorija1=data[0].nazivKategorije;
     this.broj1=data[0].broj;
     this.pieChartLabels1 =[this.kategorija1,this.kategorija2];
@@ -104,8 +101,6 @@ export class ReportComponent implements OnInit {
   async tipoviDogadjaja(){
     const data = await this.report.kategorijaPromjene();
     console.log(data);
-    console.log(data[0]);
-    console.log(data[0]);
     this.kategorija1=data[0].nazivKategorije;
     this.broj1=data[0].broj;
     this.pieChartLabels = [];

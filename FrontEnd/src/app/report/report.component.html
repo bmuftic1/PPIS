@@ -118,8 +118,8 @@
         <tbody>
             <tr *ngFor="let promjena of nizPromjenePrijavio">
               <td class="text-center">{{promjena.opis}}</td>
-              <td class="text-center">{{promjena.kategorijaPromjeneId}}</td>
-              <td class="text-center">{{promjena.prioritetPromjeneId}}</td>
+              <td class="text-center">{{promjena.nazivKategorije}}</td>
+              <td class="text-center">{{promjena.prioritetPromjene}}</td>
              </tr>
         </tbody>
       </table>
@@ -193,8 +193,8 @@
       <tbody>
           <tr *ngFor="let promjena of nizZadnjaHistorijaPromjene">
             <td class="text-center">{{promjena.datumDo |  date:'MM/dd/yyyy'}}</td>
-            <td class="text-center">{{promjena.statusPromjeneId}}</td>
-            <td class="text-center">{{promjena.napravioIzmjenu}}</td>
+            <td class="text-center">{{promjena.status}}</td>
+            <td class="text-center">{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -218,8 +218,8 @@
       <tbody>
           <tr *ngFor="let promjena of nizPrvaHistorijaPromjene">
             <td class="text-center">{{promjena.datumOd |  date:'MM/dd/yyyy'}}</td>
-            <td class="text-center">{{promjena.statusPromjeneId}}</td>
-            <td class="text-center">{{promjena.napravioIzmjenu}}</td>
+            <td class="text-center">{{promjena.status}}</td>
+            <td class="text-center">{{promjena.korisnik}}</td>
            </tr>
       </tbody>
     </table>
@@ -250,8 +250,8 @@
             <tbody>
                 <tr *ngFor="let dogadjaj of nizDogadjaja">
                   <td class="text-center">{{dogadjaj.dogadjaj}}</td>
-                  <td class="text-center">{{dogadjaj.prioritetId}}</td>
-                  <td class="text-center">{{dogadjaj.tipId}}</td>
+                  <td class="text-center">{{dogadjaj.naziv}}</td>
+                  <td class="text-center">{{dogadjaj.tipDogadjaja}}</td>
                  </tr>
             </tbody>
           </table>
@@ -274,8 +274,8 @@
           <tbody>
               <tr *ngFor="let dogadjaj of nizDogadjajInicirao">
                 <td class="text-center">{{dogadjaj.dogadjaj}}</td>
-                <td class="text-center">{{dogadjaj.prioritetId}}</td>
-                <td class="text-center">{{dogadjaj.tipId}}</td>
+                <td class="text-center">{{dogadjaj.naziv}}</td>
+                <td class="text-center">{{dogadjaj.tipDogadjaja}}</td>
                </tr>
           </tbody>
         </table>
@@ -297,7 +297,7 @@
         <tbody>
             <tr *ngFor="let dogadjaj of nizZadnjaHistorijaDogadjaja">
               <td class="text-center">{{dogadjaj.datumDo |  date:'MM/dd/yyyy'}}</td>
-              <td class="text-center">{{dogadjaj.statusDogadjajId}}</td>
+              <td class="text-center">{{dogadjaj.status}}</td>
              </tr>
         </tbody>
       </table>
@@ -319,7 +319,7 @@
       <tbody>
           <tr *ngFor="let dogadjaj of nizPrvaHistorijaDogadjaja">
             <td class="text-center">{{dogadjaj.datumOd  |  date:'MM/dd/yyyy'}}</td>
-            <td class="text-center">{{dogadjaj.statusDogadjajId}}</td>
+            <td class="text-center">{{dogadjaj.status}}</td>
            </tr>
       </tbody>
     </table>
