@@ -61,7 +61,7 @@ router.delete("/prioritetdogadjaja/:id", (req, res, next) => {
   const id = req.params.id;
   PrioritetDogadjaja.destroy({ where: { id }, attributes: ["naziv"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

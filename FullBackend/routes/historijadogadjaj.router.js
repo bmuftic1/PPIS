@@ -61,7 +61,8 @@ router.delete("/historijadogadjaj/:id", (req, res, next) => {
   const id = req.params.id;
   HistorijaDogadjaj.destroy({ where: { id }, attributes: ["datumOd", "datumDo", "dogadjajId", "statusDogadjajId"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+		colsole.log(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

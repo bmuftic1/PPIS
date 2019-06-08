@@ -74,7 +74,7 @@ router.delete("/dogadjaj/:id", (req, res, next) => {
     raw: true
   })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

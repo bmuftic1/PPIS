@@ -65,7 +65,7 @@ router.delete("/prioritetpromjene/:id", (req, res, next) => {
   const id = req.params.id;
   PrioritetPromjene.destroy({ where: { id }, attributes: ["prioritetPromjene"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

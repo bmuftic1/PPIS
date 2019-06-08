@@ -61,7 +61,7 @@ router.delete("/uloga/:id", (req, res, next) => {
   const id = req.params.id;
   Uloga.destroy({ where: { id }, attributes: ["id", "naziv"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

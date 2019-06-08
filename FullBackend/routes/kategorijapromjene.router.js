@@ -67,7 +67,8 @@ router.delete("/kategorijapromjene/:id", (req, res, next) => {
   const id = req.params.id;
   KategorijaPromjene.destroy({ where: { id }, attributes: ["nazivKategorije"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+		console.log(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

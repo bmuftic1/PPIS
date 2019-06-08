@@ -61,7 +61,7 @@ router.delete("/tipdogadjaja/:id", (req, res, next) => {
   const id = req.params.id;
   TipDogadjaja.destroy({ where: { id }, attributes: ["tipDogadjaja"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });

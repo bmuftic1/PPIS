@@ -149,7 +149,7 @@ router.get("/status/:status", (req, res, next) => {
   var sql = `SELECT * FROM Promjenas where opis like '%${status}%'`;
   db.query(sql, function(err, rez) {
 	  if (err) console.log(err);
-	  else res.status(200).send(rez);
+	  else res.status(200).send({'wohoo':result.toString()});
   });
 
 });

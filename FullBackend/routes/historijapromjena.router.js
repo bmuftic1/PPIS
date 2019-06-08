@@ -61,7 +61,7 @@ router.delete("/historijapromjena/:id", (req, res, next) => {
   const id = req.params.id;
   HistorijaPromjena.destroy({ where: { id }, attributes: ["datumOd", "datumDo","promjenaId","statusPromjeneId","napravioIzmjenu"], raw: true })
     .then(result => {
-      res.status(200).send(result);
+      res.status(200).send({'wohoo':result.toString()});
     })
     .catch(next);
 });
