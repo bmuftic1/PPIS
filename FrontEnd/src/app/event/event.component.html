@@ -1,10 +1,10 @@
 
 <div class="row rowstyle">
   <div class="col col-sm-4" style=" display: flex;align-items: center;justify-content: center;" (click)="CollapseData=!CollapseData">
-    Greška1
+    {{greska.dogadjaj}}
   </div>
   <div class="col col-sm-4"style=" display: flex;align-items: center;justify-content: center;" (click)="CollapseData=!CollapseData">
-    Vrsta greške
+    Tip događaja: {{tipDogadjaja.tipDogadjaja}}
   </div>
 <div class="col col-sm-4">
   <select [className]=default.style (ngModelChange)="setStatus($event)" [(ngModel)]="default" [disabled]="disableStatus">
@@ -15,15 +15,15 @@
 </div>
 <div class="col col-sm-12"[ngbCollapse]="CollapseData">
   <div class="row">
-      <div class="col">Prijavio: {{ greska.inicijator }}</div>
-      <div class="col">Datum kreiranja: datum</div>
+      <div class="col">Prijavio: {{ inicijator.username }}</div>
+      <div class="col">Datum kreiranja: {{kreiran.toLocaleDateString()}}</div>
     </div>
     <div class="row">
-      <div class="col">Zadnja izmjena: datum</div>
-      <div class="col">Prioritet: 1</div> 
+      <div class="col">Zadnja izmjena: {{izmjenjen.toLocaleDateString()}}</div>
+      <div class="col">Prioritet: {{prioritet.naziv}}</div> 
     </div>
     <div class="row">    
-      <input class="button glow-button col" type="button"value="Izbriši">
+      <input class="button glow-button col" type="button"value="Izbriši" (click)="delete()">
      </div>
 </div>
 </div>

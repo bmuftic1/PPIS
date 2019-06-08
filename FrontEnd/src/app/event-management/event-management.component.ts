@@ -8,6 +8,7 @@ import { HistorijadogadjajService } from '../_services/historijadogadjaj.service
 import { PrioritetdogadjajaService } from '../_services/prioritetdogadjaja.service';
 import { AuthService } from '../_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import {HistorijaDogadjaj}from '../_services/historijadogadjaj'
 
 @Component({
   selector: 'app-event-management',
@@ -30,45 +31,51 @@ export class EventManagementComponent implements OnInit {
 
   DefaultGreske:Dogadjaj[];
   ExpandGreske:Dogadjaj[];
+  Greske:Dogadjaj[];
 
   KategorijaGreske:TipDogadjaja[];
   selectedKategorija:TipDogadjaja;
-  Greske:Dogadjaj[];
   constructor(public izvjestajService: IzvjestajService,
     public dogadjajService: DogadjajService,
     public tipdogadjajaService: TipdogadjajaService,
     public historijadogadjajService: HistorijadogadjajService,
     public prioritetdogadjajaService: PrioritetdogadjajaService, 
     public authService:AuthService) {
-    this.DefaultGreske=[];
-    this.ExpandGreske=[];
    }
 
   ngOnInit() {
+    this.DefaultGreske=[];
+    this.ExpandGreske=[];
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(this.authService.token);
-    console.log(decodedToken.userId);
     if(this.MyGreske) this.getGreskeOfUser(decodedToken.userId);
     else this.getAllGreske();
+    this.getAllKategorijeGreske();
     /*if(this.GreskeKomitet) this.getGreskeForDev();
     if(this.GreskeForMe) this.getGreskeForCommity();*/
-    this.getAllKategorijeGreske();
   }
 
   async getGreskeOfUser(id:number){
     const data = await this.izvjestajService.dogadjajInicirao(id);
-    if(data[0]) { this.DefaultGreske.push(data[0]); data.shift();}
-    if(data[1]) { this.DefaultGreske.push(data[1]); data.shift();}
-    this.ExpandGreske = data;
+    this.Greske = data;
+
+    if(this.Greske[0]) { this.DefaultGreske.push(this.Greske[0]);}
+    if(this.Greske[1]) { this.DefaultGreske.push(this.Greske[1]);}
+    this.Greske.shift();
+    this.Greske.shift();
+    this.ExpandGreske = this.Greske;
+    console.log(this.ExpandGreske);
   }
   async getAllGreske(){
-    const data = await this.dogadjajService.getDogadjaji()
-    console.log(data);
-    if(data[0]){this.DefaultGreske.push(data[0]);}
-    if(data[1]){this.DefaultGreske.push(data[1]);}
-    this.ExpandGreske=data;
-    this.ExpandGreske.shift();
-    this.ExpandGreske.shift();
+    const data = await this.dogadjajService.getDogadjaji();
+    this.Greske = data;
+
+    if(this.Greske[0]) { this.DefaultGreske.push(this.Greske[0]); }
+    if(this.Greske[1]) { this.DefaultGreske.push(this.Greske[1]); }
+    this.Greske.shift();
+    this.Greske.shift();
+    this.ExpandGreske = this.Greske;
+    console.log(this.ExpandGreske);
   }
   /*async getGreskeForDev(){
     let Greske = await 
@@ -85,19 +92,46 @@ export class EventManagementComponent implements OnInit {
 
 
   async getAllKategorijeGreske(){
-    const kategorije = await this.tipdogadjajaService.getTipoveDogadjaja();
-    console.log(kategorije);
-    this.KategorijaGreske =kategorije;
-    console.log(this.KategorijaGreske);
+    const data = await this.tipdogadjajaService.getTipoveDogadjaja();
+    this.KategorijaGreske=data;
+    this.selectedKategorija=this.KategorijaGreske[0];
   }
-  submitGreska(){
-    this.isNewEventCollapsed = !this.isNewEventCollapsed
+  submitGreska(event:any){
+    this.isNewEventCollapsed = !this.isNewEventCollapsed;
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.authService.token);
+    let novaGreska:Dogadjaj = new Dogadjaj();
+    novaGreska.dogadjaj = event.target.opis.value;
+    novaGreska.inicijator = decodedToken.userId;
+    novaGreska.tipId = this.selectedKategorija.id;
+    this.saveGreska(novaGreska);
+    
   }
   setKategorija(kategorija:any){
     this.selectedKategorija = kategorija;
   }
   async saveGreska(greska:Dogadjaj){
-
+    const data =await this.dogadjajService.createDogadjaj(greska);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.authService.token);
+    let novahistorija= new HistorijaDogadjaj();
+    novahistorija.datumOd = new Date();
+    novahistorija.dogadjajId= data.id;
+    novahistorija.statusDogadjajId=0;
+    this.DefaultGreske=[];
+    this.ExpandGreske=[];
+    await this.historijadogadjajService.createHistorijaDogadjaj(novahistorija);
+    if(this.MyGreske) this.getGreskeOfUser(decodedToken.userId);
+    else this.getAllGreske();
+  }
+  onDeletedGreska(deleted:boolean){
+    console.log("delete");
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.authService.token);
+    this.DefaultGreske=[];
+    this.ExpandGreske=[];
+    if(this.MyGreske) this.getGreskeOfUser(decodedToken.userId);
+    else this.getAllGreske();
   }
 
 }

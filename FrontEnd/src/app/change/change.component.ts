@@ -4,6 +4,12 @@ import {PromjeneService } from '../_services/promjene.service';
 import {HistorijaPromjena} from '../_services/historijapromjena'
 import {HistorijapromjenaService} from '../_services/historijapromjena.service'
 import { isUndefined } from 'util';
+import { AuthService } from '../_services/auth.service';
+import {Korisnik} from '../_services/korisnik'
+import { KorisnikService } from '../_services/korisnik.service';
+import { IzvjestajService } from '../_services/izvjestaj.service';
+import {KategorijaPromjene}from '../_services/kategorijapromjene';
+import {KategorijapromjeneService}from '../_services/kategorijapromjene.service';
 
 @Component({
   selector: 'app-change',
@@ -36,8 +42,14 @@ export class ChangeComponent implements OnInit {
 
   CollapseData:boolean=true;
 
-  constructor() {
-   }
+  constructor(
+    public promjeneService:PromjeneService,
+    public historijaPromjenaService:HistorijapromjenaService,
+    public auth:AuthService,
+    public korisnikervic:KorisnikService,
+    public izvjestaj:IzvjestajService,
+    public kategorijeService:KategorijapromjeneService
+  ) {}
 
   Statuses : any[] = [
     {text: "Čekanje", style:"form-control form-status-cekanje"},
