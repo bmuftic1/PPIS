@@ -1,6 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Dogadjaj } from '_old/src/app/_services/dogadjaj';
 import { TipDogadjaja } from '_old/src/app/_services/tipdogadjaja';
+import { IzvjestajService } from '../_services/izvjestaj.service';
+import { DogadjajService } from '../_services/dogadjaj.service';
+import { TipdogadjajaService } from '../_services/tipdogadjaja.service';
+import { HistorijadogadjajService } from '../_services/historijadogadjaj.service';
+import { PrioritetdogadjajaService } from '../_services/prioritetdogadjaja.service';
+import { AuthService } from '../_services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-event-management',
@@ -26,34 +33,45 @@ export class EventManagementComponent implements OnInit {
 
   KategorijaGreske:TipDogadjaja[];
   selectedKategorija:TipDogadjaja;
-
-  constructor() {
+  Greske:Dogadjaj[];
+  constructor(public izvjestajService: IzvjestajService,
+    public dogadjajService: DogadjajService,
+    public tipdogadjajaService: TipdogadjajaService,
+    public historijadogadjajService: HistorijadogadjajService,
+    public prioritetdogadjajaService: PrioritetdogadjajaService, 
+    public authService:AuthService) {
     this.DefaultGreske=[];
     this.ExpandGreske=[];
    }
 
   ngOnInit() {
-    if(this.MyGreske) this.getGreskeOfUser(1);
-    if(this.AllGreske) this.getAllGreske();
-    if(this.GreskeKomitet) this.getGreskeForDev();
-    if(this.GreskeForMe) this.getGreskeForCommity();
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(this.authService.token);
+    console.log(decodedToken.userId);
+    if(this.MyGreske) this.getGreskeOfUser(decodedToken.userId);
+    else this.getAllGreske();
+    /*if(this.GreskeKomitet) this.getGreskeForDev();
+    if(this.GreskeForMe) this.getGreskeForCommity();*/
     this.getAllKategorijeGreske();
   }
 
   async getGreskeOfUser(id:number){
-    let Greske = await[new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj()];
-    if(Greske[0]) { this.DefaultGreske.push(Greske[0]); Greske.shift();}
-    if(Greske[1]) { this.DefaultGreske.push(Greske[1]); Greske.shift();}
-    this.ExpandGreske = Greske;
+    const data = await this.izvjestajService.dogadjajInicirao(id);
+    if(data[0]) { this.DefaultGreske.push(data[0]); data.shift();}
+    if(data[1]) { this.DefaultGreske.push(data[1]); data.shift();}
+    this.ExpandGreske = data;
   }
   async getAllGreske(){
-    let Greske = await[new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj()];
-    if(Greske[0]) { this.DefaultGreske.push(Greske[0]); Greske.shift();}
-    if(Greske[1]) { this.DefaultGreske.push(Greske[1]); Greske.shift();}
-    this.ExpandGreske = Greske;
+    const data = await this.dogadjajService.getDogadjaji()
+    console.log(data);
+    if(data[0]){this.DefaultGreske.push(data[0]);}
+    if(data[1]){this.DefaultGreske.push(data[1]);}
+    this.ExpandGreske=data;
+    this.ExpandGreske.shift();
+    this.ExpandGreske.shift();
   }
-  async getGreskeForDev(){
-    let Greske = await[new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj(), new Dogadjaj()];
+  /*async getGreskeForDev(){
+    let Greske = await 
     if(Greske[0]) { this.DefaultGreske.push(Greske[0]); Greske.shift();}
     if(Greske[1]) { this.DefaultGreske.push(Greske[1]); Greske.shift();}
     this.ExpandGreske = Greske;
@@ -63,12 +81,14 @@ export class EventManagementComponent implements OnInit {
     if(Greske[0]) { this.DefaultGreske.push(Greske[0]); Greske.shift();}
     if(Greske[1]) { this.DefaultGreske.push(Greske[1]); Greske.shift();}
     this.ExpandGreske = Greske;
-  }
+  }*/
 
 
   async getAllKategorijeGreske(){
-    let kategorije = await [new TipDogadjaja(),new TipDogadjaja()]
+    const kategorije = await this.tipdogadjajaService.getTipoveDogadjaja();
+    console.log(kategorije);
     this.KategorijaGreske =kategorije;
+    console.log(this.KategorijaGreske);
   }
   submitGreska(){
     this.isNewEventCollapsed = !this.isNewEventCollapsed

@@ -12,7 +12,6 @@ export class TipdogadjajaService {
   }
   private async request(method: string, url: string, data?: any) {
 
-    console.log('request ' + JSON.stringify(data));
     const result = this.http.request(method, url, {
       body: data,
       responseType: 'json',
