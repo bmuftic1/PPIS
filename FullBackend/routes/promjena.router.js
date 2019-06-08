@@ -27,7 +27,8 @@ router.post("/promjena", (req, res, next) => {
   })
     .then(result => {
       res.status(201).json({
-        success: true
+        success: true,
+		id: result.dataValues.id
       });
     })
     .catch(err => {

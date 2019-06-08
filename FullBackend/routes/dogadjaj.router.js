@@ -11,7 +11,8 @@ router.post("/dogadjaj", (req, res, next) => {
   Dogadjaj.create({ dogadjaj, prioritetId, tipId, inicijator })
     .then(result => {
       res.status(201).json({
-        success: true
+        success: true,
+		id: result.dataValues.id
       });
     })
     .catch(err => {

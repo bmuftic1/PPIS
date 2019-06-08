@@ -10,9 +10,10 @@ router.post("/kategorijapromjene", (req, res, next) => {
   const { nazivKategorije } = req.body;
   KategorijaPromjene.create({ nazivKategorije })
     .then(result => {
-      console.log(result);
+      console.log(result.dataValues.id);
       res.status(201).json({
-        success: true
+        success: true,
+		id: result.dataValues.id
       });
     })
     .catch(err => {
