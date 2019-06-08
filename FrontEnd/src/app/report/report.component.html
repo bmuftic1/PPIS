@@ -112,7 +112,7 @@
     <table class="table">
         <thead>
           <th><div class="text-center">Opis</div></th>
-          <th><div class="text-center">Kateorija</div></th>
+          <th><div class="text-center">Kategorija</div></th>
           <th><div class="text-center">Prioritet</div></th>
         </thead>
         <tbody>
@@ -192,9 +192,9 @@
       </thead>
       <tbody>
           <tr *ngFor="let promjena of nizZadnjaHistorijaPromjene">
-            <td class="text-center">{{promjena.datumOd}}</td>
-            <td class="text-center">{{promjena.status}}</td>
-            <td class="text-center">{{promjena.korisnik}}</td>
+            <td class="text-center">{{promjena.datumDo |  date:'MM/dd/yyyy'}}</td>
+            <td class="text-center">{{promjena.statusPromjeneId}}</td>
+            <td class="text-center">{{promjena.napravioIzmjenu}}</td>
            </tr>
       </tbody>
     </table>
@@ -217,9 +217,9 @@
       </thead>
       <tbody>
           <tr *ngFor="let promjena of nizPrvaHistorijaPromjene">
-            <td class="text-center">{{promjena.datumDo}}</td>
-            <td class="text-center">{{promjena.status}}</td>
-            <td class="text-center">{{promjena.korisnik}}</td>
+            <td class="text-center">{{promjena.datumOd |  date:'MM/dd/yyyy'}}</td>
+            <td class="text-center">{{promjena.statusPromjeneId}}</td>
+            <td class="text-center">{{promjena.napravioIzmjenu}}</td>
            </tr>
       </tbody>
     </table>
@@ -295,9 +295,9 @@
           <th><div class="text-center">Status</div></th>
         </thead>
         <tbody>
-            <tr *ngFor="let togadjaj of nizZadnjaHistorijaDogadjaja">
-              <td class="text-center">{{dogadjaj.datumDo}}</td>
-              <td class="text-center">{{dogadjaj.status}}</td>
+            <tr *ngFor="let dogadjaj of nizZadnjaHistorijaDogadjaja">
+              <td class="text-center">{{dogadjaj.datumDo |  date:'MM/dd/yyyy'}}</td>
+              <td class="text-center">{{dogadjaj.statusDogadjajId}}</td>
              </tr>
         </tbody>
       </table>
@@ -317,9 +317,9 @@
           <th><div class="text-center">Status</div></th>
       </thead>
       <tbody>
-          <tr *ngFor="let togadjaj of nizPrvaHistorijaDogadjaja">
-            <td class="text-center">{{dogadjaj.datumOd}}</td>
-            <td class="text-center">{{dogadjaj.status}}</td>
+          <tr *ngFor="let dogadjaj of nizPrvaHistorijaDogadjaja">
+            <td class="text-center">{{dogadjaj.datumOd  |  date:'MM/dd/yyyy'}}</td>
+            <td class="text-center">{{dogadjaj.statusDogadjajId}}</td>
            </tr>
       </tbody>
     </table>
